@@ -1,0 +1,56 @@
+/* ==========================================================================
+   TYPOGRAPHY / ELEMENT
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-primary);
+    line-height: 1;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--color-font-secondary);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+    margin: 0;
+    font-family: var(--font-primary);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-font-primary);
+}
+
+a {
+    color: var(--color-font-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+p {
+    margin: 0;
+}
