@@ -69,3 +69,33 @@
         }
     }
 }
+
+.btn--outline {
+    background-color: transparent;
+    color: var(--color-accent);
+
+    box-shadow: none;
+
+    &::before {
+        display: block;
+
+        left: -35%;
+
+        background-color: var(--color-accent);
+
+        opacity: 0.2;
+    }
+
+    &:hover {
+        background-color: var(--color-accent);
+        color: var(--color-secondary);
+
+        box-shadow:
+            0 0 8px rgba(54, 218, 255, 0.4),
+            inset 0 0 12px rgba(54, 218, 255, 0.12);
+
+        &::before {
+            left: 115%;
+        }
+    }
+}

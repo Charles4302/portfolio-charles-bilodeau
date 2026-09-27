@@ -1,0 +1,173 @@
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-primary);
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        gap: var(--spacing-xl);
+
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* ==========================================================================
+       TEXTE
+       ========================================================================== */
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: var(--spacing-sm);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-display);
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .hero-role {
+        font-size: var(--font-size-text);
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .hero-description {
+        max-width: 500px;
+
+        color: rgba(246, 245, 249, 0.55);
+
+        line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       ACTIONS
+       ========================================================================== */
+
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: var(--spacing-md);
+
+        margin-top: var(--spacing-base);
+    }
+
+    /* ==========================================================================
+       MÉDIA
+       ========================================================================== */
+
+    .hero-media {
+        display: flex;
+        flex-direction: column;
+
+        gap: var(--spacing-lg);
+    }
+
+    .hero-more {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-end;
+
+        gap: var(--spacing-sm);
+
+        color: var(--color-accent);
+
+        font-size: var(--font-size-link);
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        .more-icon {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--color-accent);
+            border-radius: 50%;
+
+            box-shadow: 0 0 8px rgba(54, 218, 255, 0.3);
+
+            transition:
+                background-color 0.3s $ease-out-cubic,
+                color 0.3s $ease-out-cubic,
+                transform 0.3s $ease-out-cubic;
+        }
+
+        &:hover {
+            .more-icon {
+                background-color: var(--color-accent);
+                color: var(--color-secondary);
+
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        min-height: auto;
+
+        .hero-content {
+            grid-template-columns: 1fr;
+        }
+
+        .video-preview {
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .hero-content {
+            gap: var(--spacing-lg);
+
+            padding: var(--spacing-lg) 0;
+        }
+
+        .hero-actions {
+            width: 100%;
+
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .video-preview {
+            clip-path: polygon(
+                0 0,
+                calc(100% - 30px) 0,
+                100% 30px,
+                100% 100%,
+                30px 100%,
+                0 calc(100% - 30px)
+            );
+        }
+
+        .hero-more {
+            align-self: center;
+
+            text-align: center;
+        }
+    }
+}

@@ -1,7 +1,58 @@
 {% include '_partials/_header.html' %}
 
 <main>
-    <!-- Les sections du portfolio seront ajoutées ici -->
+    <section class="hero" id="accueil">
+        <div class="wrapper">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Charles
+                        <br />
+                        Bilodeau
+                    </h1>
+
+                    <p class="hero-role">
+                        Modélisateur 3D/
+                        <br />
+                        Développeur jeux vidéo/
+                        <br />
+                        Création de média
+                    </p>
+
+                    <p class="hero-description">Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.</p>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="#projets">Mes projets</a>
+
+                        <a class="btn btn--outline" href="#a-propos">À propos</a>
+                    </div>
+                </div>
+
+                <div class="hero-media">
+                    <div class="video-container">
+                        <svg class="video-corner corner-top icon">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                            <svg class="play-icon icon">
+                                <use href="#icon-play"></use>
+                            </svg>
+                        </button>
+
+                        <svg class="video-corner corner-bottom icon">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </div>
+
+                    <a class="hero-more" href="#a-propos">
+                        <span class="more-icon">+</span>
+                        <span>Ce que je peux apporter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 {% include '_partials/_footer.html' %}
