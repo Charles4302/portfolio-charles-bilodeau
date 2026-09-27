@@ -1,0 +1,245 @@
+.projets {
+    position: relative;
+
+    background-color: var(--color-secondary);
+    color: var(--color-neutral);
+
+    .wrapper {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    /* ==========================================================================
+       LIGNES
+       ========================================================================== */
+
+    &::before,
+    &::after {
+        content: '';
+
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: var(--color-accent);
+
+        box-shadow: 0 0 6px rgba(54, 218, 255, 0.5);
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+
+    /* ==========================================================================
+       TITRE
+       ========================================================================== */
+
+    .projets-title {
+        margin-bottom: var(--spacing-xl);
+
+        font-size: var(--font-size-h1);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       GRILLE
+       ========================================================================== */
+
+    .projets-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+
+        gap: var(--spacing-base);
+    }
+
+    /* ==========================================================================
+       CARTES
+       ========================================================================== */
+
+    .projet-card {
+        position: relative;
+
+        grid-column: span 2;
+
+        aspect-ratio: 3 / 2;
+
+        overflow: hidden;
+
+        color: var(--color-neutral);
+        background-color: var(--color-surface);
+
+        border: 1px solid rgba(54, 218, 255, 0.35);
+
+        clip-path: polygon(
+            0 0,
+            calc(100% - 20px) 0,
+            100% 20px,
+            100% 100%,
+            20px 100%,
+            0 calc(100% - 20px)
+        );
+
+        text-decoration: none;
+
+        transition:
+            border-color 0.35s $ease-out-cubic,
+            filter 0.35s $ease-out-cubic;
+    }
+
+    .projet-card--large {
+        grid-column: span 3;
+
+        aspect-ratio: 16 / 9;
+    }
+
+    /* ==========================================================================
+       IMAGES
+       ========================================================================== */
+
+    .projet-image {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+
+        transition:
+            transform 0.5s $ease-out-cubic,
+            filter 0.5s $ease-out-cubic;
+    }
+
+    /* ==========================================================================
+       INFORMATIONS
+       ========================================================================== */
+
+    .projet-info {
+        position: absolute;
+        z-index: 2;
+
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        padding: var(--spacing-lg) var(--spacing-base) var(--spacing-base);
+
+        background: linear-gradient(
+            to top,
+            rgba(3, 3, 25, 0.95),
+            rgba(3, 3, 25, 0)
+        );
+
+        h3 {
+            font-size: var(--font-size-h4);
+            font-weight: 500;
+            text-transform: uppercase;
+
+            transition:
+                color 0.35s $ease-out-cubic,
+                text-shadow 0.35s $ease-out-cubic;
+        }
+    }
+
+    .projet-line {
+        display: block;
+
+        width: 40px;
+        height: 2px;
+
+        margin-top: var(--spacing-sm-plus);
+
+        background-color: var(--color-neutral);
+
+        transition:
+            width 0.35s $ease-out-cubic,
+            background-color 0.35s $ease-out-cubic,
+            box-shadow 0.35s $ease-out-cubic;
+    }
+
+    /* ==========================================================================
+       HOVER
+       ========================================================================== */
+
+    .projet-card:hover {
+        border-color: var(--color-accent);
+
+        filter: drop-shadow(0 0 8px rgba(54, 218, 255, 0.25));
+
+        .projet-image {
+            transform: scale(1.04);
+
+            filter: brightness(1.08);
+        }
+
+        .projet-info {
+            h3 {
+                color: var(--color-accent);
+
+                text-shadow: 0 0 8px rgba(54, 218, 255, 0.35);
+            }
+        }
+
+        .projet-line {
+            width: 70px;
+
+            background-color: var(--color-accent);
+
+            box-shadow: 0 0 6px rgba(54, 218, 255, 0.6);
+        }
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        .projets-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projet-card,
+        .projet-card--large {
+            grid-column: span 1;
+
+            aspect-ratio: 16 / 9;
+        }
+
+        .projet-card:last-child {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .wrapper {
+            padding-top: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .projets-title {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .projets-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .projet-card,
+        .projet-card--large,
+        .projet-card:last-child {
+            grid-column: 1;
+
+            aspect-ratio: 16 / 9;
+        }
+    }
+}

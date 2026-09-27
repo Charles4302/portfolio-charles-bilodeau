@@ -9,7 +9,7 @@
     .hero-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: center;
+        align-items: start;
 
         gap: var(--spacing-xl);
 
@@ -21,6 +21,9 @@
        ========================================================================== */
 
     .hero-text {
+        grid-column: 1;
+        grid-row: 1;
+
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -54,6 +57,9 @@
        ========================================================================== */
 
     .hero-actions {
+        grid-column: 1;
+        grid-row: 2;
+
         display: flex;
         flex-wrap: wrap;
 
@@ -67,6 +73,9 @@
        ========================================================================== */
 
     .hero-media {
+        grid-column: 2;
+        grid-row: 1 / 3;
+
         display: flex;
         flex-direction: column;
 
@@ -125,6 +134,25 @@
 
         .hero-content {
             grid-template-columns: 1fr;
+
+            gap: var(--spacing-lg);
+        }
+
+        .hero-text {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .hero-media {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .hero-actions {
+            grid-column: 1;
+            grid-row: 3;
+
+            margin-top: 0;
         }
 
         .video-preview {
@@ -138,8 +166,6 @@
 
     @media screen and (max-width: $breakpoint-sm) {
         .hero-content {
-            gap: var(--spacing-lg);
-
             padding: var(--spacing-lg) 0;
         }
 
