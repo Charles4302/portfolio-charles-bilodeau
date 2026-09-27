@@ -3,10 +3,71 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio Charles</title>
+
+        <title>Portfolio Charles Bilodeau</title>
+
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="assets/images/favicon.svg"
+        />
 
         <link rel="stylesheet" href="styles/main.css" />
         <script src="scripts/main.js" defer></script>
     </head>
 
     <body>
+        <header class="header" data-component="Header">
+            <div class="wrapper">
+
+                <a class="brand logo-link" href="index.html">
+                    <span class="logo icon icon--lg">
+                        <svg class="icon corner-top">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <svg class="icon plus">
+                            <use href="#icon-plus"></use>
+                        </svg>
+
+                        <svg class="icon corner-bottom">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </span>
+
+                    <span class="name">Charles Bilodeau</span>
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    aria-label="Ouvrir le menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav" aria-label="Navigation principale">
+                    <ul class="nav-list">
+                        <li>
+                            <a class="nav-link" href="#accueil">Accueil</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#projets">Projets</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#a-propos">À propos</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>

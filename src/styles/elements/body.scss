@@ -5,9 +5,10 @@
    ========================================================================== */
 
 body {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    font-family: var(--font-secondary);
-    font-size: var(--font-size-content);
+    background-color: var(--color-primary);
+    color: var(--color-neutral);
+
+    font-family: var(--font-primary);
+    font-size: var(--font-size-text);
     line-height: 1.6;
 }

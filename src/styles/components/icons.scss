@@ -3,46 +3,46 @@
    ========================================================================== */
 
 .icon {
-  fill: currentColor; // inherit color of its context
-  display: inline-block;
-  flex: 0 0 auto; // prevent icon shrink/grow if in a flex parent
-  height: 1em;
-  vertical-align: middle;
-  width: 1em;
-  stroke: transparent;
+    fill: currentColor; // inherit color of its context
+    display: inline-block;
+    flex: 0 0 auto; // prevent icon shrink/grow if in a flex parent
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+    stroke: transparent;
 }
 
 .icon--stroke {
-  fill: transparent;
-  stroke: currentColor;
+    fill: transparent;
+    stroke: currentColor;
 }
 
 .icon--xs {
-  height: 0.75em;
-  width: 0.75em;
+    height: 0.75em;
+    width: 0.75em;
 }
 
 .icon--sm {
-  height: 0.8em;
-  width: 0.8em;
+    height: 0.8em;
+    width: 0.8em;
 }
 
 .icon--md {
-  height: 1.25em;
-  width: 1.25em;
+    height: 1.75em;
+    width: 1.75em;
 }
 
 .icon--lg {
-  height: 2.1875em;
-  width: 2.1875em;
+    height: 2.1875em;
+    width: 2.1875em;
 }
 
 .icon--xl {
-  height: 7em;
-  width: 7em;
+    height: 7em;
+    width: 7em;
 }
 
 .icon--xxl {
-  height: 11em;
-  width: 11em;
+    height: 11em;
+    width: 11em;
 }

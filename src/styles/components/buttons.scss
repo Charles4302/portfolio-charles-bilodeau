@@ -1,0 +1,71 @@
+.btn {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-sm-plus) var(--spacing-lg);
+
+    overflow: hidden;
+
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+
+    border: 1px solid var(--color-accent);
+
+    font-size: var(--font-size-cta);
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    clip-path: polygon(
+        10px 0,
+        100% 0,
+        100% calc(100% - 10px),
+        calc(100% - 10px) 100%,
+        0 100%,
+        0 10px
+    );
+
+    transition:
+        background-color 0.35s $ease-out-cubic,
+        color 0.35s $ease-out-cubic,
+        box-shadow 0.35s $ease-out-cubic;
+
+    /* Balayage lumineux */
+    &::before {
+        content: '';
+
+        position: absolute;
+        z-index: -1;
+
+        top: 0;
+        left: -35%;
+
+        width: 25%;
+        height: 100%;
+
+        background-color: var(--color-neutral);
+
+        opacity: 0.35;
+
+        transform: skewX(-20deg);
+
+        transition: left 0.5s $ease-out-cubic;
+    }
+
+    &:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-accent);
+
+        box-shadow:
+            0 0 8px rgba(54, 218, 255, 0.4),
+            inset 0 0 12px rgba(54, 218, 255, 0.12);
+
+        &::before {
+            left: 115%;
+        }
+    }
+}

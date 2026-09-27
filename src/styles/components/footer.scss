@@ -1,0 +1,356 @@
+.footer {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral);
+
+    .wrapper {
+        padding-top: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+    }
+
+    /* ==========================================================================
+       PARTIE PRINCIPALE
+       ========================================================================== */
+
+    .footer-main {
+        position: relative;
+
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr 1fr;
+
+        gap: var(--spacing-lg);
+
+        padding: var(--spacing-lg) 0;
+
+        &::before,
+        &::after {
+            content: '';
+
+            position: absolute;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background-color: var(--color-accent);
+
+            box-shadow: 0 0 8px rgba(54, 218, 255, 0.6);
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+    }
+
+    /* ==========================================================================
+       CONTACT
+       ========================================================================== */
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: var(--spacing-md);
+
+        h2 {
+            font-size: var(--font-size-h2);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+
+    /* ==========================================================================
+       NAVIGATION
+       ========================================================================== */
+
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: var(--spacing-md);
+    }
+
+    /* ==========================================================================
+       INFORMATIONS
+       ========================================================================== */
+
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        gap: var(--spacing-md);
+
+        a {
+            color: var(--color-neutral);
+            text-decoration: none;
+        }
+    }
+
+    /* ==========================================================================
+       RÉSEAUX SOCIAUX
+       ========================================================================== */
+
+    .socials {
+        display: flex;
+        align-items: center;
+
+        gap: var(--spacing-base);
+    }
+
+    /* ==========================================================================
+       LIENS CYAN
+       ========================================================================== */
+
+    .footer-link {
+        display: inline-flex;
+        align-items: center;
+
+        gap: var(--spacing-xs);
+
+        color: var(--color-accent);
+
+        font-size: var(--font-size-link);
+        font-weight: 500;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        transition:
+            color 0.3s $ease-out-cubic,
+            text-shadow 0.3s $ease-out-cubic;
+
+        .icon {
+            transition: transform 0.3s $ease-out-cubic;
+        }
+
+        &:hover {
+            color: var(--color-neutral);
+
+            text-shadow:
+                0 0 5px rgba(54, 218, 255, 0.7),
+                0 0 10px rgba(54, 218, 255, 0.35);
+
+            .icon {
+                transform: translate(3px, -3px);
+            }
+        }
+    }
+
+    /* ==========================================================================
+       BAS DU FOOTER
+       ========================================================================== */
+
+    .footer-bottom {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+
+        gap: var(--spacing-lg);
+
+        padding-top: var(--spacing-md);
+
+        .copyright {
+            margin: 0;
+
+            font-size: var(--font-size-link);
+            text-transform: uppercase;
+        }
+    }
+
+    .footer-bottom-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        gap: var(--spacing-md);
+    }
+
+    /* CV responsive caché sur desktop */
+    .cv-responsive {
+        display: none;
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        .wrapper {
+            padding-top: var(--spacing-md);
+        }
+
+        /* ----------------------------------------------------------------------
+           Partie principale
+           ---------------------------------------------------------------------- */
+
+        .footer-main {
+            grid-template-columns: 1fr 1fr;
+
+            gap: var(--spacing-lg);
+        }
+
+        /* On retire le titre sur tablette/mobile */
+        .footer-contact {
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                display: none;
+            }
+        }
+
+        /* CV retiré de la partie principale */
+        .cv-desktop {
+            display: none;
+        }
+
+        /* Navigation centrée */
+        .footer-nav {
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Coordonnées centrées sous les deux colonnes */
+        .footer-info {
+            grid-column: 1 / -1;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .socials {
+            justify-content: center;
+        }
+
+        /* ----------------------------------------------------------------------
+           Bas du footer
+           ---------------------------------------------------------------------- */
+
+        .footer-bottom {
+            grid-template-columns: 1fr;
+            justify-items: center;
+
+            gap: var(--spacing-md);
+
+            text-align: center;
+
+            .copyright {
+                order: 2;
+            }
+        }
+
+        /* Logo reste au centre */
+        .footer-logo {
+            grid-row: 1;
+            grid-column: 1;
+
+            justify-self: center;
+        }
+
+        .footer-bottom-links {
+            grid-row: 2;
+            grid-column: 1;
+
+            justify-content: center;
+
+            gap: var(--spacing-lg);
+        }
+
+        .copyright {
+            grid-row: 3;
+            grid-column: 1;
+
+            justify-self: center;
+        }
+
+        /* CV réapparaît à côté d'Utilisation IA */
+        .cv-responsive {
+            display: inline-flex;
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .wrapper {
+            padding-top: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+        }
+
+        /* ----------------------------------------------------------------------
+           Partie principale
+           ---------------------------------------------------------------------- */
+
+        .footer-main {
+            grid-template-columns: 1fr;
+
+            gap: var(--spacing-lg);
+
+            padding: var(--spacing-lg) 0;
+        }
+
+        /* CTA centré */
+        .footer-contact {
+            grid-column: 1;
+
+            align-items: center;
+        }
+
+        /* Navigation entièrement centrée */
+        .footer-nav {
+            grid-column: 1;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .footer-info {
+            grid-column: 1;
+
+            align-items: center;
+
+            gap: var(--spacing-base);
+
+            text-align: center;
+
+            a {
+                overflow-wrap: anywhere;
+            }
+        }
+
+        .socials {
+            justify-content: center;
+            flex-wrap: wrap;
+
+            gap: var(--spacing-sm);
+        }
+
+        /* ----------------------------------------------------------------------
+           Bas du footer
+           ---------------------------------------------------------------------- */
+
+        .footer-bottom {
+            gap: var(--spacing-base);
+        }
+
+        .footer-bottom-links {
+            flex-wrap: wrap;
+            justify-content: center;
+
+            gap: var(--spacing-md);
+        }
+
+        .copyright {
+            text-align: center;
+        }
+    }
+}
