@@ -1,0 +1,78 @@
+.image-modal {
+    position: fixed;
+    z-index: 100;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-lg);
+
+    background-color: rgba(3, 3, 25, 0.9);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s $ease-out-cubic,
+        visibility 0.3s $ease-out-cubic;
+
+    .modal-image {
+        max-width: 90%;
+        max-height: 90vh;
+
+        object-fit: contain;
+
+        border: 1px solid var(--color-accent);
+
+        box-shadow:
+            0 0 10px rgba(54, 218, 255, 0.5),
+            0 0 30px rgba(54, 218, 255, 0.2);
+
+        transform: scale(0.95);
+
+        transition: transform 0.4s $ease-out-cubic;
+    }
+
+    .modal-close {
+        position: absolute;
+
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+
+        width: 50px;
+        height: 50px;
+
+        padding: 0;
+
+        background: transparent;
+        color: var(--color-accent);
+
+        border: 1px solid var(--color-accent);
+
+        font-size: var(--font-size-h2);
+        line-height: 1;
+
+        cursor: pointer;
+
+        transition:
+            background-color 0.3s $ease-out-cubic,
+            color 0.3s $ease-out-cubic;
+
+        &:hover {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+        }
+    }
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+
+        .modal-image {
+            transform: scale(1);
+        }
+    }
+}

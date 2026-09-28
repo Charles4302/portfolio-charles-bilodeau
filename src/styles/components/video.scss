@@ -1,6 +1,5 @@
 .video-container {
     position: relative;
-
     width: 100%;
 
     &:hover {
@@ -29,6 +28,7 @@
     padding: 0;
 
     background-color: var(--color-surface);
+
     border: 1px solid rgba(54, 218, 255, 0.15);
 
     clip-path: polygon(
@@ -67,9 +67,14 @@
         filter 0.4s $ease-out-cubic;
 }
 
-.video-corner {
+/* ==========================================================================
+   CORNERS
+   ========================================================================== */
+
+.video-corner,
+.image-corner {
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 
     width: 70px;
     height: 70px;
@@ -80,6 +85,8 @@
 
     pointer-events: none;
 
+    overflow: visible;
+
     filter: drop-shadow(0 0 6px rgba(54, 218, 255, 0.5));
 
     transition:
@@ -87,14 +94,16 @@
         transform 0.4s $ease-out-cubic;
 }
 
-.corner-top {
+.video-corner.corner-top,
+.image-corner.corner-top {
     top: calc(var(--spacing-md) * -1);
     left: calc(var(--spacing-md) * -1);
 
     transform: translate(15px, 15px);
 }
 
-.corner-bottom {
+.video-corner.corner-bottom,
+.image-corner.corner-bottom {
     right: calc(var(--spacing-md) * -1);
     bottom: calc(var(--spacing-md) * -1);
 

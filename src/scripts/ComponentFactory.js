@@ -1,12 +1,16 @@
+import GrowImage from './components/GrowImage.js';
+
 export default class ComponentFactory {
   constructor() {
-    this.componentList = {};
+    this.componentList = {
+      GrowImage,
+    };
 
     this.init();
   }
 
   init() {
-    const components = document.querySelectorAll("[data-component]");
+    const components = document.querySelectorAll('[data-component]');
 
     for (let i = 0; i < components.length; i++) {
       const element = components[i];
