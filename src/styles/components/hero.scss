@@ -33,27 +33,23 @@
 
     .hero-title {
         font-size: var(--font-size-display);
-        font-weight: 700;
         line-height: 1;
+
         text-transform: uppercase;
     }
 
     .hero-role {
-        font-size: var(--font-size-text);
         font-weight: 500;
-        line-height: 1.4;
     }
 
     .hero-description {
         max-width: 500px;
 
         color: rgba(246, 245, 249, 0.55);
-
-        line-height: 1.4;
     }
 
     /* ==========================================================================
-       ACTIONS
+       BOUTONS
        ========================================================================== */
 
     .hero-actions {
@@ -91,10 +87,7 @@
 
         color: var(--color-accent);
 
-        font-size: var(--font-size-link);
-        font-weight: 500;
         text-transform: uppercase;
-        text-decoration: none;
 
         .more-icon {
             width: 34px;
