@@ -1,0 +1,128 @@
+.competences {
+    position: relative;
+
+    background-color: var(--color-secondary);
+    color: var(--color-neutral);
+
+    .wrapper {
+        padding-top: var(--spacing-xl);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    &::before,
+    &::after {
+        content: '';
+
+        position: absolute;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: var(--color-accent);
+
+        box-shadow: 0 0 6px var(--color-accent-glow-soft);
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+
+    .competences-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+
+        gap: var(--spacing-xl);
+
+        .skills,
+        .software {
+            display: grid;
+            grid-template-rows: auto 1fr;
+
+            gap: var(--spacing-lg);
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+
+        .skills {
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-content: center;
+
+                gap: var(--spacing-md) var(--spacing-base);
+
+                padding-left: var(--spacing-md);
+                padding-right: var(--spacing-md);
+            }
+        }
+
+        .software {
+            .software-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-content: center;
+
+                gap: var(--spacing-lg) var(--spacing-md);
+            }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+        .competences-content {
+            grid-template-columns: 1fr;
+
+            gap: var(--spacing-xl);
+
+            .software {
+                .software-grid {
+                    width: 100%;
+                    max-width: 600px;
+
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .wrapper {
+            padding-top: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+        }
+
+        .competences-content {
+            .skills,
+            .software {
+                gap: var(--spacing-md);
+            }
+
+            .skills {
+                .skills-grid {
+                    grid-template-columns: 1fr;
+
+                    gap: var(--spacing-md);
+
+                    padding-left: var(--spacing-md);
+                    padding-right: var(--spacing-md);
+                }
+            }
+
+            .software {
+                .software-grid {
+                    grid-template-columns: repeat(2, 1fr);
+
+                    gap: var(--spacing-lg);
+                }
+            }
+        }
+    }
+}

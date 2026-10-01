@@ -10,7 +10,7 @@
 
     padding: var(--spacing-lg);
 
-    background-color: rgba(3, 3, 25, 0.9);
+    background-color: var(--color-overlay);
 
     opacity: 0;
     visibility: hidden;
@@ -28,8 +28,8 @@
         border: 1px solid var(--color-accent);
 
         box-shadow:
-            0 0 10px rgba(54, 218, 255, 0.5),
-            0 0 30px rgba(54, 218, 255, 0.2);
+            0 0 10px var(--color-accent-glow),
+            0 0 30px var(--color-accent-glow-soft);
 
         transform: scale(0.95);
 
@@ -47,7 +47,7 @@
 
         padding: 0;
 
-        background: transparent;
+        background-color: transparent;
         color: var(--color-accent);
 
         border: 1px solid var(--color-accent);
@@ -67,7 +67,7 @@
         }
     }
 
-    &.is-open {
+    &[data-state='open'] {
         opacity: 1;
         visibility: visible;
 

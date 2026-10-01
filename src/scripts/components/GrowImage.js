@@ -1,4 +1,4 @@
-export default class GrowImage {
+export default class About {
   constructor(element) {
     this.element = element;
 
@@ -12,22 +12,15 @@ export default class GrowImage {
   init() {
     this.imageButton.addEventListener('click', this.open.bind(this));
     this.closeButton.addEventListener('click', this.close.bind(this));
-    this.modal.addEventListener('click', this.handleModalClick.bind(this));
   }
 
   open() {
-    this.modal.classList.add('is-open');
-    this.modal.setAttribute('aria-hidden', 'false');
+    this.modal.dataset.state = 'open';
+    document.body.classList.add('modal-open');
   }
 
   close() {
-    this.modal.classList.remove('is-open');
-    this.modal.setAttribute('aria-hidden', 'true');
-  }
-
-  handleModalClick(event) {
-    if (event.target === this.modal) {
-      this.close();
-    }
+    this.modal.dataset.state = 'closed';
+    document.body.classList.remove('modal-open');
   }
 }

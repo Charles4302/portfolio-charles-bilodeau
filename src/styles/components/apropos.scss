@@ -7,6 +7,10 @@
         padding-bottom: var(--spacing-xl);
     }
 
+    /* ==========================================================================
+       STRUCTURE
+       ========================================================================== */
+
     .apropos-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -28,8 +32,8 @@
 
     .apropos-title {
         font-size: var(--font-size-display);
-        font-weight: 700;
         line-height: 1;
+
         text-transform: uppercase;
     }
 
@@ -39,13 +43,8 @@
 
         gap: var(--spacing-md);
 
-        p {
-            line-height: 1.4;
-        }
-
         strong {
             color: var(--color-accent);
-            font-weight: 600;
         }
     }
 
@@ -59,8 +58,6 @@
         h3 {
             margin-bottom: var(--spacing-md);
 
-            font-size: var(--font-size-h3);
-            font-weight: 600;
             text-transform: uppercase;
         }
 
@@ -79,6 +76,7 @@
         li {
             font-size: var(--font-size-h4);
             font-weight: 500;
+
             text-transform: uppercase;
         }
     }
@@ -110,6 +108,7 @@
 
         img {
             width: 100%;
+
             display: block;
 
             border: 1px solid var(--color-accent);
@@ -133,6 +132,7 @@
 
             .image-corner {
                 opacity: 1;
+
                 transform: translate(0, 0);
             }
         }

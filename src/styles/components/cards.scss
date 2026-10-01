@@ -5,7 +5,6 @@
 
     overflow: hidden;
 
-    color: var(--color-neutral);
     background-color: var(--color-surface);
 
     border: 1px solid rgba(54, 218, 255, 0.35);
@@ -18,8 +17,6 @@
         20px 100%,
         0 calc(100% - 20px)
     );
-
-    text-decoration: none;
 
     /* ==========================================================================
        IMAGE
@@ -64,7 +61,7 @@
 
         h3 {
             font-size: var(--font-size-h4);
-            font-weight: 500;
+
             text-transform: uppercase;
         }
     }
@@ -81,7 +78,7 @@
     }
 
     /* ==========================================================================
-       VIGNETTE AU HOVER
+       INFORMATIONS AU HOVER
        ========================================================================== */
 
     .projet-hover {
@@ -123,7 +120,7 @@
     .projet-description {
         font-size: var(--font-size-h3);
         font-weight: 500;
-        line-height: 1.4;
+
         text-transform: uppercase;
     }
 
@@ -132,6 +129,7 @@
 
         font-size: var(--font-size-h4);
         font-weight: 500;
+
         text-transform: uppercase;
     }
 
@@ -197,12 +195,83 @@
 }
 
 /* ==========================================================================
-   RESPONSIVE DE LA CARD
+   RESPONSIVE
    ========================================================================== */
 
 @media screen and (max-width: $breakpoint-md) {
     .projet-card,
     .projet-card--large {
         aspect-ratio: 16 / 9;
+    }
+}
+
+.interest-card {
+    .interest-image {
+        position: relative;
+
+        margin-bottom: var(--spacing-sm);
+        padding: 2px;
+
+        background-color: var(--color-accent);
+
+        clip-path: polygon(
+            20px 0,
+            100% 0,
+            100% calc(100% - 20px),
+            calc(100% - 20px) 100%,
+            0 100%,
+            0 20px
+        );
+
+        filter: drop-shadow(0 0 4px var(--color-accent))
+            drop-shadow(0 0 8px var(--color-accent-glow))
+            drop-shadow(0 0 16px var(--color-accent-glow-soft));
+
+        img {
+            width: 100%;
+            aspect-ratio: 1.15 / 1;
+
+            display: block;
+
+            object-fit: cover;
+
+            clip-path: polygon(
+                18px 0,
+                100% 0,
+                100% calc(100% - 18px),
+                calc(100% - 18px) 100%,
+                0 100%,
+                0 18px
+            );
+        }
+
+        .interest-icon {
+            position: absolute;
+            left: 2px;
+            bottom: 2px;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-color: var(--color-secondary);
+            color: var(--color-neutral);
+
+            border: 1px solid var(--color-neutral);
+
+            .icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    h3 {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: var(--font-size-h4);
     }
 }

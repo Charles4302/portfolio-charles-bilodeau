@@ -1,0 +1,16 @@
+.software-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100px;
+
+    color: var(--color-neutral);
+
+    .software-icon {
+        width: 80px;
+        height: 80px;
+
+        filter: drop-shadow(0 0 5px var(--color-accent-glow-soft));
+    }
+}
