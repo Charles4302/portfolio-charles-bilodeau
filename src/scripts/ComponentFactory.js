@@ -1,9 +1,11 @@
 import GrowImage from './components/GrowImage.js';
+import Header from './components/Header.js';
 
 export default class ComponentFactory {
   constructor() {
     this.componentList = {
       GrowImage,
+      Header,
     };
 
     this.init();

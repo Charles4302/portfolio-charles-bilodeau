@@ -1,8 +1,32 @@
 .header {
-    position: relative;
+    position: fixed;
+    z-index: 50;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
 
     background-color: var(--color-secondary);
     color: var(--color-neutral);
+
+    transform: translateY(0);
+
+    transition:
+        transform 0.4s $ease-out-cubic,
+        box-shadow 0.4s $ease-out-cubic;
+
+    &[data-state='hidden'] {
+        transform: translateY(-100%);
+    }
+
+    &[data-state='visible'] {
+        transform: translateY(0);
+    }
+
+    &[data-direction='up'] {
+        box-shadow: 0 0 8px var(--color-accent-glow-soft);
+    }
 
     .wrapper {
         min-height: 90px;
@@ -125,6 +149,8 @@
         }
 
         &.menu-open {
+            transform: translateY(0);
+
             .nav {
                 position: absolute;
                 z-index: 2;
@@ -138,6 +164,8 @@
                 padding: var(--spacing-md);
 
                 background-color: var(--color-secondary);
+
+                box-shadow: 0 8px 15px var(--color-accent-glow-soft);
 
                 .nav-list {
                     flex-direction: column;
