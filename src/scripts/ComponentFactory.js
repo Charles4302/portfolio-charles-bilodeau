@@ -1,11 +1,13 @@
 import GrowImage from './components/GrowImage.js';
 import Header from './components/Header.js';
+import ScrollAnimations from './components/ScrollAnimations.js';
 
 export default class ComponentFactory {
   constructor() {
     this.componentList = {
       GrowImage,
       Header,
+      ScrollAnimations,
     };
 
     this.init();

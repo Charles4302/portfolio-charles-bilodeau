@@ -1,17 +1,17 @@
 {% include '_partials/_header.html' %}
 
 <main>
-    <section class="hero" id="accueil">
+    <section class="hero" id="accueil" data-component="ScrollAnimations">
         <div class="wrapper">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">
+                    <h1 class="hero-title" data-animate="reveal">
                         Charles
                         <br />
                         Bilodeau
                     </h1>
 
-                    <p class="hero-role">
+                    <p class="hero-role" data-animate="reveal">
                         • Modélisateur 3D
                         <br />
                         • Développeur jeux vidéo
@@ -19,47 +19,51 @@
                         • Création de média
                     </p>
 
-                    <p class="hero-description">Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.</p>
+                    <p class="hero-description" data-animate="reveal">
+                        Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.
+                    </p>
                 </div>
 
                 <div class="hero-media">
-                    <div class="video-container">
-                        <svg class="video-corner corner-top icon">
-                            <use href="#icon-corner-top"></use>
-                        </svg>
-
-                        <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
-                            <svg class="play-icon icon">
-                                <use href="#icon-play"></use>
+                    <div class="video-float" data-animate="scroll-3d">
+                        <div class="video-container" data-animate="frame">
+                            <svg class="video-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
                             </svg>
-                        </button>
 
-                        <svg class="video-corner corner-bottom icon">
-                            <use href="#icon-corner-bottom"></use>
-                        </svg>
+                            <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                                <svg class="play-icon icon" data-animate="scale">
+                                    <use href="#icon-play"></use>
+                                </svg>
+                            </button>
+
+                            <svg class="video-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </div>
                     </div>
 
-                    <a class="hero-more" href="#a-propos">
+                    <a class="hero-more" href="#a-propos" data-animate="reveal">
                         <span class="more-icon">+</span>
                         <span>Ce que je peux apporter</span>
                     </a>
                 </div>
 
                 <div class="hero-actions">
-                    <a class="btn" href="#projets">Mes projets</a>
+                    <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
 
-                    <a class="btn btn--outline" href="#a-propos">À propos</a>
+                    <a class="btn btn--outline" href="#a-propos" data-animate="frame">À propos</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projets" id="projets">
+    <section class="projets" id="projets" data-component="ScrollAnimations">
         <div class="wrapper">
-            <h2 class="projets-title">Mes projets</h2>
+            <h2 class="projets-title" data-animate="reveal">Mes projets</h2>
 
             <div class="projets-grid">
-                <a class="projet-card projet-card--large" href="#">
+                <a class="projet-card projet-card--large" href="#" data-animate="frame">
                     <img class="projet-image" src="assets/images/corridor.png" alt="Projet Corridor spatial" />
 
                     <div class="projet-info">
@@ -80,7 +84,7 @@
                     </div>
                 </a>
 
-                <a class="projet-card projet-card--large" href="#">
+                <a class="projet-card projet-card--large" href="#" data-animate="frame">
                     <img class="projet-image" src="assets/images/retourterre.jpg" alt="Projet Lieu d’épouvante" />
 
                     <div class="projet-info">
@@ -101,7 +105,7 @@
                     </div>
                 </a>
 
-                <a class="projet-card" href="#">
+                <a class="projet-card" href="#" data-animate="frame">
                     <img class="projet-image" src="assets/images/triageurbain.png" alt="Projet Triage urbain" />
 
                     <div class="projet-info">
@@ -122,7 +126,7 @@
                     </div>
                 </a>
 
-                <a class="projet-card" href="#">
+                <a class="projet-card" href="#" data-animate="frame">
                     <img class="projet-image" src="assets/images/typocinetique.png" alt="Projet Typo cinétique" />
 
                     <div class="projet-info">
@@ -143,7 +147,7 @@
                     </div>
                 </a>
 
-                <a class="projet-card" href="#">
+                <a class="projet-card" href="#" data-animate="frame">
                     <img class="projet-image" src="assets/images/lieuepouvante.png" alt="Projet Capitaliza" />
 
                     <div class="projet-info">
@@ -155,7 +159,7 @@
                         <span class="projet-number">05</span>
 
                         <div class="projet-details">
-                            <p class="projet-description">Création d’une scene 3D texturer avec du UVmapping.</p>
+                            <p class="projet-description">Création d’une scène 3D texturée avec du UV mapping.</p>
 
                             <p class="projet-meta">Web • Design interactif</p>
                         </div>
@@ -167,13 +171,13 @@
         </div>
     </section>
     <section class="apropos" id="a-propos" data-component="GrowImage">
-        <div class="wrapper">
+        <div class="wrapper" data-component="ScrollAnimations">
             <div class="apropos-content">
                 <div class="apropos-text">
-                    <h2 class="apropos-title">À propos</h2>
+                    <h2 class="apropos-title" data-animate="reveal">À propos</h2>
 
                     <div class="apropos-description">
-                        <p>
+                        <p data-animate="reveal">
                             Je souhaite mettre ma
                             <strong>polyvalence en création visuelle</strong>
                             au service de projets en
@@ -185,7 +189,7 @@
                             , tout en continuant à développer mes compétences dans un environnement professionnel.
                         </p>
 
-                        <p>
+                        <p data-animate="reveal">
                             Ma
                             <strong>créativité</strong>
                             , ma
@@ -197,9 +201,9 @@
                     </div>
 
                     <div class="soft-skills">
-                        <h3>Soft skills</h3>
+                        <h3 data-animate="reveal">Soft skills</h3>
 
-                        <ul>
+                        <ul data-animate="reveal">
                             <li>• Créatif</li>
                             <li>• Collaboratif</li>
                             <li>• Autonome</li>
@@ -211,19 +215,21 @@
                 </div>
 
                 <div class="apropos-media">
-                    <button class="apropos-image" type="button" aria-label="Agrandir la photo">
-                        <img src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau" />
+                    <div data-animate="scroll-3d">
+                        <button class="apropos-image" type="button" aria-label="Agrandir la photo" data-animate="frame">
+                            <img src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau" />
 
-                        <svg class="image-corner corner-top icon">
-                            <use href="#icon-corner-top"></use>
-                        </svg>
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
 
-                        <svg class="image-corner corner-bottom icon">
-                            <use href="#icon-corner-bottom"></use>
-                        </svg>
-                    </button>
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
 
-                    <a class="btn" href="#projets">Mes projets</a>
+                    <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
                 </div>
             </div>
         </div>
@@ -235,88 +241,88 @@
         </div>
     </section>
 
-    <section class="competences" id="competences">
+    <section class="competences" id="competences" data-component="ScrollAnimations">
         <div class="wrapper">
             <div class="competences-content">
                 <!-- Compétences -->
                 <div class="skills">
-                    <h2>Mes compétences</h2>
+                    <h2 data-animate="reveal">Mes compétences</h2>
 
-                    <div class="skills-grid">
+                    <div class="skills-grid" data-animate="panel">
                         <div class="skill">
-                            <p>Modélisation 3D</p>
+                            <p data-animate="reveal">Modélisation 3D</p>
 
-                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en modélisation 3D : 80 %"></div>
+                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en modélisation 3D : 85 %" data-animate="skill"></div>
                         </div>
 
                         <div class="skill">
-                            <p>Animation 2D</p>
+                            <p data-animate="reveal">Animation 2D</p>
 
-                            <div class="skill-bar" style="--level: 80%" aria-label="Niveau en animation 2D : 75 %"></div>
+                            <div class="skill-bar" style="--level: 80%" aria-label="Niveau en animation 2D : 80 %" data-animate="skill"></div>
                         </div>
 
                         <div class="skill">
-                            <p>Programmation</p>
+                            <p data-animate="reveal">Programmation</p>
 
-                            <div class="skill-bar" style="--level: 75%" aria-label="Niveau en programmation : 70 %"></div>
+                            <div class="skill-bar" style="--level: 75%" aria-label="Niveau en programmation : 75 %" data-animate="skill"></div>
                         </div>
 
                         <div class="skill">
-                            <p>Level Design</p>
+                            <p data-animate="reveal">Level Design</p>
 
-                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en Level Design : 85 %"></div>
+                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en Level Design : 85 %" data-animate="skill"></div>
                         </div>
 
                         <div class="skill">
-                            <p>Animation 3D</p>
+                            <p data-animate="reveal">Animation 3D</p>
 
-                            <div class="skill-bar" style="--level: 75%" aria-label="Niveau en animation 3D : 65 %"></div>
+                            <div class="skill-bar" style="--level: 75%" aria-label="Niveau en animation 3D : 75 %" data-animate="skill"></div>
                         </div>
 
                         <div class="skill">
-                            <p>Texturation</p>
+                            <p data-animate="reveal">Texturation</p>
 
-                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en texturation : 85 %"></div>
+                            <div class="skill-bar" style="--level: 85%" aria-label="Niveau en texturation : 85 %" data-animate="skill"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Logiciels -->
                 <div class="software">
-                    <h2>Logiciels</h2>
+                    <h2 data-animate="reveal">Logiciels</h2>
 
-                    <div class="software-grid">
-                        <div class="software-item">
+                    <div class="software-grid" data-animate="panel">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-blender"></use>
                             </svg>
                         </div>
 
-                        <div class="software-item">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-unity"></use>
                             </svg>
                         </div>
 
-                        <div class="software-item">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-reaper"></use>
                             </svg>
                         </div>
 
-                        <div class="software-item">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-aftereffects"></use>
                             </svg>
                         </div>
 
-                        <div class="software-item">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-illustrator"></use>
                             </svg>
                         </div>
 
-                        <div class="software-item">
+                        <div class="software-item" data-animate="scale">
                             <svg class="software-icon icon">
                                 <use href="#icon-premiere"></use>
                             </svg>
@@ -326,113 +332,115 @@
             </div>
         </div>
     </section>
-    <section class="interets" id="interets">
+    <section class="interets" id="interets" data-component="ScrollAnimations">
         <div class="wrapper">
-            <h1>Mes passions et intérêts</h1>
+            <h1 data-animate="reveal">Mes passions et intérêts</h1>
 
             <div class="interets-grid">
-                <article class="interest-card">
+                <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/jeux_video.jpg" alt="Jeux vidéo" />
 
-                        <div class="interest-icon">
+                        <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-jeux_video"></use>
                             </svg>
                         </div>
                     </div>
 
-                    <h3>Jeux vidéo</h3>
+                    <h3 data-animate="reveal">Jeux vidéo</h3>
                 </article>
 
-                <article class="interest-card">
+                <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/cinema.webp" alt="Cinéma" />
 
-                        <div class="interest-icon">
+                        <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-cinema"></use>
                             </svg>
                         </div>
                     </div>
 
-                    <h3>Cinéma</h3>
+                    <h3 data-animate="reveal">Cinéma</h3>
                 </article>
 
-                <article class="interest-card">
+                <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/sci-fi.jpg" alt="Science-fiction" />
 
-                        <div class="interest-icon">
+                        <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-sci-fi"></use>
                             </svg>
                         </div>
                     </div>
 
-                    <h3>Sci/Fi</h3>
+                    <h3 data-animate="reveal">Sci/Fi</h3>
                 </article>
 
-                <article class="interest-card">
+                <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/esacalade.jpg" alt="Escalade" />
 
-                        <div class="interest-icon">
+                        <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-escalade"></use>
                             </svg>
                         </div>
                     </div>
 
-                    <h3>Escalade</h3>
+                    <h3 data-animate="reveal">Escalade</h3>
                 </article>
 
-                <article class="interest-card">
+                <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/echecs.jpg" alt="Échecs" />
 
-                        <div class="interest-icon">
+                        <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-echecs"></use>
                             </svg>
                         </div>
                     </div>
 
-                    <h3>Échecs</h3>
+                    <h3 data-animate="reveal">Échecs</h3>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" data-component="ScrollAnimations">
         <div class="wrapper">
             <div class="contact-content">
                 <div class="contact-intro">
-                    <p class="contact-label">On reste en contact?</p>
+                    <p class="contact-label" data-animate="reveal">On reste en contact?</p>
 
-                    <h2>
+                    <h2 data-animate="reveal">
                         Discutons
                         <br />
                         d’un projet!
                     </h2>
 
-                    <p class="contact-description">Une idée, une opportunité ou simplement envie d’échanger? Voici mes infos pour me joindre.</p>
+                    <p class="contact-description" data-animate="reveal">
+                        Une idée, une opportunité ou simplement envie d’échanger? Voici mes infos pour me joindre.
+                    </p>
                 </div>
 
                 <div class="contact-info">
-                    <div class="contact-item">
+                    <div class="contact-item" data-animate="reveal">
                         <p>Courriel</p>
 
-                        <a href="mailto:charlesbilocreations.com">charlesbilocreations.com</a>
+                        <a href="mailto:charles@bilocreations.com">charles@bilocreations.com</a>
                     </div>
 
-                    <div class="contact-item">
+                    <div class="contact-item" data-animate="reveal">
                         <p>Téléphone</p>
 
                         <a href="tel:+14503414129">450-341-4129</a>
                     </div>
 
-                    <a class="arrow-link" href="assets/documents/cv-charles-bilodeau.pdf" download>
+                    <a class="arrow-link" href="assets/documents/cv-charles-bilodeau.pdf" download data-animate="reveal">
                         Télécharger mon CV
 
                         <svg class="icon">
