@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio Charles Bilodeau</title>
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
+
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header class="header" data-component="Header" data-threshold="0.1">
+        <div class="wrapper">
+
+            <a class="brand logo-link" href="#accueil">
+                <span class="logo icon icon--lg">
+                    <svg class="icon corner-top">
+                        <use href="#icon-corner-top"></use>
+                    </svg>
+
+                    <svg class="icon plus">
+                        <use href="#icon-plus"></use>
+                    </svg>
+
+                    <svg class="icon corner-bottom">
+                        <use href="#icon-corner-bottom"></use>
+                    </svg>
+                </span>
+
+                <span class="name">Charles Bilodeau</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" aria-label="Navigation principale">
+                <ul class="nav-list">
+
+                    <li>
+                        <a class="nav-link" href="#accueil">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#projets">
+                            Projets
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#a-propos">
+                            À propos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil" data-component="ScrollAnimations">
+            <div class="wrapper">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title" data-animate="reveal">
+                            Charles
+                            <br />
+                            Bilodeau
+                        </h1>
+
+                        <p class="hero-role" data-animate="reveal">
+                            • Modélisateur 3D
+                            <br />
+                            • Développeur jeux vidéo
+                            <br />
+                            • Création de média
+                        </p>
+
+                        <p class="hero-description" data-animate="reveal">
+                            Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.
+                        </p>
+                    </div>
+
+                    <div class="hero-media">
+                        <div class="video-float" data-animate="scroll-3d">
+                            <div class="video-container" data-animate="frame">
+                                <svg class="video-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                                    <svg class="play-icon icon" data-animate="scale">
+                                        <use href="#icon-play"></use>
+                                    </svg>
+                                </button>
+
+                                <svg class="video-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <a class="hero-more" href="#a-propos" data-animate="reveal">
+                            <span class="more-icon">+</span>
+                            <span>Ce que je peux apporter</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
+
+                        <a class="btn btn--outline" href="#a-propos" data-animate="frame">À propos</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projets" id="projets" data-component="ScrollAnimations">
+            <div class="wrapper">
+                <h2 class="projets-title" data-animate="reveal">Mes projets</h2>
+
+                <div class="projets-grid">
+                    <a class="projet-card projet-card--large" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/corridor.png" alt="Projet Corridor spatial" />
+
+                        <div class="projet-info">
+                            <h3>Corridor spatial</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">01</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Modélisation et animation 3D d’un corridor d’un vaisseau spatial.</p>
+
+                                <p class="projet-meta">Animation multimédia • Blender</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card projet-card--large" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/retourterre.jpg" alt="Projet Lieu d’épouvante" />
+
+                        <div class="projet-info">
+                            <h3>Lieu d’épouvante</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">02</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Conception d’une expérience numérique interactive autour de Capitaliza.</p>
+
+                                <p class="projet-meta">Environnement 3D • Unity</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/triageurbain.png" alt="Projet Triage urbain" />
+
+                        <div class="projet-info">
+                            <h3>Triage urbain</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">03</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Jeu de collecte et de tri de déchets dans un environnement urbain.</p>
+
+                                <p class="projet-meta">Jeu vidéo • Unity</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/typocinetique.png" alt="Projet Typo cinétique" />
+
+                        <div class="projet-info">
+                            <h3>Typo cinétique</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">04</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Animation typographique basée sur le rythme.</p>
+
+                                <p class="projet-meta">Motion design • After Effects</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/lieuepouvante.png" alt="Projet Capitaliza" />
+
+                        <div class="projet-info">
+                            <h3>Capitaliza</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">05</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Création d’une scène 3D texturée avec du UV mapping.</p>
+
+                                <p class="projet-meta">Web • Design interactif</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="apropos" id="a-propos" data-component="GrowImage">
+            <div class="wrapper" data-component="ScrollAnimations">
+                <div class="apropos-content">
+                    <div class="apropos-text">
+                        <h2 class="apropos-title" data-animate="reveal">À propos</h2>
+
+                        <div class="apropos-description">
+                            <p data-animate="reveal">
+                                Je souhaite mettre ma
+                                <strong>polyvalence en création visuelle</strong>
+                                au service de projets en
+                                <strong>3D</strong>
+                                , en
+                                <strong>animation</strong>
+                                ou en
+                                <strong>jeu vidéo</strong>
+                                , tout en continuant à développer mes compétences dans un environnement professionnel.
+                            </p>
+
+                            <p data-animate="reveal">
+                                Ma
+                                <strong>créativité</strong>
+                                , ma
+                                <strong>capacité d’adaptation</strong>
+                                et ma connaissance de
+                                <strong>différents outils multimédias</strong>
+                                me permettent de toucher à plusieurs aspects d’un projet et de m’adapter aux besoins d’une équipe.
+                            </p>
+                        </div>
+
+                        <div class="soft-skills">
+                            <h3 data-animate="reveal">Soft skills</h3>
+
+                            <ul data-animate="reveal">
+                                <li>• Créatif</li>
+                                <li>• Collaboratif</li>
+                                <li>• Autonome</li>
+                                <li>• Adaptable</li>
+                                <li>• Polyvalent</li>
+                                <li>• Ponctuel</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="apropos-media">
+                        <div data-animate="scroll-3d">
+                            <button class="apropos-image" type="button" aria-label="Agrandir la photo" data-animate="frame">
+                                <img src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-modal" data-state="closed">
+                <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
+
+                <img class="modal-image" src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau agrandi" />
+            </div>
+        </section>
+
+        <section class="competences" id="competences" data-component="ScrollAnimations">
+            <div class="wrapper">
+                <div class="competences-content">
+                    <!-- Compétences -->
+                    <div class="skills">
+                        <h2 data-animate="reveal">Mes compétences</h2>
+
+                        <div class="skills-grid" data-animate="panel">
+                            <div class="skill">
+                                <p data-animate="reveal">Modélisation 3D</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en modélisation 3D : 85 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Animation 2D</p>
+
+                                <div class="skill-bar" style="--level: 80%" aria-label="Niveau en animation 2D : 80 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Programmation</p>
+
+                                <div class="skill-bar" style="--level: 75%" aria-label="Niveau en programmation : 75 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Level Design</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en Level Design : 85 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Animation 3D</p>
+
+                                <div class="skill-bar" style="--level: 75%" aria-label="Niveau en animation 3D : 75 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Texturation</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en texturation : 85 %" data-animate="skill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logiciels -->
+                    <div class="software">
+                        <h2 data-animate="reveal">Logiciels</h2>
+
+                        <div class="software-grid" data-animate="panel">
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-blender"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-unity"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-reaper"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-aftereffects"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-illustrator"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-premiere"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="interets" id="interets" data-component="ScrollAnimations">
+            <div class="wrapper">
+                <h1 data-animate="reveal">Mes passions et intérêts</h1>
+
+                <div class="interets-grid">
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/jeux_video.jpg" alt="Jeux vidéo" />
+
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-jeux_video"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 data-animate="reveal">Jeux vidéo</h3>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/cinema.webp" alt="Cinéma" />
+
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-cinema"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 data-animate="reveal">Cinéma</h3>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/sci-fi.jpg" alt="Science-fiction" />
+
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-sci-fi"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 data-animate="reveal">Sci/Fi</h3>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/esacalade.jpg" alt="Escalade" />
+
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-escalade"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 data-animate="reveal">Escalade</h3>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/echecs.jpg" alt="Échecs" />
+
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-echecs"></use>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h3 data-animate="reveal">Échecs</h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" data-component="ScrollAnimations">
+            <div class="wrapper">
+                <div class="contact-content">
+                    <div class="contact-intro">
+                        <p class="contact-label" data-animate="reveal">On reste en contact?</p>
+
+                        <h2 data-animate="reveal">
+                            Discutons
+                            <br />
+                            d’un projet!
+                        </h2>
+
+                        <p class="contact-description" data-animate="reveal">
+                            Une idée, une opportunité ou simplement envie d’échanger? Voici mes infos pour me joindre.
+                        </p>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item" data-animate="reveal">
+                            <p>Courriel</p>
+
+                            <a href="mailto:charles@bilocreations.com">charles@bilocreations.com</a>
+                        </div>
+
+                        <div class="contact-item" data-animate="reveal">
+                            <p>Téléphone</p>
+
+                            <a href="tel:+14503414129">450-341-4129</a>
+                        </div>
+
+                        <a class="arrow-link" href="assets/documents/cv-charles-bilodeau.pdf" download data-animate="reveal">
+                            Télécharger mon CV
+
+                            <svg class="icon">
+                                <use href="#icon-fleche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrapper">
+
+            <div class="footer-main">
+
+                <div class="footer-contact">
+                    <h2>Discutons d’un projet!</h2>
+
+                    <a class="btn" href="#contact">
+                        Me contacter
+                    </a>
+
+                    <!-- CV desktop -->
+                    <a class="footer-link cv-desktop" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
+                    <a class="nav-link" href="#accueil">Accueil</a>
+                    <a class="nav-link" href="#a-propos">À propos</a>
+                    <a class="nav-link" href="#projets">Projets</a>
+                </nav>
+
+                <div class="footer-info">
+
+                    <a href="mailto:charles@bilocreations.com">
+                        charles@bilocreations.com
+                    </a>
+
+                    <a href="tel:+14503414129">
+                        450-341-4129
+                    </a>
+
+                    <div class="socials">
+
+                        <a class="social-link" href="#" aria-label="GitHub">
+                            <svg class="icon icon--md">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#" aria-label="LinkedIn">
+                            <svg class="icon icon--md">
+                                <use href="#icon-linkedin"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#" aria-label="YouTube">
+                            <svg class="icon icon--md">
+                                <use href="#icon-youtube"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#" aria-label="Behance">
+                            <svg class="icon icon--md">
+                                <use href="#icon-behance"></use>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p class="copyright">
+                    Copyright © 2026 Charles Bilodeau
+                </p>
+
+                <a class="footer-logo logo-link" href="#accueil" aria-label="Retour à l'accueil">
+                    <span class="logo icon icon--lg">
+                        <svg class="icon corner-top">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <svg class="icon plus">
+                            <use href="#icon-plus"></use>
+                        </svg>
+
+                        <svg class="icon corner-bottom">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <div class="footer-bottom-links">
+
+                    <!-- CV tablette/mobile -->
+                    <a class="footer-link cv-responsive" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                    <a class="footer-link" href="#">
+                        <span>Utilisation IA</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
