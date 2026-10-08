@@ -1,6 +1,7 @@
 import GrowImage from './components/GrowImage.js';
 import Header from './components/Header.js';
 import ScrollAnimations from './components/ScrollAnimations.js';
+import Hologram3D from './components/Hologram3D.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -8,6 +9,7 @@ export default class ComponentFactory {
       GrowImage,
       Header,
       ScrollAnimations,
+      Hologram3D,
     };
 
     this.init();
