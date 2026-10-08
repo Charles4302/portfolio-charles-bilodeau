@@ -1,0 +1,109 @@
+/* ==========================================================================
+   TITRES DES ÉTAPES
+   ========================================================================== */
+
+.project-page {
+    .project-heading {
+        display: flex;
+        align-items: flex-start;
+
+        gap: var(--spacing-base);
+
+        span {
+            flex-shrink: 0;
+
+            font-family: var(--font-primary);
+            font-size: var(--font-size-h1);
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        h2 {
+            position: relative;
+
+            padding-left: var(--spacing-md);
+
+            text-transform: uppercase;
+
+            &::before,
+            &::after {
+                content: '';
+
+                position: absolute;
+                left: 0;
+
+                width: 1px;
+
+                background-color: var(--color-neutral);
+            }
+
+            &::before {
+                top: 0;
+
+                height: var(--spacing-lg);
+            }
+
+            &::after {
+                top: var(--spacing-lg);
+
+                height: var(--spacing-md);
+
+                transform: rotate(45deg);
+                transform-origin: top;
+            }
+        }
+    }
+
+    /* ==========================================================================
+       MÉDIAS
+       ========================================================================== */
+
+    .project-media--stack {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        gap: var(--spacing-base);
+    }
+
+    .project-media--three {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: var(--spacing-base);
+
+        .project-image-container {
+            width: 100%;
+            min-width: 0;
+        }
+    }
+
+    /* Deux petites images en haut + une grande en bas */
+
+    .project-media--three.project-media--wide-bottom {
+        .project-image-container:last-child {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* Une grande image en haut + deux petites en bas */
+
+    .project-media--three.project-media--wide-top {
+        .project-image-container:first-child {
+            grid-column: 1 / -1;
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .project-media--three {
+            grid-template-columns: 1fr;
+
+            .project-image-container {
+                grid-column: auto;
+            }
+        }
+    }
+}

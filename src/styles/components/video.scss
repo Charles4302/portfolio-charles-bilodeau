@@ -109,3 +109,21 @@
 
     transform: translate(-15px, -15px);
 }
+
+.project-result {
+    margin-bottom: var(--spacing-xxl);
+
+    h2 {
+        margin-bottom: var(--spacing-lg);
+        text-transform: uppercase;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    .video-preview {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+}

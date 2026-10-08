@@ -1,0 +1,110 @@
+.project-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+
+    .project-info-role,
+    .project-info-credits,
+    .project-info-tools {
+        width: 100%;
+    }
+
+    /* ==========================================================================
+       MON RÔLE
+       ========================================================================== */
+
+    .project-info-role {
+        padding-right: var(--spacing-xl);
+
+        border-right: 1px solid var(--color-accent);
+    }
+
+    /* ==========================================================================
+       CRÉDITS
+       ========================================================================== */
+
+    .project-info-credits {
+        padding: 0 var(--spacing-lg);
+
+        border-right: 1px solid var(--color-accent);
+
+        h3,
+        ul {
+            width: fit-content;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /* ==========================================================================
+       OUTILS
+       ========================================================================== */
+
+    .project-info-tools {
+        padding-left: var(--spacing-md);
+    }
+
+    /* ==========================================================================
+       CONTENU
+       ========================================================================== */
+
+    h3 {
+        margin-bottom: var(--spacing-base);
+
+        text-transform: uppercase;
+    }
+
+    ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: var(--spacing-xs);
+
+        &::before {
+            content: '• ';
+        }
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+
+        .project-info-role,
+        .project-info-credits,
+        .project-info-tools {
+            padding: var(--spacing-md) 0;
+
+            border-right: 0;
+        }
+
+        .project-info-role {
+            padding-top: 0;
+
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        .project-info-credits {
+            border-bottom: 1px solid var(--color-accent);
+
+            h3,
+            ul {
+                width: auto;
+
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        .project-info-tools {
+            padding-bottom: 0;
+        }
+    }
+}

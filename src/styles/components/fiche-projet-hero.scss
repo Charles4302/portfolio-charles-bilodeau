@@ -1,0 +1,51 @@
+.project-hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    h1 {
+        font-size: var(--font-size-display);
+        line-height: 1;
+
+        text-transform: uppercase;
+    }
+
+    .project-line {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .project-media {
+        .project-image {
+            aspect-ratio: 1;
+
+            img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+            }
+        }
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+        min-height: auto;
+    }
+}
+
+.project-label {
+    font-size: var(--font-size-h4);
+
+    text-transform: uppercase;
+}
+
+.project-line {
+    width: var(--spacing-xl);
+    height: 3px;
+
+    display: block;
+
+    background-color: var(--color-accent);
+
+    box-shadow: 0 0 6px var(--color-accent-glow);
+}

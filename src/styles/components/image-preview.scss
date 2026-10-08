@@ -1,0 +1,41 @@
+.apropos-image,
+.project-image {
+    position: relative;
+
+    width: 100%;
+    padding: 0;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+    img {
+        width: 100%;
+        display: block;
+
+        border: 1px solid var(--color-accent);
+
+        clip-path: polygon(
+            0 0,
+            calc(100% - 60px) 0,
+            100% 60px,
+            100% 100%,
+            60px 100%,
+            0 calc(100% - 60px)
+        );
+
+        transition: filter 0.35s $ease-out-cubic;
+    }
+
+    &:hover {
+        img {
+            filter: drop-shadow(0 0 8px var(--color-accent-glow-soft));
+        }
+
+        .image-corner {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+}

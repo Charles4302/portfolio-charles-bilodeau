@@ -3,8 +3,7 @@
     color: var(--color-neutral);
 
     .wrapper {
-        padding-top: var(--spacing-xl);
-        padding-bottom: var(--spacing-xl);
+        padding: var(--spacing-xl) 0;
     }
 
     /* ==========================================================================
@@ -15,7 +14,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: start;
-
         gap: var(--spacing-xl);
     }
 
@@ -26,21 +24,18 @@
     .apropos-text {
         display: flex;
         flex-direction: column;
-
         gap: var(--spacing-lg);
     }
 
     .apropos-title {
         font-size: var(--font-size-display);
         line-height: 1;
-
         text-transform: uppercase;
     }
 
     .apropos-description {
         display: flex;
         flex-direction: column;
-
         gap: var(--spacing-md);
 
         strong {
@@ -57,14 +52,12 @@
 
         h3 {
             margin-bottom: var(--spacing-md);
-
             text-transform: uppercase;
         }
 
         ul {
             display: grid;
             grid-template-columns: repeat(2, max-content);
-
             gap: var(--spacing-sm) var(--spacing-lg);
 
             margin: 0;
@@ -76,7 +69,6 @@
         li {
             font-size: var(--font-size-h4);
             font-weight: 500;
-
             text-transform: uppercase;
         }
     }
@@ -89,53 +81,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-
         gap: var(--spacing-xl);
     }
 
     .apropos-image {
-        position: relative;
-
-        width: 100%;
         max-width: 500px;
-
-        padding: 0;
-
-        background: transparent;
-        border: 0;
-
-        cursor: pointer;
-
-        img {
-            width: 100%;
-
-            display: block;
-
-            border: 1px solid var(--color-accent);
-
-            clip-path: polygon(
-                0 0,
-                calc(100% - 60px) 0,
-                100% 60px,
-                100% 100%,
-                60px 100%,
-                0 calc(100% - 60px)
-            );
-
-            transition: filter 0.35s $ease-out-cubic;
-        }
-
-        &:hover {
-            img {
-                filter: drop-shadow(0 0 8px rgba(54, 218, 255, 0.2));
-            }
-
-            .image-corner {
-                opacity: 1;
-
-                transform: translate(0, 0);
-            }
-        }
     }
 
     /* ==========================================================================
@@ -166,8 +116,7 @@
 
     @media screen and (max-width: $breakpoint-sm) {
         .wrapper {
-            padding-top: var(--spacing-lg);
-            padding-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg) 0;
         }
 
         .soft-skills {
