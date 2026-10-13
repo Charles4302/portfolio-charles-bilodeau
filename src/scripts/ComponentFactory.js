@@ -1,6 +1,8 @@
 import GrowImage from './components/GrowImage.js';
 import Header from './components/Header.js';
 import ScrollAnimations from './components/ScrollAnimations.js';
+import AudioPlayer from './components/AudioPlayer.js';
+import Youtube from './components/Youtube.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -8,6 +10,8 @@ export default class ComponentFactory {
       GrowImage,
       Header,
       ScrollAnimations,
+      AudioPlayer,
+      Youtube,
     };
 
     this.init();

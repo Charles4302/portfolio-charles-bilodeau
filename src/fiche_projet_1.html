@@ -149,7 +149,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de l’éclairage du corridor" data-animate="frame">
-                            <img src="" alt="Éclairage du corridor spatial" />
+                            <img src="assets/images/eclairage.png" alt="Éclairage du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -176,7 +176,7 @@
                 <div class="project-media project-media--three project-media--wide-bottom">
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de la modélisation" data-animate="frame">
-                            <img src="" alt="Modélisation du corridor spatial" />
+                            <img src="assets/images/modelisation.png" alt="Modélisation du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -190,7 +190,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de la construction modulaire" data-animate="frame">
-                            <img src="" alt="Construction modulaire du corridor" />
+                            <img src="assets/images/modular.png" alt="Construction modulaire du corridor" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -204,7 +204,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de l’environnement" data-animate="frame">
-                            <img src="" alt="Environnement du corridor spatial" />
+                            <img src="assets/images/environnement.png" alt="Environnement du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -292,7 +292,7 @@
                 <div class="project-media project-media--three project-media--wide-top">
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
-                            <img src="" alt="Matériau métallique du corridor spatial" />
+                            <img src="assets/images/material.png" alt="Matériau métallique du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -306,7 +306,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
-                            <img src="" alt="Texture du corridor spatial" />
+                            <img src="assets/images/texture_1.png" alt="Texture du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -320,7 +320,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
-                            <img src="" alt="UV Mapping du corridor spatial" />
+                            <img src="assets/images/texture_2.png" alt="UV Mapping du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -346,7 +346,7 @@
                 <div class="project-media project-media--stack">
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de l’effet de vapeur" data-animate="frame">
-                            <img src="assets/images/corridor.png" alt="Effet de vapeur dans le corridor" />
+                            <img src="assets/images/particle_effect.png" alt="Effet de vapeur dans le corridor" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -360,7 +360,7 @@
 
                     <div class="project-image-container">
                         <button class="project-image" type="button" aria-label="Agrandir l’image de l’effet de particules" data-animate="frame">
-                            <img src="" alt="Effet de particules du corridor spatial" />
+                            <img src="assets/images/particle_material.png" alt="Effet de particules du corridor spatial" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -431,18 +431,32 @@
                 </div>
 
                 <div class="project-media project-media--stack">
-                    <div class="project-image-container">
-                        <button class="project-image" type="button" aria-label="Agrandir l’image de l’ambiance sonore" data-animate="frame">
-                            <img src="" alt="Travail sur l’ambiance sonore du corridor spatial" />
+                    <div class="audio-player" data-component="AudioPlayer" data-animate="reveal">
+                        <audio preload="metadata">
+                            <source src="assets/audio/tp4_anim_multi.wav" type="audio/mpeg" />
+                        </audio>
 
-                            <svg class="image-corner corner-top icon">
-                                <use href="#icon-corner-top"></use>
-                            </svg>
+                        <div class="audio-header">
+                            <div class="audio-info">
+                                <div>
+                                    <h4>Ambiance sonore</h4>
+                                    <span>Corridor spatial</span>
+                                </div>
+                            </div>
 
-                            <svg class="image-corner corner-bottom icon">
-                                <use href="#icon-corner-bottom"></use>
-                            </svg>
-                        </button>
+                            <button class="audio-play" type="button" aria-label="Lire la piste">
+                                <span class="play-symbol">▶</span>
+                                <span class="pause-symbol">Ⅱ</span>
+                            </button>
+                        </div>
+
+                        <div class="audio-controls">
+                            <span class="audio-current">0:00</span>
+
+                            <input class="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Position dans la piste audio" />
+
+                            <span class="audio-duration">0:00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -457,16 +471,20 @@
         <div class="wrapper">
             <h2 data-animate="reveal">Résultat final</h2>
 
-            <div class="video-container" data-animate="frame">
+            <div class="video-container" data-component="Youtube" data-video-id="A5kXVF34_u8" data-animate="frame">
                 <svg class="video-corner corner-top icon">
                     <use href="#icon-corner-top"></use>
                 </svg>
 
-                <button class="video-preview" type="button" aria-label="Lire la vidéo du Corridor spatial">
+                <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
                     <svg class="play-icon icon" data-animate="scale">
                         <use href="#icon-play"></use>
                     </svg>
                 </button>
+
+                <div class="video-embed">
+                    <div class="js-video"></div>
+                </div>
 
                 <svg class="video-corner corner-bottom icon">
                     <use href="#icon-corner-bottom"></use>
