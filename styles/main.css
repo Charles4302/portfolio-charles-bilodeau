@@ -1428,6 +1428,150 @@ a:hover {
   width: 11em;
 }
 
+.background-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.background-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero,
+.projects,
+.about,
+.contact {
+  position: relative;
+  isolation: isolate;
+}
+.hero > .wrapper,
+.projects > .wrapper,
+.about > .wrapper,
+.contact > .wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 48px;
+  height: 58px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(-100px, -100px, 0);
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.custom-cursor svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: transform 0.15s ease;
+}
+.custom-cursor .cursor-glow {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 10;
+  stroke-linejoin: round;
+  opacity: 0.15;
+  filter: blur(3px);
+  transition: stroke-width 0.25s ease, opacity 0.25s ease;
+}
+.custom-cursor .cursor-outline {
+  fill: var(--color-secondary);
+  stroke: var(--color-accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  transition: fill 0.25s ease, stroke 0.25s ease;
+}
+.custom-cursor .cursor-face-top {
+  fill: #0b435b;
+  transition: fill 0.25s ease;
+}
+.custom-cursor .cursor-face-bottom {
+  fill: #092739;
+  transition: fill 0.25s ease;
+}
+.custom-cursor .cursor-core {
+  fill: var(--color-accent);
+  transition: fill 0.25s ease;
+}
+.custom-cursor .cursor-highlight {
+  fill: #a2f3ff;
+  transition: fill 0.25s ease;
+}
+.custom-cursor.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+.custom-cursor.is-hovering .cursor-glow {
+  stroke-width: 18;
+  opacity: 0.5;
+}
+.custom-cursor.is-hovering .cursor-outline {
+  fill: #092739;
+  stroke: #e5fcff;
+}
+.custom-cursor.is-hovering .cursor-face-top {
+  fill: #27d8ff;
+}
+.custom-cursor.is-hovering .cursor-face-bottom {
+  fill: #0d7b9d;
+}
+.custom-cursor.is-hovering .cursor-core {
+  fill: #c7faff;
+}
+.custom-cursor.is-hovering .cursor-highlight {
+  fill: var(--color-neutral);
+}
+.custom-cursor.is-clicking svg {
+  transform: scale(0.85);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor {
+    cursor: none;
+  }
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role=button],
+  body.has-custom-cursor input[type=button],
+  body.has-custom-cursor input[type=submit],
+  body.has-custom-cursor input[type=reset],
+  body.has-custom-cursor select,
+  body.has-custom-cursor summary {
+    cursor: none;
+  }
+  body.has-custom-cursor input[type=text],
+  body.has-custom-cursor input[type=email],
+  body.has-custom-cursor input[type=search],
+  body.has-custom-cursor input[type=password],
+  body.has-custom-cursor input[type=number],
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor [contenteditable=true] {
+    cursor: text;
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor,
+  .custom-cursor svg,
+  .custom-cursor path {
+    transition: none;
+  }
+}
 .header {
   position: fixed;
   z-index: 50;
@@ -2002,16 +2146,14 @@ a:hover {
   max-width: 500px;
 }
 .hero .hero-actions {
-  grid-column: 1;
-  grid-row: 2;
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-base);
+  margin-top: var(--spacing-lg);
 }
 .hero .hero-media {
   grid-column: 2;
-  grid-row: 1/3;
+  grid-row: 1;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-lg);
@@ -2057,9 +2199,7 @@ a:hover {
     grid-row: 2;
   }
   .hero .hero-actions {
-    grid-column: 1;
-    grid-row: 3;
-    margin-top: 0;
+    margin-top: var(--spacing-md);
   }
   .hero .video-preview {
     aspect-ratio: 16/9;
@@ -2087,10 +2227,30 @@ a:hover {
 
 .projets {
   position: relative;
+  isolation: isolate;
   background-color: var(--color-secondary);
   color: var(--color-neutral);
+  /* ==========================================================================
+     BACKGROUND NETWORK
+     ========================================================================== */
+}
+.projets .background-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.projets .background-network canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .projets .wrapper {
+  position: relative;
+  z-index: 1;
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
 }
@@ -2103,6 +2263,7 @@ a:hover {
   content: "";
   position: absolute;
   left: 0;
+  z-index: 2;
   width: 100%;
   height: 1px;
   background-color: var(--color-accent);
@@ -2180,21 +2341,26 @@ a:hover {
   }
 }
 
+/* ==========================================================================
+   PROJECT CARDS
+   ========================================================================== */
 .projet-card {
   position: relative;
+  display: block;
   aspect-ratio: 3/2;
   overflow: hidden;
   background-color: var(--color-surface);
-  border: 1px solid rgba(54, 218, 255, 0.35);
-  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow-soft), 0 0 0 transparent, inset 0 0 6px var(--color-accent-glow-soft);
+  transition: border-color 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   /* ==========================================================================
      IMAGE
      ========================================================================== */
 }
 .projet-card .projet-image {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   -o-object-fit: cover;
      object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), filter 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -2237,9 +2403,27 @@ a:hover {
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
-  background-color: rgba(3, 3, 25, 0.78);
+  overflow: hidden;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 4px, rgba(54, 218, 255, 0.06) 5px), linear-gradient(135deg, rgba(8, 39, 58, 0.9), rgba(3, 3, 25, 0.88) 55%, rgba(8, 39, 58, 0.9));
+  backdrop-filter: blur(3px);
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.projet-card .projet-hover::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -30%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, rgba(54, 218, 255, 0.12), rgba(54, 218, 255, 0.22), transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+.projet-card .projet-hover > * {
+  position: relative;
+  z-index: 1;
 }
 .projet-card .projet-number {
   font-size: var(--font-size-h2);
@@ -2275,6 +2459,9 @@ a:hover {
      HOVER
      ========================================================================== */
 }
+.projet-card:hover {
+  box-shadow: 0 0 12px var(--color-accent-glow), 0 0 30px var(--color-accent-glow-soft), inset 0 0 12px var(--color-accent-glow-soft);
+}
 .projet-card:hover .projet-image {
   transform: scale(1.03);
   filter: brightness(0.8);
@@ -2285,6 +2472,9 @@ a:hover {
 }
 .projet-card:hover .projet-hover {
   transform: translateY(0);
+}
+.projet-card:hover .projet-hover::before {
+  animation: hologram-scan 1.2s ease-out forwards;
 }
 .projet-card:hover .projet-details {
   opacity: 1;
@@ -2304,6 +2494,25 @@ a:hover {
 }
 
 /* ==========================================================================
+   ANIMATION HOLOGRAPHIQUE
+   ========================================================================== */
+@keyframes hologram-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(430%);
+    opacity: 0;
+  }
+}
+/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media screen and (max-width: 1096px) {
@@ -2312,50 +2521,118 @@ a:hover {
     aspect-ratio: 16/9;
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .projet-card .projet-hover::before {
+    animation: none;
+  }
+}
+/* ==========================================================================
+   INTEREST CARDS
+   ========================================================================== */
 .interest-card .interest-image {
   position: relative;
-  margin-bottom: var(--spacing-sm);
+  overflow: hidden;
   padding: 2px;
   background-color: var(--color-accent);
   clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
-  filter: drop-shadow(0 0 4px var(--color-accent)) drop-shadow(0 0 8px var(--color-accent-glow)) drop-shadow(0 0 16px var(--color-accent-glow-soft));
+  filter: drop-shadow(0 0 4px var(--color-accent-glow-soft));
+  transition: filter 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .interest-card .interest-image img {
+  display: block;
   width: 100%;
   aspect-ratio: 1.15/1;
-  display: block;
   -o-object-fit: cover;
      object-fit: cover;
   clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.interest-card .interest-image .interest-icon {
-  position: absolute;
-  left: 2px;
-  bottom: 2px;
-  width: 40px;
-  height: 40px;
+.interest-card .interest-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+.interest-card .interest-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
   background-color: var(--color-secondary);
   color: var(--color-neutral);
-  border: 1px solid var(--color-neutral);
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 4px var(--color-accent-glow-soft);
+  transition: box-shadow 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.interest-card .interest-image .interest-icon .icon {
+.interest-card .interest-icon .icon {
   width: 24px;
   height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+.interest-card .interest-details {
+  flex: 1;
+  min-width: 0;
 }
 .interest-card h3 {
-  text-align: center;
-  text-transform: uppercase;
   font-size: var(--font-size-h4);
+  text-transform: uppercase;
+}
+.interest-card .interest-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  margin-top: var(--spacing-xs);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 4px var(--color-accent-glow-soft);
+  transition: width 0.6s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.interest-card:hover .interest-image {
+  filter: drop-shadow(0 0 8px var(--color-accent-glow)) drop-shadow(0 0 12px var(--color-accent-glow-soft));
+}
+.interest-card:hover .interest-image img {
+  transform: scale(1.03);
+}
+.interest-card:hover .interest-icon {
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+.interest-card:hover .interest-icon .icon {
+  filter: drop-shadow(0 0 6px var(--color-accent-glow));
+}
+.interest-card:hover .interest-line {
+  width: 75%;
+  box-shadow: 0 0 8px var(--color-accent-glow);
 }
 
 .apropos {
+  position: relative;
+  isolation: isolate;
   background-color: var(--color-primary);
   color: var(--color-neutral);
+  /* ==========================================================================
+     BACKGROUND 3D
+     ========================================================================== */
+}
+.apropos .background-3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.apropos .background-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .apropos .wrapper {
+  position: relative;
+  z-index: 1;
   padding: var(--spacing-xl) 0;
 }
 .apropos {
@@ -2365,7 +2642,7 @@ a:hover {
 }
 .apropos .apropos-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   align-items: start;
   gap: var(--spacing-xl);
 }
@@ -2399,23 +2676,46 @@ a:hover {
 }
 .apropos .soft-skills {
   margin-top: var(--spacing-base);
+  padding: var(--spacing-md);
+  background: repeating-linear-gradient(to bottom, transparent 0 4px, rgba(54, 218, 255, 0.025) 5px), linear-gradient(135deg, var(--color-secondary), rgba(18, 84, 106, 0.2));
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow-soft), inset 0 0 6px var(--color-accent-glow-soft);
+  transition: box-shadow 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .apropos .soft-skills h3 {
   margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-accent);
   text-transform: uppercase;
 }
 .apropos .soft-skills ul {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: var(--spacing-sm) var(--spacing-lg);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-sm);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .apropos .soft-skills li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: rgba(54, 218, 255, 0.07);
   font-size: var(--font-size-h4);
   font-weight: 500;
   text-transform: uppercase;
+}
+.apropos .soft-skills li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow);
+}
+.apropos .soft-skills:hover {
+  box-shadow: 0 0 15px var(--color-accent-glow), inset 0 0 15px var(--color-accent-glow);
 }
 .apropos {
   /* ==========================================================================
@@ -2433,6 +2733,14 @@ a:hover {
 }
 .apropos {
   /* ==========================================================================
+     MODALE
+     ========================================================================== */
+}
+.apropos .image-modal {
+  z-index: 100;
+}
+.apropos {
+  /* ==========================================================================
      TABLETTE
      ========================================================================== */
 }
@@ -2442,9 +2750,6 @@ a:hover {
   }
   .apropos .apropos-media {
     align-items: center;
-  }
-  .apropos .apropos-media .btn {
-    align-self: flex-end;
   }
   .apropos .apropos-image {
     max-width: 600px;
@@ -2460,29 +2765,52 @@ a:hover {
     padding: var(--spacing-lg) 0;
   }
   .apropos .soft-skills ul {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .apropos .apropos-media {
     gap: var(--spacing-lg);
-  }
-  .apropos .apropos-media .btn {
-    width: 100%;
   }
 }
 
 .competences {
   position: relative;
+  isolation: isolate;
   background-color: var(--color-secondary);
   color: var(--color-neutral);
+  /* ==========================================================================
+     BACKGROUND NETWORK
+     ========================================================================== */
+}
+.competences .background-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.competences .background-network canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .competences .wrapper {
+  position: relative;
+  z-index: 1;
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
+}
+.competences {
+  /* ==========================================================================
+     LIGNES DE LA SECTION
+     ========================================================================== */
 }
 .competences::before, .competences::after {
   content: "";
   position: absolute;
   left: 0;
+  z-index: 2;
   width: 100%;
   height: 1px;
   background-color: var(--color-accent);
@@ -2494,9 +2822,14 @@ a:hover {
 .competences::after {
   bottom: 0;
 }
+.competences {
+  /* ==========================================================================
+     STRUCTURE
+     ========================================================================== */
+}
 .competences .competences-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: var(--spacing-xl);
 }
@@ -2511,30 +2844,65 @@ a:hover {
   text-align: center;
   text-transform: uppercase;
 }
-.competences .competences-content .skills .skills-grid {
+.competences {
+  /* ==========================================================================
+     PANNEAUX HOLOGRAPHIQUES
+     ========================================================================== */
+}
+.competences .skills-grid,
+.competences .software-grid {
+  background: repeating-linear-gradient(to bottom, transparent 0 4px, rgba(54, 218, 255, 0.025) 5px), linear-gradient(135deg, var(--color-secondary), rgba(18, 84, 106, 0.2));
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow-soft), inset 0 0 6px var(--color-accent-glow-soft);
+  transition: box-shadow 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.competences .skills-grid:hover,
+.competences .software-grid:hover {
+  box-shadow: 0 0 15px var(--color-accent-glow), inset 0 0 15px var(--color-accent-glow);
+}
+.competences {
+  /* ==========================================================================
+     COMPÉTENCES
+     ========================================================================== */
+}
+.competences .skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: center;
   gap: var(--spacing-md) var(--spacing-base);
-  padding-left: var(--spacing-md);
-  padding-right: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
 }
-.competences .competences-content .software .software-grid {
+.competences {
+  /* ==========================================================================
+     LOGICIELS
+     ========================================================================== */
+}
+.competences .software-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-content: center;
   gap: var(--spacing-lg) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+.competences {
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
 }
 @media screen and (max-width: 1096px) {
   .competences .competences-content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
   }
-  .competences .competences-content .software .software-grid {
+  .competences .software-grid {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
   }
+}
+.competences {
+  /* ==========================================================================
+     MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 768px) {
   .competences .wrapper {
@@ -2545,39 +2913,85 @@ a:hover {
   .competences .competences-content .software {
     gap: var(--spacing-md);
   }
-  .competences .competences-content .skills .skills-grid {
+  .competences .skills-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
-    padding-left: var(--spacing-md);
-    padding-right: var(--spacing-md);
+    padding: var(--spacing-md);
   }
-  .competences .competences-content .software .software-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .competences .software-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-lg);
+    padding: var(--spacing-md);
   }
 }
 
 .interets {
+  position: relative;
+  isolation: isolate;
   background-color: var(--color-primary);
   color: var(--color-neutral);
+  /* ==========================================================================
+     BACKGROUND 3D
+     ========================================================================== */
+}
+.interets .background-3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.interets .background-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.interets {
+  /* ==========================================================================
+     STRUCTURE
+     ========================================================================== */
 }
 .interets .wrapper {
+  position: relative;
+  z-index: 1;
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
+}
+.interets {
+  /* ==========================================================================
+     TITRE
+     ========================================================================== */
 }
 .interets h1 {
   margin-bottom: var(--spacing-lg);
   text-transform: uppercase;
 }
+.interets {
+  /* ==========================================================================
+     GRILLE DES INTÉRÊTS
+     ========================================================================== */
+}
 .interets .interets-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--spacing-md);
+}
+.interets {
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
 }
 @media screen and (max-width: 1096px) {
   .interets .interets-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+.interets {
+  /* ==========================================================================
+     MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 768px) {
   .interets .wrapper {
@@ -2585,9 +2999,14 @@ a:hover {
     padding-bottom: var(--spacing-lg);
   }
   .interets .interets-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--spacing-base);
   }
+}
+.interets {
+  /* ==========================================================================
+     PETIT MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 480px) {
   .interets .interets-grid {
@@ -2597,18 +3016,44 @@ a:hover {
 
 .contact {
   position: relative;
+  isolation: isolate;
   background-color: var(--color-secondary);
   color: var(--color-neutral);
   margin-bottom: var(--spacing-xl);
+  /* ==========================================================================
+     BACKGROUND NETWORK
+     ========================================================================== */
+}
+.contact .background-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.contact .background-network canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .contact .wrapper {
+  position: relative;
+  z-index: 1;
   padding-top: var(--spacing-xl);
   padding-bottom: var(--spacing-xl);
+}
+.contact {
+  /* ==========================================================================
+     LIGNES DE LA SECTION
+     ========================================================================== */
 }
 .contact::before, .contact::after {
   content: "";
   position: absolute;
   left: 0;
+  z-index: 2;
   width: 100%;
   height: 1px;
   background-color: var(--color-accent);
@@ -2619,6 +3064,11 @@ a:hover {
 }
 .contact::after {
   bottom: 0;
+}
+.contact {
+  /* ==========================================================================
+     CONTENU
+     ========================================================================== */
 }
 .contact .contact-content {
   display: grid;
@@ -2695,7 +3145,9 @@ a:hover {
   filter: drop-shadow(0 0 5px var(--color-accent-glow));
 }
 .contact {
-  /* Tablette */
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
 }
 @media screen and (max-width: 1096px) {
   .contact .contact-content {
@@ -2711,7 +3163,9 @@ a:hover {
   }
 }
 .contact {
-  /* Mobile */
+  /* ==========================================================================
+     MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 768px) {
   .contact .wrapper {
@@ -2753,6 +3207,11 @@ a:hover {
   width: 80px;
   height: 80px;
   filter: drop-shadow(0 0 5px var(--color-accent-glow-soft));
+  transition: transform 0.35s cubic-bezier(0.215, 0.61, 0.355, 1), filter 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.software-item:hover .software-icon {
+  transform: translateY(-7px) scale(1.06);
+  filter: drop-shadow(0 0 12px var(--color-accent-glow));
 }
 
 .project-page {
@@ -3070,7 +3529,7 @@ a:hover {
   overflow: hidden;
   background-color: var(--color-secondary);
   border: 1px solid var(--color-accent);
-  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
   box-shadow: inset 0 0 8px var(--color-accent-glow-soft), 0 0 6px var(--color-accent-glow-soft);
 }
 .skill .skill-bar::before {
@@ -3081,7 +3540,7 @@ a:hover {
   left: 3px;
   width: calc(var(--level) - 6px);
   background-color: var(--color-accent);
-  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
   box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent-glow);
 }
 .skill .skill-bar::after {
@@ -3105,10 +3564,20 @@ a:hover {
 .hologram-container {
   width: 100%;
   height: 500px;
-  cursor: crosshair;
+  position: relative;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .hologram-container canvas {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+.hologram-container:active {
+  cursor: grabbing;
 }
 
 @media screen and (max-width: 768px) {
