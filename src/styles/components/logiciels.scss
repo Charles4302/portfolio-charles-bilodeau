@@ -4,7 +4,6 @@
     justify-content: center;
 
     min-height: 100px;
-
     color: var(--color-neutral);
 
     .software-icon {
@@ -12,5 +11,17 @@
         height: 80px;
 
         filter: drop-shadow(0 0 5px var(--color-accent-glow-soft));
+
+        transition:
+            transform 0.35s $ease-out-cubic,
+            filter 0.35s $ease-out-cubic;
+    }
+
+    &:hover {
+        .software-icon {
+            transform: translateY(-7px) scale(1.06);
+
+            filter: drop-shadow(0 0 12px var(--color-accent-glow));
+        }
     }
 }

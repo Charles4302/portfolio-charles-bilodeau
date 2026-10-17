@@ -1,3 +1,5 @@
+Hologram3D.js;
+
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -14,6 +16,17 @@ export default class Hologram3D {
     this.robotBaseY = 0;
     this.mixer = null;
 
+    // Rotation interactive
+    this.isDragging = false;
+    this.activePointerId = null;
+
+    this.previousPointer = new THREE.Vector2();
+    this.targetRotation = new THREE.Vector2();
+    this.currentRotation = new THREE.Vector2();
+
+    // Groupe permettant de faire tourner le robot
+    this.robotGroup = new THREE.Group();
+
     this.init();
   }
 
@@ -27,20 +40,20 @@ export default class Hologram3D {
     this.camera.position.set(0, 3.5, 7);
     this.camera.lookAt(0, 1, 0);
 
-    // Éclairage
+    // Éclairage holographique
     this.createLights();
 
-    // Groupe de la plateforme holographique
+    // Plateforme holographique
     this.platform = new THREE.Group();
     this.scene.add(this.platform);
+
+    // Groupe du robot
+    this.scene.add(this.robotGroup);
 
     // Éléments holographiques
     this.createRings();
     this.createSegments();
     this.createTicks();
-
-    // Modèle Blender
-    this.loadRobot();
 
     // Renderer
     this.renderer = new THREE.WebGLRenderer({
@@ -49,46 +62,64 @@ export default class Hologram3D {
     });
 
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     this.element.appendChild(this.renderer.domElement);
 
+    // Chargement du modèle Blender
+    this.loadRobot();
+
     // Événements
     this.resize = this.resize.bind(this);
     this.animate = this.animate.bind(this);
+
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+
+    this.onPointerDown = this.onPointerDown.bind(this);
+    this.onPointerUp = this.onPointerUp.bind(this);
 
     window.addEventListener('resize', this.resize);
 
     this.element.addEventListener('pointermove', this.onMouseMove);
-
     this.element.addEventListener('pointerleave', this.onMouseLeave);
+
+    this.element.addEventListener('pointerdown', this.onPointerDown);
+    this.element.addEventListener('pointerup', this.onPointerUp);
+    this.element.addEventListener('pointercancel', this.onPointerUp);
+    this.element.addEventListener('lostpointercapture', this.onPointerUp);
 
     this.resize();
     this.animate();
   }
 
   createLights() {
-    // Lumière ambiante
-    const ambientLight = new THREE.AmbientLight('#ffffff', 1.5);
-
+    // Lumière ambiante blanche
+    // Conserve la visibilité des matériaux du robot
+    const ambientLight = new THREE.AmbientLight('#ffffff', 0.8);
     this.scene.add(ambientLight);
 
-    // Lumière principale cyan
-    const directionalLight = new THREE.DirectionalLight('#36daff', 2);
+    // Lumière principale blanche
+    // Préserve les couleurs rouges et métalliques
+    const mainLight = new THREE.DirectionalLight('#ffffff', 1.8);
+    mainLight.position.set(3, 5, 4);
+    this.scene.add(mainLight);
 
-    directionalLight.position.set(3, 5, 4);
+    // Lumière cyan provenant du socle
+    this.hologramLight = new THREE.PointLight('#36daff', 12, 6, 2);
 
-    this.scene.add(directionalLight);
+    this.hologramLight.position.set(0, 0.4, 0);
+    this.scene.add(this.hologramLight);
 
-    // Lumière secondaire
-    const fillLight = new THREE.DirectionalLight('#ffffff', 1);
+    // Lumière cyan latérale
+    const sideLight = new THREE.DirectionalLight('#36daff', 1.2);
+    sideLight.position.set(-4, 2, 1);
+    this.scene.add(sideLight);
 
-    fillLight.position.set(-3, 2, -2);
-
-    this.scene.add(fillLight);
+    // Lumière bleutée à l'arrière du robot
+    const backLight = new THREE.DirectionalLight('#247bff', 1.5);
+    backLight.position.set(1, 3, -4);
+    this.scene.add(backLight);
   }
 
   createRings() {
@@ -140,14 +171,11 @@ export default class Hologram3D {
       });
 
       const segment = new THREE.Mesh(geometry, material);
-
-      // Groupe permettant la rotation horizontale
       const segmentGroup = new THREE.Group();
 
       segment.rotation.x = Math.PI / 2;
 
       segmentGroup.position.y = index * 0.015 + 0.01;
-
       segmentGroup.rotation.y = index * 1.7;
 
       segmentGroup.add(segment);
@@ -199,6 +227,101 @@ export default class Hologram3D {
     this.platform.add(ticks);
   }
 
+  // Effet Fresnel cyan sur les contours du robot
+  createHologramEffect() {
+    this.robot.traverse((child) => {
+      if (!child.isMesh) return;
+
+      const originalMaterials = Array.isArray(child.material)
+        ? child.material
+        : [child.material];
+
+      const hologramMaterials = originalMaterials.map((original) => {
+        const material = original.clone();
+
+        material.onBeforeCompile = (shader) => {
+          shader.uniforms.hologramColor = {
+            value: new THREE.Color('#36daff'),
+          };
+
+          shader.uniforms.hologramStrength = {
+            value: 0.9,
+          };
+
+          // Variables pour calculer l'effet Fresnel
+          shader.vertexShader = shader.vertexShader.replace(
+            '#include <common>',
+            `
+            #include <common>
+
+            varying vec3 vHologramNormal;
+            varying vec3 vHologramViewPosition;
+            `,
+          );
+
+          shader.vertexShader = shader.vertexShader.replace(
+            '#include <beginnormal_vertex>',
+            `
+            #include <beginnormal_vertex>
+
+            vHologramNormal = normalize(normalMatrix * objectNormal);
+            `,
+          );
+
+          shader.vertexShader = shader.vertexShader.replace(
+            '#include <project_vertex>',
+            `
+            #include <project_vertex>
+
+            vHologramViewPosition = -mvPosition.xyz;
+            `,
+          );
+
+          shader.fragmentShader = shader.fragmentShader.replace(
+            '#include <common>',
+            `
+            #include <common>
+
+            varying vec3 vHologramNormal;
+            varying vec3 vHologramViewPosition;
+
+            uniform vec3 hologramColor;
+            uniform float hologramStrength;
+            `,
+          );
+
+          // Émission cyan sur les contours
+          shader.fragmentShader = shader.fragmentShader.replace(
+            '#include <emissivemap_fragment>',
+            `
+            #include <emissivemap_fragment>
+
+            vec3 hologramNormal = normalize(vHologramNormal);
+            vec3 hologramView = normalize(vHologramViewPosition);
+
+            float fresnel = pow(
+              1.0 - abs(dot(hologramNormal, hologramView)),
+              3.0
+            );
+
+            totalEmissiveRadiance +=
+              hologramColor * fresnel * hologramStrength;
+            `,
+          );
+        };
+
+        material.customProgramCacheKey = () => 'robot-fresnel-v2';
+        material.needsUpdate = true;
+
+        return material;
+      });
+
+      child.material = Array.isArray(child.material)
+        ? hologramMaterials
+        : hologramMaterials[0];
+    });
+  }
+
   loadRobot() {
     const loader = new GLTFLoader();
 
@@ -208,37 +331,38 @@ export default class Hologram3D {
       (gltf) => {
         this.robot = gltf.scene;
 
+        // Ajouter l'effet holographique
+        this.createHologramEffect();
+
         // Dimensions initiales
         const bounds = new THREE.Box3().setFromObject(this.robot);
-
         const size = bounds.getSize(new THREE.Vector3());
 
-        // Ajustement automatique de la taille
-        const targetHeight = 2.5;
+        // Taille du robot
+        const targetHeight = 3;
 
         if (size.y > 0) {
           const scale = targetHeight / size.y;
-
           this.robot.scale.multiplyScalar(scale);
         }
 
         // Recalcul après redimensionnement
         const finalBounds = new THREE.Box3().setFromObject(this.robot);
-
         const center = finalBounds.getCenter(new THREE.Vector3());
 
         // Centrage horizontal
         this.robot.position.x -= center.x;
         this.robot.position.z -= center.z;
 
-        // Positionnement au-dessus de la plateforme
+        // Positionnement au-dessus du socle
         this.robot.position.y -= finalBounds.min.y;
         this.robot.position.y += 0.25;
 
         // Position de référence pour le flottement
         this.robotBaseY = this.robot.position.y;
 
-        this.scene.add(this.robot);
+        // Ajouter le robot au groupe interactif
+        this.robotGroup.add(this.robot);
 
         // Animations provenant de Blender
         if (gltf.animations.length > 0) {
@@ -260,18 +384,69 @@ export default class Hologram3D {
     );
   }
 
+  onPointerDown(event) {
+    // Rotation avec le clic gauche uniquement
+    if (event.button !== 0 || this.isDragging) return;
+
+    this.isDragging = true;
+    this.activePointerId = event.pointerId;
+
+    this.previousPointer.set(event.clientX, event.clientY);
+
+    this.element.setPointerCapture(event.pointerId);
+  }
+
+  onPointerUp(event) {
+    if (
+      this.activePointerId !== null &&
+      event.pointerId !== this.activePointerId
+    ) {
+      return;
+    }
+
+    this.isDragging = false;
+    this.activePointerId = null;
+
+    if (this.element.hasPointerCapture(event.pointerId)) {
+      this.element.releasePointerCapture(event.pointerId);
+    }
+  }
+
   onMouseMove(event) {
     const bounds = this.element.getBoundingClientRect();
 
+    // Interaction douce avec la souris
     this.targetMouse.x =
       ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
 
     this.targetMouse.y =
       ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+
+    // Rotation du robot pendant le clic
+    if (this.isDragging && event.pointerId === this.activePointerId) {
+      const deltaX = event.clientX - this.previousPointer.x;
+      const deltaY = event.clientY - this.previousPointer.y;
+
+      // Rotation horizontale complète
+      this.targetRotation.x += deltaX * 0.008;
+
+      // Inclinaison verticale limitée
+      this.targetRotation.y += deltaY * 0.005;
+
+      this.targetRotation.y = THREE.MathUtils.clamp(
+        this.targetRotation.y,
+        -0.4,
+        0.4,
+      );
+
+      this.previousPointer.set(event.clientX, event.clientY);
+    }
   }
 
   onMouseLeave() {
-    this.targetMouse.set(0, 0);
+    if (!this.isDragging) {
+      this.targetMouse.set(0, 0);
+    }
   }
 
   resize() {
@@ -303,11 +478,19 @@ export default class Hologram3D {
     this.mouse.lerp(this.targetMouse, 0.035);
 
     this.platform.rotation.z = -this.mouse.x * 0.08;
-
     this.platform.rotation.x = this.mouse.y * 0.06;
 
     // Flottement de la plateforme
     this.platform.position.y = Math.sin(elapsed * 0.8) * 0.035;
+
+    // Pulsation de la lumière cyan du socle
+    this.hologramLight.intensity = 10 + Math.sin(elapsed * 1.5) * 2;
+
+    // Rotation interactive fluide
+    this.currentRotation.lerp(this.targetRotation, 0.08);
+
+    this.robotGroup.rotation.y = this.currentRotation.x;
+    this.robotGroup.rotation.x = this.currentRotation.y;
 
     // Animations Blender
     if (this.mixer) {

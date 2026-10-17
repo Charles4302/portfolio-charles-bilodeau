@@ -2,6 +2,9 @@
 
 <main>
     <section class="hero" id="accueil" data-component="ScrollAnimations">
+        <!-- Grille 3D animée en arrière-plan -->
+        <div class="background-3d" data-component="Background"></div>
+
         <div class="wrapper">
             <div class="hero-content">
                 <div class="hero-text">
@@ -22,6 +25,12 @@
                     <p class="hero-description" data-animate="reveal">
                         Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.
                     </p>
+
+                    <div class="hero-actions">
+                        <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
+
+                        <a class="btn btn--outline" href="#a-propos" data-animate="frame">À propos</a>
+                    </div>
                 </div>
 
                 <div class="hero-media">
@@ -48,17 +57,14 @@
                         <span>Ce que je peux apporter</span>
                     </a>
                 </div>
-
-                <div class="hero-actions">
-                    <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
-
-                    <a class="btn btn--outline" href="#a-propos" data-animate="frame">À propos</a>
-                </div>
             </div>
         </div>
     </section>
 
     <section class="projets" id="projets" data-component="ScrollAnimations">
+        <!-- Réseau de données animé en arrière-plan -->
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+
         <div class="wrapper">
             <h2 class="projets-title" data-animate="reveal">Mes projets</h2>
 
@@ -76,7 +82,6 @@
 
                         <div class="projet-details">
                             <p class="projet-description">Modélisation et animation 3D d’un corridor d’un vaisseau spatial.</p>
-
                             <p class="projet-meta">Animation multimédia • Blender</p>
                         </div>
 
@@ -97,7 +102,6 @@
 
                         <div class="projet-details">
                             <p class="projet-description">Conception d’une expérience numérique interactive autour de Capitaliza.</p>
-
                             <p class="projet-meta">Environnement 3D • Unity</p>
                         </div>
 
@@ -118,7 +122,6 @@
 
                         <div class="projet-details">
                             <p class="projet-description">Jeu de collecte et de tri de déchets dans un environnement urbain.</p>
-
                             <p class="projet-meta">Jeu vidéo • Unity</p>
                         </div>
 
@@ -139,7 +142,6 @@
 
                         <div class="projet-details">
                             <p class="projet-description">Animation typographique basée sur le rythme.</p>
-
                             <p class="projet-meta">Motion design • After Effects</p>
                         </div>
 
@@ -160,7 +162,6 @@
 
                         <div class="projet-details">
                             <p class="projet-description">Création d’une scène 3D texturée avec du UV mapping.</p>
-
                             <p class="projet-meta">Web • Design interactif</p>
                         </div>
 
@@ -171,6 +172,9 @@
         </div>
     </section>
     <section class="apropos" id="a-propos" data-component="GrowImage">
+        <!-- Grille 3D animée en arrière-plan -->
+        <div class="background-3d" data-component="Background"></div>
+
         <div class="wrapper" data-component="ScrollAnimations">
             <div class="apropos-content">
                 <div class="apropos-text">
@@ -200,16 +204,16 @@
                         </p>
                     </div>
 
-                    <div class="soft-skills">
-                        <h3 data-animate="reveal">Soft skills</h3>
+                    <div class="soft-skills" data-animate="reveal">
+                        <h3>Soft skills</h3>
 
-                        <ul data-animate="reveal">
-                            <li>• Créatif</li>
-                            <li>• Collaboratif</li>
-                            <li>• Autonome</li>
-                            <li>• Adaptable</li>
-                            <li>• Polyvalent</li>
-                            <li>• Ponctuel</li>
+                        <ul>
+                            <li>Créatif</li>
+                            <li>Collaboratif</li>
+                            <li>Autonome</li>
+                            <li>Adaptable</li>
+                            <li>Polyvalent</li>
+                            <li>Ponctuel</li>
                         </ul>
                     </div>
                 </div>
@@ -228,8 +232,6 @@
                             </svg>
                         </button>
                     </div>
-
-                    <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
                 </div>
             </div>
         </div>
@@ -242,6 +244,9 @@
     </section>
 
     <section class="competences" id="competences" data-component="ScrollAnimations">
+        <!-- Circuits numériques animés en arrière-plan -->
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+
         <div class="wrapper">
             <div class="competences-content">
                 <!-- Compétences -->
@@ -332,7 +337,11 @@
             </div>
         </div>
     </section>
+
     <section class="interets" id="interets" data-component="ScrollAnimations">
+        <!-- Grille 3D animée en arrière-plan -->
+        <div class="background-3d" data-component="Background"></div>
+
         <div class="wrapper">
             <h1 data-animate="reveal">Mes passions et intérêts</h1>
 
@@ -340,77 +349,104 @@
                 <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/jeux_video.jpg" alt="Jeux vidéo" />
+                    </div>
 
+                    <div class="interest-info">
                         <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-jeux_video"></use>
                             </svg>
                         </div>
-                    </div>
 
-                    <h3 data-animate="reveal">Jeux vidéo</h3>
+                        <div class="interest-details">
+                            <h3 data-animate="reveal">Jeux vidéo</h3>
+                            <span class="interest-line"></span>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/cinema.webp" alt="Cinéma" />
+                    </div>
 
+                    <div class="interest-info">
                         <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-cinema"></use>
                             </svg>
                         </div>
-                    </div>
 
-                    <h3 data-animate="reveal">Cinéma</h3>
+                        <div class="interest-details">
+                            <h3 data-animate="reveal">Cinéma</h3>
+                            <span class="interest-line"></span>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/sci-fi.jpg" alt="Science-fiction" />
+                    </div>
 
+                    <div class="interest-info">
                         <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-sci-fi"></use>
                             </svg>
                         </div>
-                    </div>
 
-                    <h3 data-animate="reveal">Sci/Fi</h3>
+                        <div class="interest-details">
+                            <h3 data-animate="reveal">Sci/Fi</h3>
+                            <span class="interest-line"></span>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/esacalade.jpg" alt="Escalade" />
+                    </div>
 
+                    <div class="interest-info">
                         <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-escalade"></use>
                             </svg>
                         </div>
-                    </div>
 
-                    <h3 data-animate="reveal">Escalade</h3>
+                        <div class="interest-details">
+                            <h3 data-animate="reveal">Escalade</h3>
+                            <span class="interest-line"></span>
+                        </div>
+                    </div>
                 </article>
 
                 <article class="interest-card" data-animate="frame">
                     <div class="interest-image">
                         <img src="assets/images/echecs.jpg" alt="Échecs" />
+                    </div>
 
+                    <div class="interest-info">
                         <div class="interest-icon" data-animate="scale">
                             <svg class="icon">
                                 <use href="#icon-echecs"></use>
                             </svg>
                         </div>
-                    </div>
 
-                    <h3 data-animate="reveal">Échecs</h3>
+                        <div class="interest-details">
+                            <h3 data-animate="reveal">Échecs</h3>
+                            <span class="interest-line"></span>
+                        </div>
+                    </div>
                 </article>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contact" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+
         <div class="wrapper">
             <div class="contact-content">
                 <div class="contact-intro">

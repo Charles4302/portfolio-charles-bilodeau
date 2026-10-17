@@ -12,13 +12,12 @@
 
         width: 100%;
         height: 30px;
-
         overflow: hidden;
 
         background-color: var(--color-secondary);
         border: 1px solid var(--color-accent);
 
-        clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        clip-path: polygon(16px 0, 100% 0, calc(100% - 16px) 100%, 0 100%);
 
         box-shadow:
             inset 0 0 8px var(--color-accent-glow-soft),
@@ -26,8 +25,8 @@
 
         &::before {
             content: '';
-
             position: absolute;
+
             top: 3px;
             bottom: 3px;
             left: 3px;
@@ -36,7 +35,7 @@
 
             background-color: var(--color-accent);
 
-            clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+            clip-path: polygon(15px 0, 100% 0, calc(100% - 15px) 100%, 0 100%);
 
             box-shadow:
                 0 0 5px var(--color-accent),
@@ -45,7 +44,6 @@
 
         &::after {
             content: '';
-
             position: absolute;
             inset: 3px;
 

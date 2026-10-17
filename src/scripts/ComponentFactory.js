@@ -3,6 +3,10 @@ import Header from './components/Header.js';
 import ScrollAnimations from './components/ScrollAnimations.js';
 import AudioPlayer from './components/AudioPlayer.js';
 import Youtube from './components/Youtube.js';
+import CustomCursor from './components/CustomCursor.js';
+import Hologram3D from './components/Hologram3D.js';
+import Background from './components/Background.js';
+import BackgroundNetwork from './components/BackgroundNetwork.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -12,6 +16,10 @@ export default class ComponentFactory {
       ScrollAnimations,
       AudioPlayer,
       Youtube,
+      CustomCursor,
+      Hologram3D,
+      Background,
+      BackgroundNetwork,
     };
 
     this.init();

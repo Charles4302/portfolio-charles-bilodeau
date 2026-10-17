@@ -1,0 +1,158 @@
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    width: 48px;
+    height: 58px;
+
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate3d(-100px, -100px, 0);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+
+        transition: transform 0.15s ease;
+    }
+
+    .cursor-glow {
+        fill: none;
+        stroke: var(--color-accent);
+        stroke-width: 10;
+        stroke-linejoin: round;
+        opacity: 0.15;
+
+        filter: blur(3px);
+
+        transition:
+            stroke-width 0.25s ease,
+            opacity 0.25s ease;
+    }
+
+    .cursor-outline {
+        fill: var(--color-secondary);
+        stroke: var(--color-accent);
+        stroke-width: 3;
+        stroke-linejoin: round;
+
+        transition:
+            fill 0.25s ease,
+            stroke 0.25s ease;
+    }
+
+    .cursor-face-top {
+        fill: #0b435b;
+        transition: fill 0.25s ease;
+    }
+
+    .cursor-face-bottom {
+        fill: #092739;
+        transition: fill 0.25s ease;
+    }
+
+    .cursor-core {
+        fill: var(--color-accent);
+        transition: fill 0.25s ease;
+    }
+
+    .cursor-highlight {
+        fill: #a2f3ff;
+        transition: fill 0.25s ease;
+    }
+
+    // Curseur visible
+    &.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    // Hover sur les éléments interactifs
+    &.is-hovering {
+        .cursor-glow {
+            stroke-width: 18;
+            opacity: 0.5;
+        }
+
+        .cursor-outline {
+            fill: #092739;
+            stroke: #e5fcff;
+        }
+
+        .cursor-face-top {
+            fill: #27d8ff;
+        }
+
+        .cursor-face-bottom {
+            fill: #0d7b9d;
+        }
+
+        .cursor-core {
+            fill: #c7faff;
+        }
+
+        .cursor-highlight {
+            fill: var(--color-neutral);
+        }
+    }
+
+    // Animation au clic
+    &.is-clicking {
+        svg {
+            transform: scale(0.85);
+        }
+    }
+}
+
+// Activer uniquement avec une souris
+@media (hover: hover) and (pointer: fine) {
+    body.has-custom-cursor {
+        cursor: none;
+
+        a,
+        button,
+        [role='button'],
+        input[type='button'],
+        input[type='submit'],
+        input[type='reset'],
+        select,
+        summary {
+            cursor: none;
+        }
+
+        input[type='text'],
+        input[type='email'],
+        input[type='search'],
+        input[type='password'],
+        input[type='number'],
+        textarea,
+        [contenteditable='true'] {
+            cursor: text;
+        }
+    }
+}
+
+// Désactiver sur les appareils tactiles
+@media (hover: none), (pointer: coarse) {
+    .custom-cursor {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .custom-cursor,
+    .custom-cursor svg,
+    .custom-cursor path {
+        transition: none;
+    }
+}
