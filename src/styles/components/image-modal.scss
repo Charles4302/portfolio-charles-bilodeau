@@ -1,8 +1,8 @@
 .image-modal {
     position: fixed;
-    z-index: 100;
-
     inset: 0;
+
+    z-index: 9999;
 
     display: flex;
     align-items: center;
@@ -10,16 +10,25 @@
 
     padding: var(--spacing-lg);
 
-    background-color: var(--color-overlay);
+    // Arrière-plan sombre
+    background-color: rgba(0, 0, 0, 0.85);
 
     opacity: 0;
     visibility: hidden;
+
+    cursor: pointer;
 
     transition:
         opacity 0.3s $ease-out-cubic,
         visibility 0.3s $ease-out-cubic;
 
+    /* ==========================================================================
+       IMAGE AGRANDIE
+       ========================================================================== */
+
     .modal-image {
+        display: block;
+
         max-width: 90%;
         max-height: 90vh;
 
@@ -33,8 +42,14 @@
 
         transform: scale(0.95);
 
+        cursor: default;
+
         transition: transform 0.4s $ease-out-cubic;
     }
+
+    /* ==========================================================================
+       BOUTON FERMER
+       ========================================================================== */
 
     .modal-close {
         position: absolute;
@@ -67,6 +82,10 @@
         }
     }
 
+    /* ==========================================================================
+       MODALE OUVERTE
+       ========================================================================== */
+
     &[data-state='open'] {
         opacity: 1;
         visibility: visible;
@@ -75,4 +94,9 @@
             transform: scale(1);
         }
     }
+}
+
+/* Empêcher le défilement pendant l'ouverture */
+body.modal-open {
+    overflow: hidden;
 }

@@ -17,9 +17,11 @@
 
     .project-media {
         .project-image {
-            aspect-ratio: 1;
+            // Image légèrement plus rectangulaire
+            aspect-ratio: 4 / 3;
 
             img {
+                display: block;
                 width: 100%;
                 height: 100%;
 

@@ -6,6 +6,7 @@
          ========================================================================== -->
 
     <section class="project-section project-hero" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
         <div class="wrapper">
             <div class="project-grid">
                 <div class="project-text">
@@ -62,11 +63,8 @@
          INFORMATIONS
          ========================================================================== -->
 
-    <!-- ==========================================================================
-     INFORMATIONS
-     ========================================================================== -->
-
     <section class="project-section project-section--dark project-info" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
         <div class="wrapper">
             <div class="project-info-grid">
                 <div class="project-info-role" data-animate="reveal">
@@ -110,6 +108,7 @@
      ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
         <div class="wrapper">
             <div class="project-grid">
                 <div class="project-text">
@@ -170,6 +169,7 @@
      ========================================================================== -->
 
     <section class="project-section project-section--dark" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
         <div class="wrapper">
             <div class="project-grid project-grid--reverse">
                 <!-- Deux petites images en haut + grande image en bas -->
@@ -258,6 +258,7 @@
      ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
         <div class="wrapper">
             <div class="project-grid">
                 <div class="project-text">
@@ -341,6 +342,7 @@
      ========================================================================== -->
 
     <section class="project-section project-section--dark" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
         <div class="wrapper">
             <div class="project-grid project-grid--reverse">
                 <div class="project-media project-media--stack">
@@ -408,6 +410,7 @@
      ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
         <div class="wrapper">
             <div class="project-grid">
                 <div class="project-text">
@@ -445,8 +448,13 @@
                             </div>
 
                             <button class="audio-play" type="button" aria-label="Lire la piste">
-                                <span class="play-symbol">▶</span>
-                                <span class="pause-symbol">Ⅱ</span>
+                                <svg class="icon play-symbol">
+                                    <use href="#icon-play_audio"></use>
+                                </svg>
+
+                                <svg class="icon pause-symbol">
+                                    <use href="#icon-pause"></use>
+                                </svg>
                             </button>
                         </div>
 
@@ -468,6 +476,7 @@
          ========================================================================== -->
 
     <section class="project-section project-section--dark project-result" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
         <div class="wrapper">
             <h2 data-animate="reveal">Résultat final</h2>
 
@@ -477,6 +486,8 @@
                 </svg>
 
                 <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
+                    <img class="video-thumbnail" src="assets/images/corridor.png" alt="" />
+
                     <svg class="play-icon icon" data-animate="scale">
                         <use href="#icon-play"></use>
                     </svg>

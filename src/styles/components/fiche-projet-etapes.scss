@@ -3,6 +3,13 @@
    ========================================================================== */
 
 .project-page {
+    // Hauteur commune des groupes d'images
+    --project-media-height: 480px;
+
+    /* ==========================================================================
+       TITRES
+       ========================================================================== */
+
     .project-heading {
         display: flex;
         align-items: flex-start;
@@ -55,29 +62,57 @@
     }
 
     /* ==========================================================================
-       MÉDIAS
+       MÉDIAS DES ÉTAPES
        ========================================================================== */
 
-    .project-media--stack {
-        display: grid;
-        grid-template-columns: 1fr;
-
-        gap: var(--spacing-base);
-    }
-
+    .project-media--stack,
     .project-media--three {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
         gap: var(--spacing-base);
+
+        // Hauteur totale commune
+        height: var(--project-media-height);
 
         .project-image-container {
             width: 100%;
             min-width: 0;
+            min-height: 0;
+        }
+
+        .project-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
-    /* Deux petites images en haut + une grande en bas */
+    /* ==========================================================================
+       DEUX IMAGES SUPERPOSÉES
+       ========================================================================== */
+
+    .project-media--stack {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    /* ==========================================================================
+       TROIS IMAGES
+       ========================================================================== */
+
+    .project-media--three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    /* ==========================================================================
+       DEUX PETITES IMAGES EN HAUT + GRANDE IMAGE EN BAS
+       ========================================================================== */
 
     .project-media--three.project-media--wide-bottom {
         .project-image-container:last-child {
@@ -85,7 +120,9 @@
         }
     }
 
-    /* Une grande image en haut + deux petites en bas */
+    /* ==========================================================================
+       GRANDE IMAGE EN HAUT + DEUX PETITES EN BAS
+       ========================================================================== */
 
     .project-media--three.project-media--wide-top {
         .project-image-container:first-child {
@@ -93,16 +130,47 @@
         }
     }
 
+    .audio-play {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .play-symbol,
+        .pause-symbol {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        // Ajustement optique du triangle Play
+        .play-symbol {
+            transform: translateX(2px);
+        }
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        --project-media-height: 400px;
+    }
+
     /* ==========================================================================
        MOBILE
        ========================================================================== */
 
     @media screen and (max-width: $breakpoint-sm) {
+        --project-media-height: 320px;
+
         .project-media--three {
+            height: auto;
             grid-template-columns: 1fr;
+            grid-template-rows: none;
 
             .project-image-container {
                 grid-column: auto;
+                height: 180px;
             }
         }
     }

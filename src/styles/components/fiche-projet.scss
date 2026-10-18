@@ -11,7 +11,16 @@
        ========================================================================== */
 
     .project-section {
+        position: relative;
+        isolation: isolate;
+
         padding: var(--spacing-xl) 0;
+
+        // Contenu au-dessus des backgrounds
+        > .wrapper {
+            position: relative;
+            z-index: 1;
+        }
     }
 
     .project-section--dark {
@@ -23,15 +32,47 @@
     }
 
     /* ==========================================================================
+       BACKGROUNDS ANIMÉS
+       ========================================================================== */
+
+    .background-3d,
+    .background-network {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+        pointer-events: none;
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    /* ==========================================================================
        GRILLE GÉNÉRALE
        ========================================================================== */
 
     .project-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: center;
+
+        // Aligner les images avec le haut du texte
+        align-items: start;
 
         gap: var(--spacing-xl);
+    }
+
+    // Conserver le centrage du Hero
+    .project-hero {
+        .project-grid {
+            align-items: center;
+        }
     }
 
     .project-grid--reverse {

@@ -161,10 +161,73 @@
 
     h2 {
         margin-bottom: var(--spacing-lg);
+
+        text-align: center;
         text-transform: uppercase;
     }
 
     .video-container {
+        // Taille légèrement augmentée
+        width: min(100%, 1200px, 115vh);
+
+        // Conserver le format vidéo
         aspect-ratio: 16 / 9;
+
+        // Centrer horizontalement
+        margin: 0 auto;
+    }
+
+    /* ==========================================================================
+   VIDEO THUMBNAIL
+   ========================================================================== */
+
+    .video-thumbnail {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        filter: brightness(0.65);
+
+        pointer-events: none;
+
+        transition:
+            filter 0.4s $ease-out-cubic,
+            transform 0.4s $ease-out-cubic;
+    }
+
+    .video-preview {
+        overflow: hidden;
+
+        .play-icon {
+            position: relative;
+            z-index: 1;
+        }
+
+        &:hover {
+            .video-thumbnail {
+                filter: brightness(0.8);
+                transform: scale(1.03);
+            }
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .video-container {
+            width: 100%;
+        }
+
+        .play-icon {
+            width: 90px;
+            height: 90px;
+        }
     }
 }
