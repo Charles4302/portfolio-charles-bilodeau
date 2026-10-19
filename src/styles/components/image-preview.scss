@@ -1,0 +1,107 @@
+.apropos-image,
+.project-image {
+    position: relative;
+
+    display: block;
+    width: 100%;
+    padding: 0;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+    --image-corner-size: 60px;
+    --image-border-size: 2px;
+
+    /* ==========================================================================
+       FORME EXTÉRIEURE
+       ========================================================================== */
+
+    --image-clip: polygon(
+        0 0,
+        calc(100% - var(--image-corner-size)) 0,
+        100% var(--image-corner-size),
+        100% 100%,
+        var(--image-corner-size) 100%,
+        0 calc(100% - var(--image-corner-size))
+    );
+
+    /* ==========================================================================
+       FRAME CYAN
+       ========================================================================== */
+
+    &::before {
+        content: '';
+
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        background-color: var(--color-accent);
+
+        clip-path: var(--image-clip);
+
+        pointer-events: none;
+    }
+
+    /* ==========================================================================
+       IMAGE
+       ========================================================================== */
+
+    img {
+        position: relative;
+        z-index: 1;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        border: 0;
+
+        // Forme intérieure légèrement plus petite
+        clip-path: polygon(
+            var(--image-border-size) var(--image-border-size),
+            calc(100% - var(--image-corner-size) - var(--image-border-size))
+                var(--image-border-size),
+            calc(100% - var(--image-border-size))
+                calc(var(--image-corner-size) + var(--image-border-size)),
+            calc(100% - var(--image-border-size))
+                calc(100% - var(--image-border-size)),
+            calc(var(--image-corner-size) + var(--image-border-size))
+                calc(100% - var(--image-border-size)),
+            var(--image-border-size)
+                calc(100% - var(--image-corner-size) - var(--image-border-size))
+        );
+
+        transition: filter 0.35s $ease-out-cubic;
+    }
+
+    /* ==========================================================================
+       GLOW PERMANENT
+       ========================================================================== */
+
+    filter: drop-shadow(0 0 2px var(--color-accent-glow-soft))
+        drop-shadow(0 0 4px var(--color-accent-glow-soft));
+
+    transition: filter 0.35s $ease-out-cubic;
+
+    /* ==========================================================================
+       HOVER
+       ========================================================================== */
+
+    &:hover {
+        filter: drop-shadow(0 0 4px var(--color-accent-glow))
+            drop-shadow(0 0 8px var(--color-accent-glow-soft));
+
+        img {
+            filter: brightness(1.05);
+        }
+
+        .image-corner {
+            opacity: 1;
+            transform: translate(0);
+        }
+    }
+}

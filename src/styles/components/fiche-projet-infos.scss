@@ -1,0 +1,119 @@
+.project-info-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(0, 1.5fr)
+        minmax(0, 0.9fr);
+
+    gap: var(--spacing-lg);
+
+    .project-info-role,
+    .project-info-credits,
+    .project-info-tools {
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* ==========================================================================
+       MON RÔLE
+       ========================================================================== */
+
+    .project-info-role {
+        padding-right: var(--spacing-md);
+
+        border-right: 1px solid var(--color-accent);
+    }
+
+    /* ==========================================================================
+       CRÉDITS
+       ========================================================================== */
+
+    .project-info-credits {
+        padding-right: var(--spacing-md);
+
+        border-right: 1px solid var(--color-accent);
+    }
+
+    /* ==========================================================================
+       OUTILS
+       ========================================================================== */
+
+    .project-info-tools {
+        padding-left: 0;
+    }
+
+    /* ==========================================================================
+       TITRES
+       ========================================================================== */
+
+    h3 {
+        margin-bottom: var(--spacing-md);
+
+        text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       LISTES
+       ========================================================================== */
+
+    ul {
+        display: flex;
+        flex-direction: column;
+
+        gap: var(--spacing-sm);
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    li {
+        margin: 0;
+        padding: 0;
+
+        line-height: 1.5;
+
+        // Favorise des lignes plus équilibrées
+        text-wrap: pretty;
+
+        // Évite les césures au milieu des mots
+        hyphens: none;
+        overflow-wrap: normal;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        .project-info-role,
+        .project-info-credits,
+        .project-info-tools {
+            padding: var(--spacing-md) 0;
+
+            border-right: 0;
+        }
+
+        .project-info-role {
+            padding-top: 0;
+
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        .project-info-credits {
+            border-bottom: 1px solid var(--color-accent);
+        }
+
+        .project-info-tools {
+            padding-bottom: 0;
+        }
+    }
+}

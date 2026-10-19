@@ -1,0 +1,61 @@
+//FONTS
+// ici sont chargés les fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+// TOOLS
+// mixins et fonctions utilisés globalement dans le SCSS (Sass)
+@import 'tools/typo';
+
+// SETTINGS
+// Contient les variables sur les polices, les définitions de couleurs, les définitions de  grandeurs,   etc.
+@import 'settings/colors';
+@import 'settings/easing';
+@import 'settings/fonts';
+@import 'settings/dimensions';
+
+// GENERIC
+// Permet de réinitialiser les CSS et de changer le modèle de boîte en box-sizing: border-box
+@import 'generic/normalize';
+@import 'generic/reset';
+
+// ELEMENTS
+// Modification des styles généraux de la page. Ce sont les styles qui seront généralement hérités par les éléments de la page.
+@import 'elements/body';
+@import 'elements/typography';
+@import 'elements/links';
+@import 'elements/wrapper';
+
+// COMPONENTS
+// Composants d'interface utilisateur spécifiques.
+// C’est là que la majorité de notre travail a lieu.
+@import '../../node_modules/swiper/swiper-bundle';
+
+@import 'components/icons';
+@import 'components/background';
+@import 'components/curseur';
+@import 'components/header';
+@import 'components/navigation';
+@import 'components/logo';
+@import 'components/sociaux';
+@import 'components/image-modal';
+@import 'components/image-preview';
+@import 'components/video';
+@import 'components/audio-player';
+@import 'components/hero';
+@import 'components/projets';
+@import 'components/cards';
+@import 'components/apropos';
+@import 'components/competences';
+@import 'components/interets';
+@import 'components/contact';
+@import 'components/ecran-interface';
+@import 'components/logiciels';
+@import 'components/fiche-projet';
+@import 'components/fiche-projet-hero';
+@import 'components/fiche-projet-infos';
+@import 'components/fiche-projet-etapes';
+@import 'components/fiche-projet-resultat';
+@import 'components/skill-bar';
+@import 'components/hologram-3d';
+@import 'components/buttons';
+@import 'components/404';
+@import 'components/footer';

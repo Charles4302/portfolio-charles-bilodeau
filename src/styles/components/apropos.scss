@@ -1,0 +1,208 @@
+.apropos {
+    position: relative;
+
+    background-color: var(--color-primary);
+    color: var(--color-neutral);
+
+    /* ==========================================================================
+       BACKGROUND 3D
+       ========================================================================== */
+
+    .background-3d {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        pointer-events: none;
+        overflow: hidden;
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+
+        padding: var(--spacing-xl) 0;
+    }
+
+    /* ==========================================================================
+       STRUCTURE
+       ========================================================================== */
+
+    .apropos-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: start;
+        gap: var(--spacing-xl);
+    }
+
+    /* ==========================================================================
+       CONTENU
+       ========================================================================== */
+
+    .apropos-text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .apropos-title {
+        font-size: var(--font-size-display);
+        line-height: 1;
+        text-transform: uppercase;
+    }
+
+    .apropos-description {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+
+        strong {
+            color: var(--color-accent);
+        }
+    }
+
+    /* ==========================================================================
+       SOFT SKILLS
+       ========================================================================== */
+
+    .soft-skills {
+        margin-top: var(--spacing-base);
+        padding: var(--spacing-md);
+
+        background:
+            repeating-linear-gradient(
+                to bottom,
+                transparent 0 4px,
+                rgba(54, 218, 255, 0.025) 5px
+            ),
+            linear-gradient(
+                135deg,
+                var(--color-secondary),
+                rgba(18, 84, 106, 0.2)
+            );
+
+        border: 1px solid var(--color-accent);
+
+        box-shadow:
+            0 0 6px var(--color-accent-glow-soft),
+            inset 0 0 6px var(--color-accent-glow-soft);
+
+        transition: box-shadow 0.6s $ease-out-cubic;
+
+        h3 {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--spacing-sm);
+
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+
+            padding: var(--spacing-sm);
+            background-color: rgba(54, 218, 255, 0.07);
+
+            font-size: var(--font-size-h4);
+            font-weight: 500;
+            text-transform: uppercase;
+
+            &::before {
+                content: '';
+                flex-shrink: 0;
+
+                width: 6px;
+                height: 6px;
+
+                background-color: var(--color-accent);
+                box-shadow: 0 0 6px var(--color-accent-glow);
+            }
+        }
+
+        &:hover {
+            box-shadow:
+                0 0 15px var(--color-accent-glow),
+                inset 0 0 15px var(--color-accent-glow);
+        }
+    }
+
+    /* ==========================================================================
+       IMAGE
+       ========================================================================== */
+
+    .apropos-media {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: var(--spacing-xl);
+    }
+
+    .apropos-image {
+        max-width: 500px;
+    }
+
+    /* ==========================================================================
+       MODALE
+       ========================================================================== */
+
+    .image-modal {
+        z-index: 100;
+    }
+
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-md) {
+        .apropos-content {
+            grid-template-columns: 1fr;
+        }
+
+        .apropos-media {
+            align-items: center;
+        }
+
+        .apropos-image {
+            max-width: 600px;
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        .wrapper {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .soft-skills {
+            ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .apropos-media {
+            gap: var(--spacing-lg);
+        }
+    }
+}

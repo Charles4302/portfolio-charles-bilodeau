@@ -1,0 +1,41 @@
+{% include '_partials/_header.html' %}
+<main class="error-page" data-component="ScrollAnimations">
+    <!-- Fond animé existant -->
+    <div class="background-network" data-component="BackgroundNetwork"></div>
+
+    <div class="wrapper">
+        <div class="error-content">
+            <div class="error-status" data-animate="reveal">
+                <span class="status-dot"></span>
+                <span>ERREUR SYSTÈME / 404</span>
+            </div>
+
+            <div class="error-number" aria-hidden="true">
+                <span class="glitch" data-text="404">404</span>
+            </div>
+
+            <div class="error-message">
+                <span class="error-line" aria-hidden="true"></span>
+
+                <h1 data-animate="reveal">Page introuvable</h1>
+
+                <p data-animate="reveal">Oups! Il semble que cette page ait disparu du réseau ou qu'elle n'ait jamais existé.</p>
+
+                <a href="/portfolio/#accueil" class="btn error-button">
+                    Retour à l'accueil
+
+                    <svg class="icon" aria-hidden="true">
+                        <use href="#icon-fleche"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="error-footer" aria-hidden="true">
+                <span>ERR_404 : RESSOURCE INTROUVABLE</span>
+                <span>CONNEXION INTERROMPUE</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include '_partials/_footer.html' %}

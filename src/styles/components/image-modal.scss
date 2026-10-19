@@ -1,0 +1,102 @@
+.image-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-lg);
+
+    // Arrière-plan sombre
+    background-color: rgba(0, 0, 0, 0.85);
+
+    opacity: 0;
+    visibility: hidden;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.3s $ease-out-cubic,
+        visibility 0.3s $ease-out-cubic;
+
+    /* ==========================================================================
+       IMAGE AGRANDIE
+       ========================================================================== */
+
+    .modal-image {
+        display: block;
+
+        max-width: 90%;
+        max-height: 90vh;
+
+        object-fit: contain;
+
+        border: 1px solid var(--color-accent);
+
+        box-shadow:
+            0 0 10px var(--color-accent-glow),
+            0 0 30px var(--color-accent-glow-soft);
+
+        transform: scale(0.95);
+
+        cursor: default;
+
+        transition: transform 0.4s $ease-out-cubic;
+    }
+
+    /* ==========================================================================
+       BOUTON FERMER
+       ========================================================================== */
+
+    .modal-close {
+        position: absolute;
+
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+
+        width: 50px;
+        height: 50px;
+
+        padding: 0;
+
+        background-color: transparent;
+        color: var(--color-accent);
+
+        border: 1px solid var(--color-accent);
+
+        font-size: var(--font-size-h2);
+        line-height: 1;
+
+        cursor: pointer;
+
+        transition:
+            background-color 0.3s $ease-out-cubic,
+            color 0.3s $ease-out-cubic;
+
+        &:hover {
+            background-color: var(--color-accent);
+            color: var(--color-secondary);
+        }
+    }
+
+    /* ==========================================================================
+       MODALE OUVERTE
+       ========================================================================== */
+
+    &[data-state='open'] {
+        opacity: 1;
+        visibility: visible;
+
+        .modal-image {
+            transform: scale(1);
+        }
+    }
+}
+
+/* Empêcher le défilement pendant l'ouverture */
+body.modal-open {
+    overflow: hidden;
+}
