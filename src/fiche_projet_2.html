@@ -12,31 +12,27 @@
                 <div class="project-text">
                     <p class="project-label" data-animate="reveal">01 // Projet</p>
 
-                    <h1 data-animate="reveal">
-                        Corridor
-                        <br />
-                        spatial
-                    </h1>
+                    <h1 data-animate="reveal">Retour sur Terre</h1>
 
                     <span class="project-line"></span>
 
                     <p data-animate="reveal">
                         Retour sur Terre est une
-                        <strong>expérience interactive immersive et coopérative</strong>
-                        dans laquelle deux joueurs doivent collaborer pour ramener une capsule spatiale sur Terre.
+                        <strong>expérience immersive et coopérative</strong>
+                        où deux joueurs collaborent pour ramener une capsule spatiale sur Terre.
                     </p>
 
                     <p data-animate="reveal">
-                        L'un prend place dans la capsule et utilise des
+                        L'un pilote la capsule à l'aide de
                         <strong>commandes physiques</strong>
-                        , tandis que l'autre, depuis un centre de contrôle, le guide à travers différentes situations d'urgence.
+                        , tandis que l'autre le guide depuis un centre de contrôle pour surmonter les urgences.
                     </p>
 
                     <p data-animate="reveal">
-                        Réalisé en équipe et présenté lors de
+                        Présenté à
                         <strong>Chaos Média</strong>
-                        , le projet combine des
-                        <strong>animations 3D, des projections et des interactions physiques</strong>
+                        , ce projet combine
+                        <strong>animations 3D et projections</strong>
                         pour donner vie à cette mission spatiale.
                     </p>
                 </div>
@@ -448,36 +444,47 @@
                 </div>
 
                 <div class="project-media project-media--stack">
-                    <div class="audio-player" data-component="AudioPlayer" data-animate="reveal">
-                        <audio preload="metadata">
-                            <source src="assets/audio/tp4_anim_multi.wav" type="audio/mpeg" />
-                        </audio>
+                    <div class="project-media project-media--three project-media--wide-top">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                                <img src="assets/images/projection.jpg" alt="Projection" />
 
-                        <div class="audio-header">
-                            <div class="audio-info">
-                                <div>
-                                    <h4>Ambiance sonore</h4>
-                                    <span>Corridor spatial</span>
-                                </div>
-                            </div>
-
-                            <button class="audio-play" type="button" aria-label="Lire la piste">
-                                <svg class="icon play-symbol">
-                                    <use href="#icon-play_audio"></use>
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
                                 </svg>
 
-                                <svg class="icon pause-symbol">
-                                    <use href="#icon-pause"></use>
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
                                 </svg>
                             </button>
                         </div>
 
-                        <div class="audio-controls">
-                            <span class="audio-current">0:00</span>
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                                <img src="assets/images/charles_chaos.jpg" alt="Charles chaos" />
 
-                            <input class="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Position dans la piste audio" />
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
 
-                            <span class="audio-duration">0:00</span>
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                                <img src="assets/images/image_montage_chaos.png" alt="Montage Chaos" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -491,16 +498,17 @@
 
     <section class="project-section project-section--dark project-result" data-component="ScrollAnimations">
         <div class="background-network" data-component="BackgroundNetwork"></div>
+
         <div class="wrapper">
             <h2 data-animate="reveal">Résultat final</h2>
 
-            <div class="video-container" data-component="Youtube" data-video-id="A5kXVF34_u8" data-animate="frame">
+            <div class="video-container" data-component="Youtube" data-video-id="E5aL8FatvEg" data-no-controls="true" data-animate="frame">
                 <svg class="video-corner corner-top icon">
                     <use href="#icon-corner-top"></use>
                 </svg>
 
                 <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
-                    <img class="video-thumbnail" src="assets/images/corridor.png" alt="" />
+                    <img class="video-thumbnail" src="assets/images/retourterre.jpg" alt="Résultat final" />
 
                     <svg class="play-icon icon" data-animate="scale">
                         <use href="#icon-play"></use>

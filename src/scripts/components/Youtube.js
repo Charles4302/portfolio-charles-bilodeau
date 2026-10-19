@@ -6,10 +6,13 @@ export default class YouTube {
     this.poster = this.element.querySelector('.js-poster');
 
     this.videoId = this.element.dataset.videoId;
+
+    // Masquer les contrôles si data-no-controls="true"
     this.controls = this.element.dataset.noControls === 'true' ? 0 : 1;
 
     this.player = null;
     this.playerReady = false;
+    this.observer = null;
 
     if (!this.videoId || !this.videoContainer) {
       console.error('YouTube : ID ou conteneur vidéo manquant.');
@@ -21,6 +24,10 @@ export default class YouTube {
     this.init();
   }
 
+  /* ==========================================================================
+       INITIALISATION
+       ========================================================================== */
+
   init() {
     this.initPlayer = this.initPlayer.bind(this);
 
@@ -31,8 +38,11 @@ export default class YouTube {
     }
   }
 
+  /* ==========================================================================
+       LECTEUR YOUTUBE
+       ========================================================================== */
+
   async initPlayer() {
-    console.log('Clic sur la vidéo YouTube');
     if (this.player) return;
 
     if (this.poster) {
@@ -97,7 +107,6 @@ export default class YouTube {
       this.player.pauseVideo();
     }
   }
-
   static loadScript() {
     if (window.YT && window.YT.Player) {
       return Promise.resolve();
@@ -138,6 +147,25 @@ export default class YouTube {
         instance.player.pauseVideo();
       }
     });
+  }
+
+  destroy() {
+    if (this.poster) {
+      this.poster.removeEventListener('click', this.initPlayer);
+    }
+
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    if (this.player) {
+      this.player.destroy();
+      this.player = null;
+    }
+
+    YouTube.instances = YouTube.instances.filter(
+      (instance) => instance !== this,
+    );
   }
 }
 

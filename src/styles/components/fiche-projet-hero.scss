@@ -15,9 +15,15 @@
         margin-bottom: var(--spacing-md);
     }
 
+    /* ==========================================================================
+       IMAGE DU HERO
+       ========================================================================== */
+
     .project-media {
+        // Décale l'image vers le bas pour l'aligner avec le premier paragraphe
+        align-self: end;
+
         .project-image {
-            // Image légèrement plus rectangulaire
             aspect-ratio: 4 / 3;
 
             img {
@@ -30,8 +36,16 @@
         }
     }
 
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
     @media screen and (max-width: $breakpoint-md) {
         min-height: auto;
+
+        .project-media {
+            align-self: auto;
+        }
     }
 }
 

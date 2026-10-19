@@ -1,10 +1,16 @@
 .project-info-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr 1fr;
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(0, 1.5fr)
+        minmax(0, 0.9fr);
+
+    gap: var(--spacing-lg);
 
     .project-info-role,
     .project-info-credits,
     .project-info-tools {
+        min-width: 0;
         width: 100%;
     }
 
@@ -13,7 +19,7 @@
        ========================================================================== */
 
     .project-info-role {
-        padding-right: var(--spacing-xl);
+        padding-right: var(--spacing-md);
 
         border-right: 1px solid var(--color-accent);
     }
@@ -23,17 +29,9 @@
        ========================================================================== */
 
     .project-info-credits {
-        padding: 0 var(--spacing-lg);
+        padding-right: var(--spacing-md);
 
         border-right: 1px solid var(--color-accent);
-
-        h3,
-        ul {
-            width: fit-content;
-
-            margin-left: auto;
-            margin-right: auto;
-        }
     }
 
     /* ==========================================================================
@@ -41,32 +39,50 @@
        ========================================================================== */
 
     .project-info-tools {
-        padding-left: var(--spacing-md);
+        padding-left: 0;
     }
 
     /* ==========================================================================
-       CONTENU
+       TITRES
        ========================================================================== */
 
     h3 {
-        margin-bottom: var(--spacing-base);
+        margin-bottom: var(--spacing-md);
 
         text-transform: uppercase;
     }
 
+    /* ==========================================================================
+       LISTES
+       ========================================================================== */
+
     ul {
-        margin-top: 0;
-        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+
+        gap: var(--spacing-sm);
+
+        margin: 0;
         padding: 0;
 
         list-style: none;
     }
 
     li {
-        margin-bottom: var(--spacing-xs);
+        margin: 0;
+        padding: 0;
+
+        line-height: 1.5;
+
+        // Favorise des lignes plus équilibrées
+        text-wrap: pretty;
+
+        // Évite les césures au milieu des mots
+        hyphens: none;
+        overflow-wrap: normal;
 
         &::before {
-            content: '• ';
+            content: none;
         }
     }
 
@@ -76,6 +92,7 @@
 
     @media screen and (max-width: $breakpoint-md) {
         grid-template-columns: 1fr;
+        gap: 0;
 
         .project-info-role,
         .project-info-credits,
@@ -93,14 +110,6 @@
 
         .project-info-credits {
             border-bottom: 1px solid var(--color-accent);
-
-            h3,
-            ul {
-                width: auto;
-
-                margin-left: 0;
-                margin-right: 0;
-            }
         }
 
         .project-info-tools {
