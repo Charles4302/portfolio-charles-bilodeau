@@ -1840,18 +1840,23 @@ a:hover {
 
 .image-modal {
   position: fixed;
-  z-index: 100;
   inset: 0;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-lg);
-  background-color: var(--color-overlay);
+  background-color: rgba(0, 0, 0, 0.85);
   opacity: 0;
   visibility: hidden;
+  cursor: pointer;
   transition: opacity 0.3s cubic-bezier(0.215, 0.61, 0.355, 1), visibility 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* ==========================================================================
+     IMAGE AGRANDIE
+     ========================================================================== */
 }
 .image-modal .modal-image {
+  display: block;
   max-width: 90%;
   max-height: 90vh;
   -o-object-fit: contain;
@@ -1859,7 +1864,13 @@ a:hover {
   border: 1px solid var(--color-accent);
   box-shadow: 0 0 10px var(--color-accent-glow), 0 0 30px var(--color-accent-glow-soft);
   transform: scale(0.95);
+  cursor: default;
   transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.image-modal {
+  /* ==========================================================================
+     BOUTON FERMER
+     ========================================================================== */
 }
 .image-modal .modal-close {
   position: absolute;
@@ -1880,6 +1891,11 @@ a:hover {
   background-color: var(--color-accent);
   color: var(--color-secondary);
 }
+.image-modal {
+  /* ==========================================================================
+     MODALE OUVERTE
+     ========================================================================== */
+}
 .image-modal[data-state=open] {
   opacity: 1;
   visibility: visible;
@@ -1888,26 +1904,84 @@ a:hover {
   transform: scale(1);
 }
 
+/* Empêcher le défilement pendant l'ouverture */
+body.modal-open {
+  overflow: hidden;
+}
+
 .apropos-image,
 .project-image {
   position: relative;
+  display: block;
   width: 100%;
   padding: 0;
   background: transparent;
   border: 0;
   cursor: pointer;
+  --image-corner-size: 60px;
+  --image-border-size: 2px;
+  /* ==========================================================================
+     FORME EXTÉRIEURE
+     ========================================================================== */
+  --image-clip: polygon(
+      0 0,
+      calc(100% - var(--image-corner-size)) 0,
+      100% var(--image-corner-size),
+      100% 100%,
+      var(--image-corner-size) 100%,
+      0 calc(100% - var(--image-corner-size))
+  );
+  /* ==========================================================================
+     FRAME CYAN
+     ========================================================================== */
+}
+.apropos-image::before,
+.project-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--color-accent);
+  clip-path: var(--image-clip);
+  pointer-events: none;
+}
+.apropos-image,
+.project-image {
+  /* ==========================================================================
+     IMAGE
+     ========================================================================== */
 }
 .apropos-image img,
 .project-image img {
-  width: 100%;
+  position: relative;
+  z-index: 1;
   display: block;
-  border: 1px solid var(--color-accent);
-  clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 60px 100%, 0 calc(100% - 60px));
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 0;
+  clip-path: polygon(var(--image-border-size) var(--image-border-size), calc(100% - var(--image-corner-size) - var(--image-border-size)) var(--image-border-size), calc(100% - var(--image-border-size)) calc(var(--image-corner-size) + var(--image-border-size)), calc(100% - var(--image-border-size)) calc(100% - var(--image-border-size)), calc(var(--image-corner-size) + var(--image-border-size)) calc(100% - var(--image-border-size)), var(--image-border-size) calc(100% - var(--image-corner-size) - var(--image-border-size)));
   transition: filter 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.apropos-image,
+.project-image {
+  /* ==========================================================================
+     GLOW PERMANENT
+     ========================================================================== */
+  filter: drop-shadow(0 0 2px var(--color-accent-glow-soft)) drop-shadow(0 0 4px var(--color-accent-glow-soft));
+  transition: filter 0.35s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* ==========================================================================
+     HOVER
+     ========================================================================== */
+}
+.apropos-image:hover,
+.project-image:hover {
+  filter: drop-shadow(0 0 4px var(--color-accent-glow)) drop-shadow(0 0 8px var(--color-accent-glow-soft));
 }
 .apropos-image:hover img,
 .project-image:hover img {
-  filter: drop-shadow(0 0 8px var(--color-accent-glow-soft));
+  filter: brightness(1.05);
 }
 .apropos-image:hover .image-corner,
 .project-image:hover .image-corner {
@@ -2020,10 +2094,56 @@ a:hover {
 }
 .project-result h2 {
   margin-bottom: var(--spacing-lg);
+  text-align: center;
   text-transform: uppercase;
 }
 .project-result .video-container {
+  width: min(100%, 1200px, 115vh);
   aspect-ratio: 16/9;
+  margin: 0 auto;
+}
+.project-result {
+  /* ==========================================================================
+  VIDEO THUMBNAIL
+  ========================================================================== */
+}
+.project-result .video-thumbnail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  filter: brightness(0.65);
+  pointer-events: none;
+  transition: filter 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.project-result .video-preview {
+  overflow: hidden;
+}
+.project-result .video-preview .play-icon {
+  position: relative;
+  z-index: 1;
+}
+.project-result .video-preview:hover .video-thumbnail {
+  filter: brightness(0.8);
+  transform: scale(1.03);
+}
+.project-result {
+  /* ==========================================================================
+     MOBILE
+     ========================================================================== */
+}
+@media screen and (max-width: 768px) {
+  .project-result .video-container {
+    width: 100%;
+  }
+  .project-result .play-icon {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .audio-player {
@@ -2609,7 +2729,6 @@ a:hover {
 
 .apropos {
   position: relative;
-  isolation: isolate;
   background-color: var(--color-primary);
   color: var(--color-neutral);
   /* ==========================================================================
@@ -3227,12 +3346,39 @@ a:hover {
      ========================================================================== */
 }
 .project-page .project-section {
+  position: relative;
+  isolation: isolate;
   padding: var(--spacing-xl) 0;
+}
+.project-page .project-section > .wrapper {
+  position: relative;
+  z-index: 1;
 }
 .project-page .project-section--dark {
   background-color: var(--color-secondary);
   border-block: 1px solid var(--color-accent);
   box-shadow: 0 0 6px var(--color-accent-glow-soft);
+}
+.project-page {
+  /* ==========================================================================
+     BACKGROUNDS ANIMÉS
+     ========================================================================== */
+}
+.project-page .background-3d,
+.project-page .background-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.project-page .background-3d canvas,
+.project-page .background-network canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .project-page {
   /* ==========================================================================
@@ -3242,8 +3388,11 @@ a:hover {
 .project-page .project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: start;
   gap: var(--spacing-xl);
+}
+.project-page .project-hero .project-grid {
+  align-items: center;
 }
 .project-page .project-grid--reverse {
   grid-template-columns: 1.1fr 0.9fr;
@@ -3300,18 +3449,35 @@ a:hover {
 .project-hero .project-line {
   margin-bottom: var(--spacing-md);
 }
+.project-hero {
+  /* ==========================================================================
+     IMAGE DU HERO
+     ========================================================================== */
+}
+.project-hero .project-media {
+  align-self: end;
+}
 .project-hero .project-media .project-image {
-  aspect-ratio: 1;
+  aspect-ratio: 4/3;
 }
 .project-hero .project-media .project-image img {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
+.project-hero {
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
+}
 @media screen and (max-width: 1096px) {
   .project-hero {
     min-height: auto;
+  }
+  .project-hero .project-media {
+    align-self: auto;
   }
 }
 
@@ -3330,11 +3496,13 @@ a:hover {
 
 .project-info-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.5fr) minmax(0, 0.9fr);
+  gap: var(--spacing-lg);
 }
 .project-info-grid .project-info-role,
 .project-info-grid .project-info-credits,
 .project-info-grid .project-info-tools {
+  min-width: 0;
   width: 100%;
 }
 .project-info-grid {
@@ -3343,7 +3511,7 @@ a:hover {
      ========================================================================== */
 }
 .project-info-grid .project-info-role {
-  padding-right: var(--spacing-xl);
+  padding-right: var(--spacing-md);
   border-right: 1px solid var(--color-accent);
 }
 .project-info-grid {
@@ -3352,15 +3520,8 @@ a:hover {
      ========================================================================== */
 }
 .project-info-grid .project-info-credits {
-  padding: 0 var(--spacing-lg);
+  padding-right: var(--spacing-md);
   border-right: 1px solid var(--color-accent);
-}
-.project-info-grid .project-info-credits h3,
-.project-info-grid .project-info-credits ul {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 .project-info-grid {
   /* ==========================================================================
@@ -3368,28 +3529,40 @@ a:hover {
      ========================================================================== */
 }
 .project-info-grid .project-info-tools {
-  padding-left: var(--spacing-md);
+  padding-left: 0;
 }
 .project-info-grid {
   /* ==========================================================================
-     CONTENU
+     TITRES
      ========================================================================== */
 }
 .project-info-grid h3 {
-  margin-bottom: var(--spacing-base);
+  margin-bottom: var(--spacing-md);
   text-transform: uppercase;
 }
+.project-info-grid {
+  /* ==========================================================================
+     LISTES
+     ========================================================================== */
+}
 .project-info-grid ul {
-  margin-top: 0;
-  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .project-info-grid li {
-  margin-bottom: var(--spacing-xs);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  text-wrap: pretty;
+  hyphens: none;
+  overflow-wrap: normal;
 }
 .project-info-grid li::before {
-  content: "• ";
+  content: none;
 }
 .project-info-grid {
   /* ==========================================================================
@@ -3399,6 +3572,7 @@ a:hover {
 @media screen and (max-width: 1096px) {
   .project-info-grid {
     grid-template-columns: 1fr;
+    gap: 0;
   }
   .project-info-grid .project-info-role,
   .project-info-grid .project-info-credits,
@@ -3413,12 +3587,6 @@ a:hover {
   .project-info-grid .project-info-credits {
     border-bottom: 1px solid var(--color-accent);
   }
-  .project-info-grid .project-info-credits h3,
-  .project-info-grid .project-info-credits ul {
-    width: auto;
-    margin-left: 0;
-    margin-right: 0;
-  }
   .project-info-grid .project-info-tools {
     padding-bottom: 0;
   }
@@ -3427,6 +3595,12 @@ a:hover {
 /* ==========================================================================
    TITRES DES ÉTAPES
    ========================================================================== */
+.project-page {
+  --project-media-height: 480px;
+  /* ==========================================================================
+     TITRES
+     ========================================================================== */
+}
 .project-page .project-heading {
   display: flex;
   align-items: flex-start;
@@ -3463,34 +3637,91 @@ a:hover {
 }
 .project-page {
   /* ==========================================================================
-     MÉDIAS
+     MÉDIAS DES ÉTAPES
      ========================================================================== */
 }
-.project-page .project-media--stack {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-base);
-}
+.project-page .project-media--stack,
 .project-page .project-media--three {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--spacing-base);
+  height: var(--project-media-height);
 }
+.project-page .project-media--stack .project-image-container,
 .project-page .project-media--three .project-image-container {
   width: 100%;
   min-width: 0;
+  min-height: 0;
+}
+.project-page .project-media--stack .project-image,
+.project-page .project-media--three .project-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.project-page .project-media--stack .project-image img,
+.project-page .project-media--three .project-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .project-page {
-  /* Deux petites images en haut + une grande en bas */
+  /* ==========================================================================
+     DEUX IMAGES SUPERPOSÉES
+     ========================================================================== */
+}
+.project-page .project-media--stack {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.project-page {
+  /* ==========================================================================
+     TROIS IMAGES
+     ========================================================================== */
+}
+.project-page .project-media--three {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+.project-page {
+  /* ==========================================================================
+     DEUX PETITES IMAGES EN HAUT + GRANDE IMAGE EN BAS
+     ========================================================================== */
 }
 .project-page .project-media--three.project-media--wide-bottom .project-image-container:last-child {
   grid-column: 1/-1;
 }
 .project-page {
-  /* Une grande image en haut + deux petites en bas */
+  /* ==========================================================================
+     GRANDE IMAGE EN HAUT + DEUX PETITES EN BAS
+     ========================================================================== */
 }
 .project-page .project-media--three.project-media--wide-top .project-image-container:first-child {
   grid-column: 1/-1;
+}
+.project-page .audio-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-page .audio-play .play-symbol,
+.project-page .audio-play .pause-symbol {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.project-page .audio-play .play-symbol {
+  transform: translateX(2px);
+}
+.project-page {
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
+}
+@media screen and (max-width: 1096px) {
+  .project-page {
+    --project-media-height: 400px;
+  }
 }
 .project-page {
   /* ==========================================================================
@@ -3498,11 +3729,17 @@ a:hover {
      ========================================================================== */
 }
 @media screen and (max-width: 768px) {
+  .project-page {
+    --project-media-height: 320px;
+  }
   .project-page .project-media--three {
+    height: auto;
     grid-template-columns: 1fr;
+    grid-template-rows: none;
   }
   .project-page .project-media--three .project-image-container {
     grid-column: auto;
+    height: 180px;
   }
 }
 
@@ -3644,6 +3881,259 @@ a:hover {
   left: 115%;
 }
 
+.error-page {
+  background-color: var(--color-primary);
+  color: var(--color-neutral);
+}
+
+.error-page .error-page {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: var(--spacing-xl) 0;
+  overflow: hidden;
+}
+.error-page .error-page .background-network {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.error-page .error-page .background-network canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.error-page .error-page .wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+.error-page .error-page .error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.error-page .error-page .error-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-accent);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.error-page .error-page .error-status .status-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent), 0 0 18px var(--color-accent);
+  animation: status-pulse 2s ease-in-out infinite;
+}
+.error-page .error-page .error-number {
+  position: relative;
+  margin: var(--spacing-md) 0;
+}
+.error-page .error-page .error-number .glitch {
+  position: relative;
+  display: block;
+  color: var(--color-neutral);
+  font-family: var(--font-primary);
+  font-size: clamp(120px, 24vw, 320px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 15px rgba(54, 218, 255, 0.2), 0 0 45px rgba(54, 218, 255, 0.1);
+}
+.error-page .error-page .error-number .glitch::before, .error-page .error-page .error-number .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.error-page .error-page .error-number .glitch::before {
+  color: var(--color-accent);
+  animation: glitch-left 7s infinite;
+}
+.error-page .error-page .error-number .glitch::after {
+  color: #a96bff;
+  animation: glitch-right 7s infinite;
+}
+.error-page .error-page .error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-base);
+  max-width: 720px;
+}
+.error-page .error-page .error-message .error-line {
+  display: block;
+  width: 100px;
+  height: 2px;
+  margin-bottom: var(--spacing-sm);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent), 0 0 18px rgba(54, 218, 255, 0.4);
+}
+.error-page .error-page .error-message h1 {
+  color: var(--color-neutral);
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.error-page .error-page .error-message p {
+  max-width: 580px;
+  color: var(--color-neutral);
+  opacity: 0.75;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.6;
+}
+.error-page .error-page .error-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+.error-page .error-page .error-button .icon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.error-page .error-page .error-button:hover .icon {
+  transform: translate(4px, -4px);
+}
+.error-page .error-page .error-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  width: 100%;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid rgba(54, 218, 255, 0.2);
+  color: var(--color-accent);
+  font-family: var(--font-primary);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+@media screen and (max-width: 1096px) {
+  .error-page .error-page {
+    min-height: 80vh;
+  }
+  .error-page .error-page .error-content {
+    max-width: 800px;
+  }
+  .error-page .error-page .error-number .glitch {
+    font-size: clamp(120px, 25vw, 240px);
+  }
+}
+@media screen and (max-width: 768px) {
+  .error-page .error-page {
+    min-height: 75vh;
+    padding: var(--spacing-lg) 0;
+  }
+  .error-page .error-page .error-status {
+    font-size: 11px;
+  }
+  .error-page .error-page .error-number {
+    margin: var(--spacing-lg) 0;
+  }
+  .error-page .error-page .error-number .glitch {
+    font-size: clamp(100px, 30vw, 170px);
+  }
+  .error-page .error-page .error-message h1 {
+    font-size: 28px;
+  }
+  .error-page .error-page .error-message p {
+    font-size: 16px;
+  }
+  .error-page .error-page .error-footer {
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--spacing-xl);
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+@keyframes status-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+@keyframes glitch-left {
+  0%, 92%, 100% {
+    opacity: 0;
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  93% {
+    opacity: 0.8;
+    transform: translate(-5px, 2px);
+    clip-path: inset(20% 0 60% 0);
+  }
+  94% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0.7;
+    transform: translate(4px, -2px);
+    clip-path: inset(65% 0 15% 0);
+  }
+  97% {
+    opacity: 0;
+  }
+}
+@keyframes glitch-right {
+  0%, 92%, 100% {
+    opacity: 0;
+    transform: translate(0);
+    clip-path: inset(0 0 0 0);
+  }
+  93% {
+    opacity: 0.7;
+    transform: translate(5px, -2px);
+    clip-path: inset(55% 0 20% 0);
+  }
+  94% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0.6;
+    transform: translate(-4px, 3px);
+    clip-path: inset(10% 0 70% 0);
+  }
+  97% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .error-page .glitch::before,
+  .error-page .glitch::after,
+  .error-page .status-dot {
+    animation: none;
+  }
+}
 .footer {
   background-color: var(--color-secondary);
   color: var(--color-neutral);
