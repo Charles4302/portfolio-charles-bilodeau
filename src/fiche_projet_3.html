@@ -1,0 +1,562 @@
+{% include '_partials/_header.html' %}
+
+<main class="project-page project-page--corridor" data-component="GrowImage">
+    <!-- ==========================================================================
+         HERO
+         ========================================================================== -->
+
+    <section class="project-section project-hero" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
+        <div class="wrapper">
+            <div class="project-grid">
+                <div class="project-text">
+                    <p class="project-label" data-animate="reveal">01 // Projet</p>
+
+                    <h1 data-animate="reveal">Triage urbains</h1>
+
+                    <span class="project-line"></span>
+
+                    <p data-animate="reveal">
+                        Triage urbain est un
+                        <strong>jeu 3D développé dans Unity</strong>
+                        dans le cadre du cours
+                        <strong>Jeux vidéo 2</strong>
+                        dans la technique multimédia, où le joueur parcourt une ville pour ramasser des déchets et les déposer dans les bons conteneurs.
+                    </p>
+
+                    <p data-animate="reveal">
+                        Le but est d'obtenir le
+                        <strong>meilleur score possible avant la fin du temps imparti</strong>
+                        , tout en évitant les véhicules qui circulent dans les rues.
+                    </p>
+
+                    <p data-animate="reveal">
+                        Ce projet individuel combine
+                        <strong>création d'un environnement urbain, programmation C# et mécaniques de jeu</strong>
+                        autour du tri des déchets.
+                    </p>
+                </div>
+
+                <div class="project-media">
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image de Triage urbain" data-animate="frame">
+                            <img src="assets/images/triageurbain.png" alt="Triage urbain" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         INFORMATIONS
+         ========================================================================== -->
+
+    <section class="project-section project-section--dark project-info" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+        <div class="wrapper">
+            <div class="project-info-grid">
+                <div class="project-info-role" data-animate="reveal">
+                    <h3>Mon rôle</h3>
+
+                    <ul>
+                        <li>Assemblage de l'environnement 3D</li>
+                        <li>Programmation des mécaniques de jeux en C#</li>
+                        <li>Intégration des assets dans Unity</li>
+                        <li>Configuration de la circulation des véhicules</li>
+                        <li>Création et intégration des interfaces UI</li>
+                        <li>Tests et ajustements du jeu</li>
+                    </ul>
+                </div>
+
+                <div class="project-info-credits" data-animate="reveal">
+                    <h3>Crédits</h3>
+
+                    <ul>
+                        <li>Projet individuel</li>
+                        <li><a href="https://assetstore.unity.com/packages/3d/environments/simplepoly-city-low-poly-assets-58899">SimplePoly City</a></li>
+                        <li><a href="https://assetstore.unity.com/packages/3d/environments/urban/simple-city-pack-plain-100348">Simple City pack plain</a></li>
+                        <li><a href="https://assetstore.unity.com/packages/3d/props/fruits-lowpoly-pack-lite-273980">Fruits LowPoly Pack Lite</a></li>
+                        <li>IA générative - Assistance à la programmation du système de déplacement autonome des véhicules.</li>
+                        <li>Benoit Lavigne - Enseignant du cours Jeux vidéo 2.</li>
+                    </ul>
+                </div>
+
+                <div class="project-info-tools" data-animate="reveal">
+                    <h3>Outils</h3>
+
+                    <ul>
+                        <li>Unity</li>
+                        <li>C#</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+     ÉTAPE 01
+     ========================================================================== -->
+
+    <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
+
+        <div class="wrapper">
+            <div class="project-grid">
+                <!-- Texte de l'étape -->
+                <div class="project-text">
+                    <div class="project-heading" data-animate="reveal">
+                        <span>01</span>
+
+                        <h2>Construire l'environnement urbain</h2>
+                    </div>
+
+                    <p data-animate="reveal">
+                        J'ai assemblé une
+                        <strong>ville 3D dans Unity</strong>
+                        à partir de différents assets, en organisant les bâtiments, les routes et les espaces verts pour créer une surface de jeu suffisamment
+                        <strong>grande</strong>
+                        et
+                        <strong>diversifié</strong>
+                        pour l'exploration.
+                    </p>
+
+                    <p data-animate="reveal">
+                        J'ai disposé les rues et les éléments du décor de façon à permettre au joueur de
+                        <strong>parcourir la ville</strong>
+                        à la recherche des déchets à ramasser.
+                    </p>
+                </div>
+
+                <!-- Médias de l'étape -->
+                <div class="project-media project-media--stack project-media--floating">
+                    <!-- Modèle 3D avec cadre -->
+                    <div class="project-model-container">
+                        <div class="model-viewer" data-component="ModelViewer" data-model="assets/models/ville.glb">
+                            <canvas class="model-canvas"></canvas>
+
+                            <!-- Indicateur du modèle -->
+                            <div class="model-viewer-label">
+                                <span class="status-dot"></span>
+                                <span>ENVIRONNEMENT 3D</span>
+                            </div>
+
+                            <!-- Instructions -->
+                            <div class="model-viewer-controls">Glisser pour tourner · Molette pour zoomer</div>
+                        </div>
+
+                        <!-- Coins décoratifs -->
+                        <svg class="image-corner corner-top icon">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <svg class="image-corner corner-bottom icon">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </div>
+
+                    <!-- Image sous le modèle -->
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l'image de l'environnement urbain" data-animate="frame">
+                            <img src="assets/images/conception-ville.webp" alt="Vue ville" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+     ÉTAPE 02
+     ========================================================================== -->
+
+    <section class="project-section project-section--dark" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+        <div class="wrapper">
+            <div class="project-grid project-grid--reverse">
+                <!-- Deux petites images en haut + grande image en bas -->
+                <div class="project-media project-media--three project-media--wide-bottom">
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image de la modélisation" data-animate="frame">
+                            <img src="assets/images/component_dechet.webp" alt="Component déchet" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image de la construction modulaire" data-animate="frame">
+                            <img src="assets/images/joueur_collecte_dechet.webp" alt="Joueur collectant un déchet" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’animation de l’environnement" data-animate="frame">
+                            <img src="assets/images/script-collecter.webp" alt="Collecter" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-text">
+                    <div class="project-heading" data-animate="reveal">
+                        <span>02</span>
+
+                        <h2>Programmer le joueur et la collecte de déchets</h2>
+                    </div>
+
+                    <p data-animate="reveal">
+                        Pour permettre au joueur d'explorer la ville, j'ai intégré un
+                        <strong>contrôleur à la première personne</strong>
+                        dans Unity, puis développé les interactions nécessaires aux déplacement du joueur et à la collecte des déchets .
+                    </p>
+
+                    <p data-animate="reveal">
+                        J'ai programmé en
+                        <strong>C# un système de ramassage</strong>
+                        utilisant la détection des collisions pour identifier les objets récupérables et les
+                        <strong>attacher à la caméra du joueur</strong>
+                        afin qu'ils suivent ses déplacements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+     ÉTAPE 03
+     ========================================================================== -->
+
+    <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
+        <div class="wrapper">
+            <div class="project-grid">
+                <div class="project-text">
+                    <div class="project-heading" data-animate="reveal">
+                        <span>03</span>
+
+                        <h2>Programmer le système de tri et des points</h2>
+                    </div>
+
+                    <p data-animate="reveal">
+                        J'ai développé un
+                        <strong>système de tri en C#</strong>
+                        permettant au joueur de déposer les déchets dans les conteneurs correspondants, situés près des usines de recyclage sur la map.
+                    </p>
+
+                    <p data-animate="reveal">
+                        Pour distinguer les types de déchets, j'ai utilisé des
+                        <strong>ScriptableObjects</strong>
+                        contenant leurs propres données, notamment leur valeur en points.
+                    </p>
+
+                    <p data-animate="reveal">
+                        Lorsqu'un déchet est déposé, le système
+                        <strong>vérifie sa catégorie</strong>
+                        pour attribuer des points si le tri est correct ou appliquer une pénalité en cas d'erreur.
+                    </p>
+                </div>
+
+                <!-- Grande image en haut + deux petites images en bas -->
+                <div class="project-media project-media--three project-media--wide-top">
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                            <img src="assets/images/component.webp" alt="Component" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                            <img src="assets/images/script-poubelle.webp" alt="Script Poubelle" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                            <img src="assets/images/Systeme_point.webp" alt="Système de points" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+     ÉTAPE 04
+     ========================================================================== -->
+
+    <section class="project-section project-section--dark" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+        <div class="wrapper">
+            <div class="project-grid project-grid--reverse">
+                <div class="project-media project-media--three project-media--wide-top">
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                            <img src="assets/images/ecran-de-fin.webp" alt="Écran de fin" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                            <img src="assets/images/afficher_points.webp" alt="Afficher points" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="project-image-container">
+                        <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                            <img src="assets/images/decompte.webp" alt="Décompte" />
+
+                            <svg class="image-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <svg class="image-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-text">
+                    <div class="project-heading" data-animate="reveal">
+                        <span>04</span>
+
+                        <h2>Interfaces et gestion des parties</h2>
+                    </div>
+
+                    <p data-animate="reveal">
+                        J'ai conçu les
+                        <strong>interfaces</strong>
+                        du jeu avec les
+                        <strong>Canvas</strong>
+                        de Unity, notamment les menus et les indicateurs affichés pendant la partie, pour permettre au joueur de suivre sa progression.
+                    </p>
+
+                    <p data-animate="reveal">
+                        J'ai programmé la gestion du
+                        <strong>score</strong>
+                        et du
+                        <strong>chronomètre</strong>
+                        , en reliant les données du jeu aux éléments de l'interface pour les actualiser en temps réel.
+                    </p>
+
+                    <p data-animate="reveal">
+                        J'ai également intégré un
+                        <strong>écran de fin de partie</strong>
+                        permettant de consulter le résultat et de recommencer une nouvelle partie.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+     ÉTAPE 05
+     ========================================================================== -->
+
+    <section class="project-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
+        <div class="wrapper">
+            <div class="project-grid">
+                <div class="project-text">
+                    <div class="project-heading" data-animate="reveal">
+                        <span>05</span>
+
+                        <h2>NavMesh et l'IA des voitures</h2>
+                    </div>
+
+                    <p data-animate="reveal">
+                        Pour rendre les
+                        <strong>ennemis</strong>
+                        plus crédibles, j'ai voulu créer des voitures qui circulent de manière autonome dans la ville, plutôt que de simplement poursuivre le
+                        joueur.
+                    </p>
+
+                    <p data-animate="reveal">
+                        Avec l'aide de
+                        <strong>l'IA</strong>
+                        , j'ai développé un système de déplacement utilisant le
+                        <strong>NavMesh</strong>
+                        de Unity, permettant aux véhicules de choisir des destinations aléatoires et de se déplacer entre celles-ci.
+                    </p>
+
+                    <p data-animate="reveal">
+                        J'ai également intégré un système de
+                        <strong>collision</strong>
+                        qui retire une vie au joueur lorsqu'il entre en contact avec un véhicule, ajoutant ainsi un danger à éviter pendant la collecte.
+                    </p>
+                </div>
+
+                <div class="project-media project-media--stack">
+                    <div class="project-media project-media--three project-media--wide-top">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                                <img src="assets/images/nav_mesh.webp" alt="NavMesh" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                                <img src="assets/images/script-nav-mesh.webp" alt="Script NavMesh" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                                <img src="assets/images/component-voiture.webp" alt="Component Voiture" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         RÉSULTAT FINAL
+         ========================================================================== -->
+
+    <section class="project-section project-section--dark project-result" data-component="ScrollAnimations">
+        <div class="background-network" data-component="BackgroundNetwork"></div>
+
+        <div class="wrapper">
+            <h2 data-animate="reveal">Résultat final</h2>
+
+            <div class="video-container" data-component="Youtube" data-video-id="E5aL8FatvEg" data-no-controls="true" data-animate="frame">
+                <svg class="video-corner corner-top icon">
+                    <use href="#icon-corner-top"></use>
+                </svg>
+
+                <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
+                    <img class="video-thumbnail" src="assets/images/retourterre.webp" alt="Résultat final" />
+
+                    <svg class="play-icon icon" data-animate="scale">
+                        <use href="#icon-play"></use>
+                    </svg>
+                </button>
+
+                <div class="video-embed">
+                    <div class="js-video"></div>
+                </div>
+
+                <svg class="video-corner corner-bottom icon">
+                    <use href="#icon-corner-bottom"></use>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         MODALE DES IMAGES
+         ========================================================================== -->
+
+    <div class="image-modal" data-state="closed">
+        <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
+
+        <img class="modal-image" src="" alt="" />
+    </div>
+</main>
+
+{% include '_partials/_footer.html' %}

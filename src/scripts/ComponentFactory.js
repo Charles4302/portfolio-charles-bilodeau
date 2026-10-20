@@ -7,6 +7,7 @@ import CustomCursor from './components/CustomCursor.js';
 import Hologram3D from './components/Hologram3D.js';
 import Background from './components/Background.js';
 import BackgroundNetwork from './components/BackgroundNetwork.js';
+import ModelViewer from './components/ModelViewer.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -20,6 +21,7 @@ export default class ComponentFactory {
       Hologram3D,
       Background,
       BackgroundNetwork,
+      ModelViewer,
     };
 
     this.init();
