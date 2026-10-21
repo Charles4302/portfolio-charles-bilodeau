@@ -12,8 +12,10 @@ export default class Header {
     this.scrollPosition = 0;
     this.lastScrollPosition = 0;
 
-    // Bouton du menu mobile
+    // Menu mobile
     this.button = this.element.querySelector('.menu-toggle');
+    this.menu = this.element.querySelector('.nav');
+    this.links = this.element.querySelectorAll('.nav-link');
 
     this.init();
   }
@@ -27,6 +29,31 @@ export default class Header {
     if (this.button) {
       this.button.addEventListener('click', this.toggleMenu.bind(this));
     }
+
+    // Ferme le menu lorsqu'on clique sur un lien
+    this.links.forEach((link) => {
+      link.addEventListener('click', () => {
+        this.closeMenu();
+      });
+    });
+
+    // Ferme le menu avec la touche Échap
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        this.element.classList.contains('menu-open')
+      ) {
+        this.closeMenu();
+        this.button.focus();
+      }
+    });
+
+    // Ferme le menu si on revient en mode ordinateur
+    window.addEventListener('resize', () => {
+      if (window.matchMedia(`(min-width: 1025px)`).matches) {
+        this.closeMenu();
+      }
+    });
 
     this.setHeaderState();
   }
@@ -57,16 +84,20 @@ export default class Header {
 
   // Affiche ou cache le header
   setHeaderState() {
+    // Garde le header visible si le menu est ouvert
+    if (this.element.classList.contains('menu-open')) {
+      this.element.dataset.state = 'visible';
+      return;
+    }
+
     if (this.options.alwaysShow) {
       this.element.dataset.state = 'visible';
       return;
     }
 
-    // Calcule la hauteur totale disponible pour le scroll
     const scrollHeight =
       document.scrollingElement.scrollHeight - window.innerHeight;
 
-    // Calcule le seuil à partir du pourcentage choisi
     const threshold = scrollHeight * this.options.threshold;
 
     if (
@@ -92,19 +123,35 @@ export default class Header {
 
   // Ouvre ou ferme le menu mobile
   toggleMenu() {
-    const isOpen = this.element.classList.toggle('menu-open');
-
-    // Met à jour l'accessibilité du bouton
-    this.button.setAttribute('aria-expanded', isOpen);
-
-    this.button.setAttribute(
-      'aria-label',
-      isOpen ? 'Fermer le menu' : 'Ouvrir le menu',
-    );
-
-    // Garde le header visible lorsque le menu est ouvert
-    if (isOpen) {
-      this.element.dataset.state = 'visible';
+    if (this.element.classList.contains('menu-open')) {
+      this.closeMenu();
+    } else {
+      this.openMenu();
     }
+  }
+
+  // Ouvre le menu
+  openMenu() {
+    this.element.classList.add('menu-open');
+    this.element.dataset.state = 'visible';
+
+    this.button.setAttribute('aria-expanded', 'true');
+    this.button.setAttribute('aria-label', 'Fermer le menu');
+
+    document.body.classList.add('menu-mobile-open');
+  }
+
+  // Ferme le menu
+  closeMenu() {
+    this.element.classList.remove('menu-open');
+
+    if (this.button) {
+      this.button.setAttribute('aria-expanded', 'false');
+      this.button.setAttribute('aria-label', 'Ouvrir le menu');
+    }
+
+    document.body.classList.remove('menu-mobile-open');
+
+    this.setHeaderState();
   }
 }

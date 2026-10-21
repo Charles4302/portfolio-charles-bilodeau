@@ -7,25 +7,36 @@
 
         <div class="wrapper">
             <div class="hero-content">
+                <!-- Contenu texte -->
                 <div class="hero-text">
-                    <h1 class="hero-title" data-animate="reveal">
-                        Charles
-                        <br />
-                        Bilodeau
-                    </h1>
+                    <!-- Identité HUD -->
+                    <div class="hero-identity" data-animate="reveal">
+                        <!-- Ligne décorative supérieure -->
+                        <div class="hero-identity-label">
+                            <span class="hero-identity-line"></span>
+                        </div>
 
-                    <p class="hero-role" data-animate="reveal">
-                        • Modélisateur 3D
-                        <br />
-                        • Développeur jeux vidéo
-                        <br />
-                        • Création de média
-                    </p>
+                        <!-- Nom -->
+                        <div class="hero-identity-name">
+                            <h1 class="hero-title">
+                                <span class="hero-firstname">Charles</span>
+                                <span class="hero-lastname">Bilodeau</span>
+                            </h1>
+                        </div>
 
+                        <!-- Profils -->
+                        <div class="hero-identity-footer">
+                            <span class="hero-identity-line"></span>
+                            <span>Multimédia / 3D / Game Dev</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
                     <p class="hero-description" data-animate="reveal">
                         Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.
                     </p>
 
+                    <!-- Boutons -->
                     <div class="hero-actions">
                         <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
 
@@ -33,29 +44,11 @@
                     </div>
                 </div>
 
+                <!-- Robot holographique -->
                 <div class="hero-media">
-                    <div class="video-float" data-animate="scroll-3d">
-                        <div class="video-container" data-animate="frame">
-                            <svg class="video-corner corner-top icon">
-                                <use href="#icon-corner-top"></use>
-                            </svg>
-
-                            <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
-                                <svg class="play-icon icon" data-animate="scale">
-                                    <use href="#icon-play"></use>
-                                </svg>
-                            </button>
-
-                            <svg class="video-corner corner-bottom icon">
-                                <use href="#icon-corner-bottom"></use>
-                            </svg>
-                        </div>
+                    <div class="hero-hologram" data-animate="scroll-3d">
+                        <div class="hologram-container" data-component="Hologram3D"></div>
                     </div>
-
-                    <a class="hero-more" href="#a-propos" data-animate="reveal">
-                        <span class="more-icon">+</span>
-                        <span>Ce que je peux apporter</span>
-                    </a>
                 </div>
             </div>
         </div>
@@ -109,7 +102,7 @@
                     </div>
                 </a>
 
-                <a class="projet-card" href="#" data-animate="frame">
+                <a class="projet-card" href="fiche_projet_3.html" data-animate="frame">
                     <img class="projet-image" src="assets/images/triageurbain.png" alt="Projet Triage urbain" />
 
                     <div class="projet-info">
@@ -221,7 +214,7 @@
                 <div class="apropos-media">
                     <div data-animate="scroll-3d">
                         <button class="apropos-image" type="button" aria-label="Agrandir la photo" data-animate="frame">
-                            <img src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau" />
+                            <img src="assets/images/portrait.webp" alt="Portrait de Charles Bilodeau" />
 
                             <svg class="image-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
@@ -488,11 +481,31 @@
         </div>
     </section>
 
-    <section class="hologram-section">
-        <div class="wrapper">
-            <h2>Expérience holographique</h2>
+    <section class="presentation-section" data-component="ScrollAnimations">
+        <div class="background-3d" data-component="Background"></div>
 
-            <div class="hologram-container" data-component="Hologram3D"></div>
+        <div class="wrapper">
+            <h2 data-animate="reveal">Vidéo de présentation</h2>
+
+            <div class="presentation-media">
+                <div class="video-float" data-animate="scroll-3d">
+                    <div class="video-container" data-animate="frame">
+                        <svg class="video-corner corner-top icon">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                            <svg class="play-icon icon" data-animate="scale">
+                                <use href="#icon-play"></use>
+                            </svg>
+                        </button>
+
+                        <svg class="video-corner corner-bottom icon">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TITRES DES ÉTAPES
+   ÉTAPES DES FICHES DE PROJET
    ========================================================================== */
 
 .project-page {
@@ -130,6 +130,178 @@
         }
     }
 
+    /* ==========================================================================
+       MODÈLE 3D AVEC CADRE
+       ========================================================================== */
+
+    .project-media--floating {
+        height: 560px;
+
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1.5fr) minmax(0, 1fr);
+
+        /* ======================================================================
+           CONTENEUR DU MODÈLE
+           ====================================================================== */
+
+        .project-model-container {
+            position: relative;
+
+            width: 100%;
+            min-width: 0;
+            min-height: 0;
+
+            overflow: hidden;
+
+            background-color: var(--color-secondary);
+
+            border: 2px solid var(--color-accent);
+
+            box-shadow:
+                0 0 8px rgba(0, 220, 255, 0.35),
+                inset 0 0 8px rgba(0, 220, 255, 0.1);
+
+            // Coins décoratifs
+            .image-corner {
+                position: absolute;
+                z-index: 2;
+
+                pointer-events: none;
+            }
+        }
+
+        /* ======================================================================
+           VISIONNEUSE 3D
+           ====================================================================== */
+
+        .model-viewer {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            background-color: var(--color-secondary);
+
+            /* ==================================================================
+               CANVAS THREE.JS
+               ================================================================== */
+
+            .model-canvas {
+                display: block;
+
+                width: 100%;
+                height: 100%;
+
+                cursor: grab;
+                touch-action: none;
+
+                &:active {
+                    cursor: grabbing;
+                }
+            }
+
+            /* ==================================================================
+               INDICATEUR EN HAUT À GAUCHE
+               ================================================================== */
+
+            .model-viewer-label {
+                position: absolute;
+
+                top: var(--spacing-base);
+                left: var(--spacing-base);
+
+                z-index: 2;
+
+                display: flex;
+                align-items: center;
+
+                gap: 10px;
+
+                color: var(--color-accent);
+
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: 0.08em;
+
+                pointer-events: none;
+
+                .status-dot {
+                    width: 8px;
+                    height: 8px;
+
+                    flex-shrink: 0;
+
+                    border-radius: 50%;
+
+                    background-color: var(--color-accent);
+
+                    box-shadow: 0 0 10px var(--color-accent);
+                }
+            }
+
+            /* ==================================================================
+               INSTRUCTIONS EN BAS
+               ================================================================== */
+
+            .model-viewer-controls {
+                position: absolute;
+
+                bottom: var(--spacing-base);
+                left: 50%;
+
+                z-index: 2;
+
+                transform: translateX(-50%);
+
+                width: max-content;
+                max-width: calc(100% - 30px);
+
+                color: var(--color-white);
+
+                font-size: 12px;
+                text-align: center;
+
+                opacity: 0.7;
+
+                pointer-events: none;
+            }
+        }
+
+        /* ======================================================================
+           IMAGE SOUS LE MODÈLE
+           ====================================================================== */
+
+        .project-image-container {
+            width: 100%;
+            height: 100%;
+
+            min-width: 0;
+            min-height: 0;
+        }
+
+        .project-image {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .project-image img {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+    }
+
+    /* ==========================================================================
+       AUDIO
+       ========================================================================== */
+
     .audio-play {
         display: flex;
         align-items: center;
@@ -153,6 +325,10 @@
 
     @media screen and (max-width: $breakpoint-md) {
         --project-media-height: 400px;
+
+        .project-media--floating {
+            height: 480px;
+        }
     }
 
     /* ==========================================================================
@@ -164,12 +340,40 @@
 
         .project-media--three {
             height: auto;
+
             grid-template-columns: 1fr;
             grid-template-rows: none;
 
             .project-image-container {
                 grid-column: auto;
                 height: 180px;
+            }
+        }
+
+        .project-media--floating {
+            height: auto;
+
+            grid-template-columns: minmax(0, 1fr);
+            grid-template-rows: 280px 180px;
+
+            .project-model-container {
+                width: 100%;
+                height: 100%;
+            }
+
+            .model-viewer {
+                width: 100%;
+                height: 100%;
+
+                .model-viewer-label,
+                .model-viewer-controls {
+                    font-size: 10px;
+                }
+            }
+
+            .project-image-container {
+                width: 100%;
+                height: 100%;
             }
         }
     }

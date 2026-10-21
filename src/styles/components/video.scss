@@ -1,7 +1,44 @@
+/* ==========================================================================
+   VIDÉOS
+   ========================================================================== */
+
 .video-container {
     position: relative;
     width: 100%;
     aspect-ratio: 1;
+
+    --video-cut: 60px;
+    --video-border: 2px;
+
+    // Contour lumineux permanent
+    filter: drop-shadow(0 0 3px rgba(54, 218, 255, 0.3))
+        drop-shadow(0 0 7px rgba(54, 218, 255, 0.12));
+
+    transition: filter 0.35s $ease-out-cubic;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+
+        background-color: var(--color-accent);
+
+        clip-path: polygon(
+            0 0,
+            calc(100% - var(--video-cut)) 0,
+            100% var(--video-cut),
+            100% 100%,
+            var(--video-cut) 100%,
+            0 calc(100% - var(--video-cut))
+        );
+
+        pointer-events: none;
+    }
+
+    &:hover {
+        filter: drop-shadow(0 0 5px rgba(54, 218, 255, 0.5))
+            drop-shadow(0 0 12px rgba(54, 218, 255, 0.25));
+    }
 
     &:hover:not(.is-playing) {
         .play-icon {
@@ -13,7 +50,7 @@
 
         .video-corner {
             opacity: 1;
-            transform: translate(0, 0);
+            transform: translate(0);
         }
     }
 
@@ -28,60 +65,56 @@
     }
 }
 
-.video-preview {
+/* ==========================================================================
+   APERÇU ET LECTEUR
+   ========================================================================== */
+
+.video-preview,
+.video-embed {
     position: absolute;
-    inset: 0;
+    inset: var(--video-border);
+
+    overflow: hidden;
+
+    background-color: var(--color-surface);
+
+    clip-path: polygon(
+        0 0,
+        calc(100% - (var(--video-cut) - var(--video-border))) 0,
+        100% calc(var(--video-cut) - var(--video-border)),
+        100% 100%,
+        calc(var(--video-cut) - var(--video-border)) 100%,
+        0 calc(100% - (var(--video-cut) - var(--video-border)))
+    );
+}
+
+.video-preview {
     z-index: 2;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 100%;
-    height: 100%;
     padding: 0;
-
-    background-color: var(--color-surface);
-
-    border: 1px solid rgba(54, 218, 255, 0.15);
-
-    clip-path: polygon(
-        0 0,
-        calc(100% - 60px) 0,
-        100% 60px,
-        100% 100%,
-        60px 100%,
-        0 calc(100% - 60px)
-    );
+    border: 0;
 
     cursor: pointer;
 
-    transition:
-        border-color 0.35s $ease-out-cubic,
-        filter 0.35s $ease-out-cubic;
+    .play-icon {
+        position: relative;
+        z-index: 1;
+    }
 
     &:hover {
-        border-color: var(--color-accent);
-
-        filter: drop-shadow(0 0 8px rgba(54, 218, 255, 0.2));
+        .video-thumbnail {
+            filter: brightness(0.8);
+            transform: scale(1.03);
+        }
     }
 }
 
 .video-embed {
-    position: absolute;
-    inset: 0;
     z-index: 1;
-
-    overflow: hidden;
-
-    clip-path: polygon(
-        0 0,
-        calc(100% - 60px) 0,
-        100% 60px,
-        100% 100%,
-        60px 100%,
-        0 calc(100% - 60px)
-    );
 
     .js-video,
     iframe {
@@ -94,6 +127,32 @@
         border: 0;
     }
 }
+
+/* ==========================================================================
+   MINIATURE
+   ========================================================================== */
+
+.video-thumbnail {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.65);
+    pointer-events: none;
+
+    transition:
+        filter 0.4s $ease-out-cubic,
+        transform 0.4s $ease-out-cubic;
+}
+
+/* ==========================================================================
+   BOUTON PLAY
+   ========================================================================== */
 
 .play-icon {
     width: 150px;
@@ -110,7 +169,7 @@
 }
 
 /* ==========================================================================
-   CORNERS
+   COINS DÉCORATIFS
    ========================================================================== */
 
 .video-corner,
@@ -122,11 +181,9 @@
     height: 70px;
 
     color: var(--color-accent);
-
     opacity: 0;
 
     pointer-events: none;
-
     overflow: visible;
 
     filter: drop-shadow(0 0 6px rgba(54, 218, 255, 0.5));
@@ -134,100 +191,84 @@
     transition:
         opacity 0.3s $ease-out-cubic,
         transform 0.4s $ease-out-cubic;
-}
 
-.video-corner.corner-top,
-.image-corner.corner-top {
-    top: calc(var(--spacing-md) * -1);
-    left: calc(var(--spacing-md) * -1);
+    &.corner-top {
+        top: calc(var(--spacing-md) * -1);
+        left: calc(var(--spacing-md) * -1);
 
-    transform: translate(15px, 15px);
-}
+        transform: translate(15px, 15px);
+    }
 
-.video-corner.corner-bottom,
-.image-corner.corner-bottom {
-    right: calc(var(--spacing-md) * -1);
-    bottom: calc(var(--spacing-md) * -1);
+    &.corner-bottom {
+        right: calc(var(--spacing-md) * -1);
+        bottom: calc(var(--spacing-md) * -1);
 
-    transform: translate(-15px, -15px);
+        transform: translate(-15px, -15px);
+    }
 }
 
 /* ==========================================================================
-   PROJECT RESULT
+   VIDÉOS DES FICHES DE PROJET
    ========================================================================== */
 
 .project-result {
-    margin-bottom: var(--spacing-xxl);
+    .video-container {
+        width: min(100%, 1200px, 115vh);
+        aspect-ratio: 16 / 9;
+
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   VIDÉO DE PRÉSENTATION - ACCUEIL
+   ========================================================================== */
+
+.presentation-section {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+    overflow: hidden;
+
+    .background-3d {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        pointer-events: none;
+    }
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+    }
 
     h2 {
         margin-bottom: var(--spacing-lg);
-
         text-align: center;
         text-transform: uppercase;
     }
 
-    .video-container {
-        // Taille légèrement augmentée
-        width: min(100%, 1200px, 115vh);
-
-        // Conserver le format vidéo
-        aspect-ratio: 16 / 9;
-
-        // Centrer horizontalement
+    .presentation-media {
+        width: min(100%, 1000px);
         margin: 0 auto;
     }
 
-    /* ==========================================================================
-   VIDEO THUMBNAIL
+    .video-container {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ==========================================================================
+   MOBILE
    ========================================================================== */
 
-    .video-thumbnail {
-        position: absolute;
-        inset: 0;
-
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
-        object-position: center;
-
-        filter: brightness(0.65);
-
-        pointer-events: none;
-
-        transition:
-            filter 0.4s $ease-out-cubic,
-            transform 0.4s $ease-out-cubic;
+@media screen and (max-width: $breakpoint-sm) {
+    .video-container {
+        --video-cut: 30px;
     }
 
-    .video-preview {
-        overflow: hidden;
-
-        .play-icon {
-            position: relative;
-            z-index: 1;
-        }
-
-        &:hover {
-            .video-thumbnail {
-                filter: brightness(0.8);
-                transform: scale(1.03);
-            }
-        }
-    }
-
-    /* ==========================================================================
-       MOBILE
-       ========================================================================== */
-
-    @media screen and (max-width: $breakpoint-sm) {
-        .video-container {
-            width: 100%;
-        }
-
-        .play-icon {
-            width: 90px;
-            height: 90px;
-        }
+    .play-icon {
+        width: 90px;
+        height: 90px;
     }
 }
