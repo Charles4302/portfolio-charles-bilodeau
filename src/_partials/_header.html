@@ -7,7 +7,9 @@
     <title>Portfolio Charles Bilodeau</title>
 
     <!-- Chemin de base du portfolio sur GitHub Pages -->
-    <!-- <base href="/portfolio-charles-bilodeau/" /> -->
+   {% if is404 %}
+    <base href="/portfolio-charles-bilodeau/" />
+{% endif %}
 
     <!-- Favicon -->
     <link
