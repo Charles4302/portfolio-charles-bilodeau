@@ -1,0 +1,229 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-md);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    .modal-overlay {
+        position: absolute;
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(6px);
+        cursor: pointer;
+    }
+
+    .modal-content {
+        position: relative;
+
+        width: 100%;
+        max-width: 850px;
+        max-height: 85vh;
+
+        display: flex;
+        flex-direction: column;
+
+        background: var(--color-secondary);
+        color: var(--color-neutral);
+
+        border: 1px solid var(--color-accent);
+
+        transform: translateY(20px);
+        transition: transform 0.3s $ease-out-cubic;
+    }
+
+    // En-tête
+    .modal-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg);
+
+        border-bottom: 1px solid var(--color-accent);
+
+        h2 {
+            text-transform: uppercase;
+        }
+    }
+
+    .modal-heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .modal-line {
+        width: 40px;
+        height: 2px;
+        background: var(--color-accent);
+    }
+
+    .modal-label {
+        color: var(--color-accent);
+        text-transform: uppercase;
+    }
+
+    // Bouton de fermeture
+    .modal-close {
+        position: relative;
+        flex-shrink: 0;
+
+        width: 40px;
+        height: 40px;
+
+        padding: 0;
+
+        background: transparent;
+        border: 1px solid var(--color-accent);
+        cursor: pointer;
+
+        transition:
+            background-color 0.3s ease,
+            transform 0.3s $ease-out-cubic;
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            width: 20px;
+            height: 2px;
+
+            background: var(--color-accent);
+
+            &:first-child {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+
+            &:last-child {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+
+        &:hover {
+            background: var(--color-accent-glow-soft);
+            transform: rotate(90deg);
+        }
+    }
+
+    // Contenu
+    .modal-body {
+        overflow-y: auto;
+        overscroll-behavior: contain;
+
+        padding: var(--spacing-lg);
+
+        p {
+            line-height: 1.7;
+        }
+
+        strong {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+    }
+
+    // Sections
+    .modal-section {
+        margin-top: var(--spacing-lg);
+
+        h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        p + p {
+            margin-top: var(--spacing-sm);
+        }
+    }
+
+    // Ouverture
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        .modal-content {
+            transform: translateY(0);
+        }
+    }
+
+    // Tablette
+    @media screen and (max-width: $breakpoint-md) {
+        .modal-content {
+            max-width: 700px;
+            max-height: 90vh;
+        }
+
+        .modal-header,
+        .modal-body {
+            padding: var(--spacing-md);
+        }
+    }
+
+    // Mobile
+    @media screen and (max-width: $breakpoint-sm) {
+        padding: var(--spacing-sm);
+
+        .modal-content {
+            max-height: 90vh;
+        }
+
+        .modal-header {
+            gap: var(--spacing-sm);
+
+            h2 {
+                font-size: clamp(20px, 5vw, 28px);
+            }
+        }
+
+        .modal-close {
+            width: 34px;
+            height: 34px;
+
+            span {
+                width: 16px;
+            }
+        }
+
+        .modal-body {
+            padding: var(--spacing-md);
+
+            p {
+                line-height: 1.5;
+            }
+        }
+
+        .modal-section {
+            margin-top: var(--spacing-md);
+        }
+    }
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal,
+    .modal .modal-content,
+    .modal .modal-close {
+        transition: none;
+    }
+}

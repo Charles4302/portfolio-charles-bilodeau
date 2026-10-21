@@ -6,40 +6,123 @@
 
     background-color: var(--color-primary);
 
+    /* ==========================================================================
+       STRUCTURE
+       ========================================================================== */
+
     .hero-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        align-items: start;
+        align-items: center;
 
         gap: var(--spacing-xl);
 
         padding: var(--spacing-xl) 0;
     }
 
-    // Contenu texte
+    /* ==========================================================================
+       CONTENU TEXTE
+       ========================================================================== */
+
     .hero-text {
         display: flex;
         flex-direction: column;
 
         gap: var(--spacing-sm);
+        min-width: 0;
     }
 
+    /* ==========================================================================
+       IDENTITÉ - STYLE HUD
+       ========================================================================== */
+
+    .hero-identity {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: var(--spacing-sm);
+    }
+
+    // Lignes décoratives et profils
+    .hero-identity-label,
+    .hero-identity-footer {
+        display: flex;
+        align-items: center;
+
+        gap: var(--spacing-sm);
+
+        color: var(--color-accent);
+
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    // Lignes cyan
+    .hero-identity-line {
+        display: block;
+        flex-shrink: 0;
+
+        width: 40px;
+        height: 2px;
+
+        background-color: var(--color-accent);
+
+        box-shadow: 0 0 8px var(--color-accent-glow-soft);
+    }
+
+    // Nom avec bordure verticale
+    .hero-identity-name {
+        position: relative;
+
+        padding-left: var(--spacing-base);
+
+        border-left: 2px solid var(--color-accent);
+
+        box-shadow: -4px 0 10px -8px var(--color-accent);
+    }
+
+    // Nom principal
     .hero-title {
+        display: flex;
+        flex-direction: column;
+
         font-size: var(--font-size-display);
         line-height: 1;
 
         text-transform: uppercase;
+
+        .hero-firstname {
+            color: var(--color-neutral);
+        }
+
+        .hero-lastname {
+            color: var(--color-accent);
+        }
     }
 
-    .hero-role {
-        font-weight: 600;
+    // Profils sous le nom
+    .hero-identity-footer {
+        font-size: clamp(14px, 1.2vw, 18px);
+
+        .hero-identity-line {
+            width: 80px;
+        }
     }
+
+    /* ==========================================================================
+       DESCRIPTION
+       ========================================================================== */
 
     .hero-description {
         max-width: 500px;
     }
 
-    // Boutons sous la description
+    /* ==========================================================================
+       BOUTONS
+       ========================================================================== */
+
     .hero-actions {
         display: flex;
         flex-wrap: wrap;
@@ -49,7 +132,10 @@
         margin-top: var(--spacing-lg);
     }
 
-    // Vidéo
+    /* ==========================================================================
+       ROBOT HOLOGRAPHIQUE
+       ========================================================================== */
+
     .hero-media {
         grid-column: 2;
         grid-row: 1;
@@ -58,9 +144,13 @@
         flex-direction: column;
 
         gap: var(--spacing-lg);
+        min-width: 0;
     }
 
-    // Lien sous la vidéo
+    /* ==========================================================================
+       LIEN SUPPLÉMENTAIRE
+       ========================================================================== */
+
     .hero-more {
         display: inline-flex;
         align-items: center;
@@ -69,7 +159,6 @@
         gap: var(--spacing-sm);
 
         color: var(--color-accent);
-
         text-transform: uppercase;
 
         .more-icon {
@@ -103,13 +192,15 @@
         }
     }
 
-    // Tablette
+    /* ==========================================================================
+       TABLETTE
+       ========================================================================== */
+
     @media screen and (max-width: $breakpoint-md) {
         min-height: auto;
 
         .hero-content {
             grid-template-columns: 1fr;
-
             gap: var(--spacing-lg);
         }
 
@@ -126,16 +217,35 @@
         .hero-actions {
             margin-top: var(--spacing-md);
         }
-
-        .video-preview {
-            aspect-ratio: 16 / 9;
-        }
     }
 
-    // Mobile
+    /* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
     @media screen and (max-width: $breakpoint-sm) {
+        // Espace pour le header fixe
+        padding-top: 90px;
+
         .hero-content {
             padding: var(--spacing-lg) 0;
+        }
+
+        .hero-identity-line {
+            width: 25px;
+        }
+
+        .hero-identity-name {
+            padding-left: var(--spacing-sm);
+        }
+
+        .hero-identity-footer {
+            font-size: 13px;
+            letter-spacing: 0;
+
+            .hero-identity-line {
+                width: 45px;
+            }
         }
 
         .hero-actions {
@@ -147,20 +257,8 @@
             }
         }
 
-        .video-preview {
-            clip-path: polygon(
-                0 0,
-                calc(100% - 30px) 0,
-                100% 30px,
-                100% 100%,
-                30px 100%,
-                0 calc(100% - 30px)
-            );
-        }
-
         .hero-more {
             align-self: center;
-
             text-align: center;
         }
     }

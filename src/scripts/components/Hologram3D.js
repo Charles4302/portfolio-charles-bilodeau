@@ -37,8 +37,8 @@ export default class Hologram3D {
     // Caméra
     this.camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
 
-    this.camera.position.set(0, 3.5, 7);
-    this.camera.lookAt(0, 1, 0);
+    this.camera.position.set(0, 3.1, 5.7);
+    this.camera.lookAt(0, 1.2, 0);
 
     // Éclairage holographique
     this.createLights();
