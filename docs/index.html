@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio Charles Bilodeau</title>
+
+    <!-- Chemin de base du portfolio sur GitHub Pages -->
+    <!-- <base href="/portfolio-charles-bilodeau/" /> -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header class="header" data-component="Header" data-threshold="0.1">
+        <div class="wrapper">
+
+            <a class="brand logo-link" href="index.html#accueil">
+                <span class="logo icon icon--lg">
+                    <svg class="icon corner-top">
+                        <use href="#icon-corner-top"></use>
+                    </svg>
+
+                    <svg class="icon plus">
+                        <use href="#icon-plus"></use>
+                    </svg>
+
+                    <svg class="icon corner-bottom">
+                        <use href="#icon-corner-bottom"></use>
+                    </svg>
+                </span>
+
+                <span class="name">CB</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="mobile-navigation">
+                <ul class="nav-list">
+
+                    <li>
+                        <a class="nav-link" href="index.html#accueil">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#projets">
+                            Projets
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#a-propos">
+                            À propos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil" data-component="ScrollAnimations">
+            <!-- Grille 3D animée en arrière-plan -->
+            <div class="background-3d" data-component="Background"></div>
+
+            <div class="wrapper">
+                <div class="hero-content">
+                    <!-- Contenu texte -->
+                    <div class="hero-text">
+                        <!-- Identité HUD -->
+                        <div class="hero-identity" data-animate="reveal">
+                            <!-- Ligne décorative supérieure -->
+                            <div class="hero-identity-label">
+                                <span class="hero-identity-line"></span>
+                            </div>
+
+                            <!-- Nom -->
+                            <div class="hero-identity-name">
+                                <h1 class="hero-title">
+                                    <span class="hero-firstname">Charles</span>
+                                    <span class="hero-lastname">Bilodeau</span>
+                                </h1>
+                            </div>
+
+                            <!-- Profils -->
+                            <div class="hero-identity-footer">
+                                <span class="hero-identity-line"></span>
+                                <span>Multimédia / 3D / Game Dev</span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <p class="hero-description" data-animate="reveal">
+                            Donner forme aux idées pour créer des univers et environnements qui prennent vie à l’écran.
+                        </p>
+
+                        <!-- Boutons -->
+                        <div class="hero-actions">
+                            <a class="btn" href="#projets" data-animate="frame">Mes projets</a>
+
+                            <a class="btn btn--outline" href="#a-propos" data-animate="frame">À propos</a>
+                        </div>
+                    </div>
+
+                    <!-- Robot holographique -->
+                    <div class="hero-media">
+                        <div class="hero-hologram" data-animate="scroll-3d">
+                            <div class="hologram-container" data-component="Hologram3D"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projets" id="projets" data-component="ScrollAnimations">
+            <!-- Réseau de données animé en arrière-plan -->
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+
+            <div class="wrapper">
+                <h2 class="projets-title" data-animate="reveal">Mes projets</h2>
+
+                <div class="projets-grid">
+                    <a class="projet-card projet-card--large" href="fiche_projet_1.html" data-animate="frame">
+                        <img class="projet-image" src="assets/images/corridor.png" alt="Projet Corridor spatial" />
+
+                        <div class="projet-info">
+                            <h3>Corridor spatial</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">01</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Modélisation et animation 3D d’un corridor d’un vaisseau spatial.</p>
+                                <p class="projet-meta">Animation multimédia • Blender</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card projet-card--large" href="fiche_projet_2.html" data-animate="frame">
+                        <img class="projet-image" src="assets/images/retourterre.jpg" alt="Projet Lieu d’épouvante" />
+
+                        <div class="projet-info">
+                            <h3>Retour sur Terre</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">02</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Conception d’une expérience numérique interactive.</p>
+                                <p class="projet-meta">Environnement 3D • installation interactive</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="fiche_projet_3.html" data-animate="frame">
+                        <img class="projet-image" src="assets/images/triageurbain.png" alt="Projet Triage urbain" />
+
+                        <div class="projet-info">
+                            <h3>Triage urbain</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">03</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Jeu de collecte et de tri de déchets dans un environnement urbain.</p>
+                                <p class="projet-meta">Jeu vidéo • Unity</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/typocinetique.png" alt="Projet Typo cinétique" />
+
+                        <div class="projet-info">
+                            <h3>Typo cinétique</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">04</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Animation typographique basée sur le rythme.</p>
+                                <p class="projet-meta">Motion design • After Effects</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+
+                    <a class="projet-card" href="#" data-animate="frame">
+                        <img class="projet-image" src="assets/images/lieuepouvante.png" alt="Projet Capitaliza" />
+
+                        <div class="projet-info">
+                            <h3>Capitaliza</h3>
+                            <span class="projet-line"></span>
+                        </div>
+
+                        <div class="projet-hover">
+                            <span class="projet-number">05</span>
+
+                            <div class="projet-details">
+                                <p class="projet-description">Création d’une scène 3D texturée avec du UV mapping.</p>
+                                <p class="projet-meta">Web • Design interactif</p>
+                            </div>
+
+                            <span class="projet-hover-line"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="apropos" id="a-propos" data-component="GrowImage">
+            <!-- Grille 3D animée en arrière-plan -->
+            <div class="background-3d" data-component="Background"></div>
+
+            <div class="wrapper" data-component="ScrollAnimations">
+                <div class="apropos-content">
+                    <div class="apropos-text">
+                        <h2 class="apropos-title" data-animate="reveal">À propos</h2>
+
+                        <div class="apropos-description">
+                            <p data-animate="reveal">
+                                Je souhaite mettre ma
+                                <strong>polyvalence en création visuelle</strong>
+                                au service de projets en
+                                <strong>3D</strong>
+                                , en
+                                <strong>animation</strong>
+                                ou en
+                                <strong>jeu vidéo</strong>
+                                , tout en continuant à développer mes compétences dans un environnement professionnel.
+                            </p>
+
+                            <p data-animate="reveal">
+                                Ma
+                                <strong>créativité</strong>
+                                , ma
+                                <strong>capacité d’adaptation</strong>
+                                et ma connaissance de
+                                <strong>différents outils multimédias</strong>
+                                me permettent de toucher à plusieurs aspects d’un projet et de m’adapter aux besoins d’une équipe.
+                            </p>
+                        </div>
+
+                        <div class="soft-skills" data-animate="reveal">
+                            <h3>Soft skills</h3>
+
+                            <ul>
+                                <li>Créatif</li>
+                                <li>Collaboratif</li>
+                                <li>Autonome</li>
+                                <li>Adaptable</li>
+                                <li>Polyvalent</li>
+                                <li>Ponctuel</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="apropos-media">
+                        <div data-animate="scroll-3d">
+                            <button class="apropos-image" type="button" aria-label="Agrandir la photo" data-animate="frame">
+                                <img src="assets/images/portrait.webp" alt="Portrait de Charles Bilodeau" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-modal" data-state="closed">
+                <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
+
+                <img class="modal-image" src="assets/images/portrait.jpg" alt="Portrait de Charles Bilodeau agrandi" />
+            </div>
+        </section>
+
+        <section class="competences" id="competences" data-component="ScrollAnimations">
+            <!-- Circuits numériques animés en arrière-plan -->
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+
+            <div class="wrapper">
+                <div class="competences-content">
+                    <!-- Compétences -->
+                    <div class="skills">
+                        <h2 data-animate="reveal">Mes compétences</h2>
+
+                        <div class="skills-grid" data-animate="panel">
+                            <div class="skill">
+                                <p data-animate="reveal">Modélisation 3D</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en modélisation 3D : 85 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Animation 2D</p>
+
+                                <div class="skill-bar" style="--level: 80%" aria-label="Niveau en animation 2D : 80 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Programmation</p>
+
+                                <div class="skill-bar" style="--level: 75%" aria-label="Niveau en programmation : 75 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Level Design</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en Level Design : 85 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Animation 3D</p>
+
+                                <div class="skill-bar" style="--level: 75%" aria-label="Niveau en animation 3D : 75 %" data-animate="skill"></div>
+                            </div>
+
+                            <div class="skill">
+                                <p data-animate="reveal">Texturation</p>
+
+                                <div class="skill-bar" style="--level: 85%" aria-label="Niveau en texturation : 85 %" data-animate="skill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logiciels -->
+                    <div class="software">
+                        <h2 data-animate="reveal">Logiciels</h2>
+
+                        <div class="software-grid" data-animate="panel">
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-blender"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-unity"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-reaper"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-aftereffects"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-illustrator"></use>
+                                </svg>
+                            </div>
+
+                            <div class="software-item" data-animate="scale">
+                                <svg class="software-icon icon">
+                                    <use href="#icon-premiere"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="interets" id="interets" data-component="ScrollAnimations">
+            <!-- Grille 3D animée en arrière-plan -->
+            <div class="background-3d" data-component="Background"></div>
+
+            <div class="wrapper">
+                <h1 data-animate="reveal">Mes passions et intérêts</h1>
+
+                <div class="interets-grid">
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/jeux_video.jpg" alt="Jeux vidéo" />
+                        </div>
+
+                        <div class="interest-info">
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-jeux_video"></use>
+                                </svg>
+                            </div>
+
+                            <div class="interest-details">
+                                <h3 data-animate="reveal">Jeux vidéo</h3>
+                                <span class="interest-line"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/cinema.webp" alt="Cinéma" />
+                        </div>
+
+                        <div class="interest-info">
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-cinema"></use>
+                                </svg>
+                            </div>
+
+                            <div class="interest-details">
+                                <h3 data-animate="reveal">Cinéma</h3>
+                                <span class="interest-line"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/sci-fi.jpg" alt="Science-fiction" />
+                        </div>
+
+                        <div class="interest-info">
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-sci-fi"></use>
+                                </svg>
+                            </div>
+
+                            <div class="interest-details">
+                                <h3 data-animate="reveal">Sci/Fi</h3>
+                                <span class="interest-line"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/esacalade.jpg" alt="Escalade" />
+                        </div>
+
+                        <div class="interest-info">
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-escalade"></use>
+                                </svg>
+                            </div>
+
+                            <div class="interest-details">
+                                <h3 data-animate="reveal">Escalade</h3>
+                                <span class="interest-line"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="interest-card" data-animate="frame">
+                        <div class="interest-image">
+                            <img src="assets/images/echecs.jpg" alt="Échecs" />
+                        </div>
+
+                        <div class="interest-info">
+                            <div class="interest-icon" data-animate="scale">
+                                <svg class="icon">
+                                    <use href="#icon-echecs"></use>
+                                </svg>
+                            </div>
+
+                            <div class="interest-details">
+                                <h3 data-animate="reveal">Échecs</h3>
+                                <span class="interest-line"></span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact" data-component="ScrollAnimations">
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+
+            <div class="wrapper">
+                <div class="contact-content">
+                    <div class="contact-intro">
+                        <p class="contact-label" data-animate="reveal">On reste en contact?</p>
+
+                        <h2 data-animate="reveal">
+                            Discutons
+                            <br />
+                            d’un projet!
+                        </h2>
+
+                        <p class="contact-description" data-animate="reveal">
+                            Une idée, une opportunité ou simplement envie d’échanger? Voici mes infos pour me joindre.
+                        </p>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item" data-animate="reveal">
+                            <p>Courriel</p>
+
+                            <a href="mailto:charles@bilocreations.com">charles@bilocreations.com</a>
+                        </div>
+
+                        <div class="contact-item" data-animate="reveal">
+                            <p>Téléphone</p>
+
+                            <a href="tel:+14503414129">450-341-4129</a>
+                        </div>
+
+                        <a class="arrow-link" href="assets/documents/cv-charles-bilodeau.pdf" download data-animate="reveal">
+                            Télécharger mon CV
+
+                            <svg class="icon">
+                                <use href="#icon-fleche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="presentation-section" data-component="ScrollAnimations">
+            <div class="background-3d" data-component="Background"></div>
+
+            <div class="wrapper">
+                <h2 data-animate="reveal">Vidéo de présentation</h2>
+
+                <div class="presentation-media">
+                    <div class="video-float" data-animate="scroll-3d">
+                        <div class="video-container" data-animate="frame">
+                            <svg class="video-corner corner-top icon">
+                                <use href="#icon-corner-top"></use>
+                            </svg>
+
+                            <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                                <svg class="play-icon icon" data-animate="scale">
+                                    <use href="#icon-play"></use>
+                                </svg>
+                            </button>
+
+                            <svg class="video-corner corner-bottom icon">
+                                <use href="#icon-corner-bottom"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrapper">
+
+            <div class="footer-main">
+
+                <div class="footer-contact">
+                    <h2>Discutons d’un projet!</h2>
+
+                    <a class="btn" href="index.html#contact">
+                        Me contacter
+                    </a>
+
+                    <!-- CV desktop -->
+                    <a class="footer-link cv-desktop" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
+                    <a class="nav-link" href="index.html#accueil">Accueil</a>
+                    <a class="nav-link" href="index.html#a-propos">À propos</a>
+                    <a class="nav-link" href="index.html#projets">Projets</a>
+                </nav>
+
+                <div class="footer-info">
+
+                    <a href="mailto:charles@bilocreations.com">
+                        charles@bilocreations.com
+                    </a>
+
+                    <a href="tel:+14503414129">
+                        450-341-4129
+                    </a>
+
+                    <div class="socials">
+
+                        <a class="social-link" href="https://github.com/Charles4302" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon--md">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="https://www.linkedin.com/in/charles-bilodeau-923943441" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon--md">
+                                <use href="#icon-linkedin"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#">
+                            <svg class="icon icon--md">
+                                <use href="#icon-youtube"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#">
+                            <svg class="icon icon--md">
+                                <use href="#icon-artstation"></use>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p class="copyright">
+                    Copyright © 2026 Charles Bilodeau
+                </p>
+
+                <a class="footer-logo logo-link" href="index.html" aria-label="Retour à l'accueil">
+                    <span class="logo icon icon--lg">
+                        <svg class="icon corner-top">
+                            <use href="#icon-corner-top"></use>
+                        </svg>
+
+                        <svg class="icon plus">
+                            <use href="#icon-plus"></use>
+                        </svg>
+
+                        <svg class="icon corner-bottom">
+                            <use href="#icon-corner-bottom"></use>
+                        </svg>
+                    </span>
+                </a>
+
+                <div class="footer-bottom-links">
+
+                    <!-- CV tablette/mobile -->
+                    <a class="footer-link cv-responsive" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                    <a class="footer-link" href="#modal-ia" data-modal-open>
+                        <span>Utilisation IA</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div class="custom-cursor" data-component="CustomCursor" aria-hidden="true">
+        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <path class="cursor-glow" d="M12 8L88 53L50 65L34 106Z" />
+            <path class="cursor-outline" d="M12 8L88 53L50 65L34 106Z" />
+            <path class="cursor-face-top" d="M12 8L50 65L88 53Z" />
+            <path class="cursor-face-bottom" d="M12 8L34 106L50 65Z" />
+            <path class="cursor-core" d="M31 34L64 54L47 60L40 79Z" />
+            <path class="cursor-highlight" d="M31 34L47 60L40 79Z" />
+        </svg>
+    </div>
+
+    <div class="modal" id="modal-ia" data-component="AiModal">
+        <div class="modal-overlay" data-modal-close></div>
+
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+            <div class="modal-header">
+                <div class="modal-heading">
+                    <span class="modal-line"></span>
+                    <span class="modal-label">Déclaration</span>
+
+                    <h2 id="modal-title">
+                        Utilisation de l'IA
+                    </h2>
+                </div>
+
+                <button class="modal-close" type="button" data-modal-close>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    Dans le cadre de la création de mon portfolio, j'ai utilisé
+                    <strong>ChatGPT</strong> comme outil d'assistance pour la rédaction
+                    de mes contenus et le développement de certaines fonctionnalités Web.
+                </p>
+
+                <section class="modal-section">
+                    <h3>01 - Rédaction des contenus</h3>
+
+                    <p>
+                        J'ai utilisé l'IA pour <strong>corriger, structurer et reformuler</strong>
+                        certains textes de mon portfolio, notamment les descriptions de mes
+                        projets et mes présentations personnelles.
+                    </p>
+
+                    <p>
+                        Les informations proviennent de mon travail et de mes expériences.
+                        J'ai ensuite sélectionné, vérifié et ajusté les formulations
+                        proposées pour qu'elles correspondent à ce que je souhaitais communiquer.
+                    </p>
+                </section>
+
+                <section class="modal-section">
+                    <h3>02 - Développement Web</h3>
+
+                    <p>
+                        J'ai réalisé de manière autonome la majeure partie de l'intégration
+                        <strong>HTML et SCSS</strong>, ainsi que plusieurs composantes
+                        <strong>JavaScript</strong>.
+                    </p>
+
+                    <p>
+                        Pour certaines fonctionnalités plus complexes, j'ai eu davantage
+                        recours à l'IA. Le code des
+                        <strong>animations et effets WebGL</strong>, de
+                        l'<strong>importation et des interactions avec les modèles 3D</strong>
+                        ainsi que de la <strong>composante de lecture audio</strong>
+                        a été en grande partie généré avec ChatGPT. J'ai ensuite intégré,
+                        corrigé et adapté ces fonctionnalités aux besoins de mon site.
+                    </p>
+
+                    <p>
+                        Pour les animations avec <strong>GSAP</strong> et certains effets
+                        <strong>CSS</strong>, notamment les formes particulières des cadres
+                        d'images et de vidéos, l'IA m'a plutôt servi d'assistance ponctuelle.
+                        Après quelques échanges pour comprendre les techniques nécessaires,
+                        j'ai poursuivi leur développement et leurs ajustements de manière autonome.
+                    </p>
+                </section>
+
+                <section class="modal-section">
+                    <h3>03 - Contribution personnelle</h3>
+
+                    <p>
+                        L'IA m'a permis d'explorer des solutions techniques et de surmonter
+                        certaines difficultés durant le développement.
+                    </p>
+
+                    <p>
+                        J'ai conservé la responsabilité des choix de conception, de la
+                        <strong>direction artistique</strong>, de l'intégration des
+                        fonctionnalités et de leur adaptation à l'ensemble du portfolio.
+                    </p>
+
+                    <p>
+                        L'IA a donc été utilisée comme un outil de soutien, avec différents
+                        niveaux d'intervention selon les fonctionnalités réalisées.
+                    </p>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
