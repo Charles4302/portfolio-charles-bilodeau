@@ -1,28 +1,699 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Portfolio Charles Bilodeau</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <!-- Chemin de base du portfolio sur GitHub Pages -->
-        <!-- <base href="/portfolio-charles-bilodeau/" /> -->
+    <title>Portfolio Charles Bilodeau</title>
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
+    <!-- Chemin de base du portfolio sur GitHub Pages -->
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="styles/main.css" />
 
-        <!-- JavaScript -->
-        <script src="scripts/main.js" defer></script>
-    </head>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg" />
 
-    <body>
-        <header class="header" data-component="Header" data-threshold="0.1">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!-- JavaScript -->
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+    <header class="header" data-component="Header" data-threshold="0.1">
+        <div class="wrapper">
+
+            <a class="brand logo-link" href="index.html#accueil">
+                <span class="logo icon icon--lg">
+                    <svg class="icon corner-top">
+                        <use href="#icon-corner-top"></use>
+                    </svg>
+
+                    <svg class="icon plus">
+                        <use href="#icon-plus"></use>
+                    </svg>
+
+                    <svg class="icon corner-bottom">
+                        <use href="#icon-corner-bottom"></use>
+                    </svg>
+                </span>
+
+                <span class="name">CB</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" id="mobile-navigation">
+                <ul class="nav-list">
+
+                    <li>
+                        <a class="nav-link" href="index.html#accueil">
+                            Accueil
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#projets">
+                            Projets
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#a-propos">
+                            À propos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="index.html#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="project-page project-page--corridor" data-component="GrowImage">
+        <!-- ==========================================================================
+         HERO
+         ========================================================================== -->
+
+        <section class="project-section project-hero" data-component="ScrollAnimations">
+            <div class="background-3d" data-component="Background"></div>
             <div class="wrapper">
-                <a class="brand logo-link" href="index.html#accueil">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <p class="project-label" data-animate="reveal">01 // Projet</p>
+
+                        <h1 data-animate="reveal">Retour sur Terre</h1>
+
+                        <span class="project-line"></span>
+
+                        <p data-animate="reveal">
+                            Retour sur Terre est une
+                            <strong>expérience immersive et coopérative</strong>
+                            où deux joueurs collaborent pour ramener une capsule spatiale sur Terre.
+                        </p>
+
+                        <p data-animate="reveal">
+                            L'un pilote la capsule à l'aide de
+                            <strong>commandes physiques</strong>
+                            , tandis que l'autre le guide depuis un centre de contrôle pour surmonter les urgences.
+                        </p>
+
+                        <p data-animate="reveal">
+                            Présenté à
+                            <strong>Chaos Média</strong>
+                            , ce projet combine
+                            <strong>animations 3D et projections</strong>
+                            pour donner vie à cette mission spatiale.
+                        </p>
+                    </div>
+
+                    <div class="project-media">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de Retour sur Terre" data-animate="frame">
+                                <img src="assets/images/retourterre.jpg" alt="Retour sur Terre" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         INFORMATIONS
+         ========================================================================== -->
+
+        <section class="project-section project-section--dark project-info" data-component="ScrollAnimations">
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+            <div class="wrapper">
+                <div class="project-info-grid">
+                    <div class="project-info-role" data-animate="reveal">
+                        <h3>Mon rôle</h3>
+
+                        <ul>
+                            <li>Modélisation 3D</li>
+                            <li>Textures et matériaux</li>
+                            <li>Animation 3D</li>
+                            <li>Mise en scène et caméras</li>
+                            <li>Effets visuels</li>
+                            <li>Montage de l'installation</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-info-credits" data-animate="reveal">
+                        <h3>Crédits</h3>
+
+                        <ul>
+                            <li>Amélie Cousineau - Cheffe d’équipe</li>
+                            <li>Alexis Proteau - Programmation, vidéo et communications</li>
+                            <li>Gabriel Landry-Gagnon - Modélisation3D et compositions sonores</li>
+                            <li>Maëna Jenesse - Design interface</li>
+                            <li>Tutoriel Youtube CBaileyFilm</li>
+                            <li>Utitilisation de l'IA pour aide et conseils durant la conception</li>
+                            <li>Blender-kit</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-info-tools" data-animate="reveal">
+                        <h3>Outils</h3>
+
+                        <ul>
+                            <li>Blender</li>
+                            <li>Adobe Media Encoder</li>
+                            <li>Adobe Premiere Pro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+     ÉTAPE 01
+     ========================================================================== -->
+
+        <section class="project-section" data-component="ScrollAnimations">
+            <div class="background-3d" data-component="Background"></div>
+            <div class="wrapper">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <div class="project-heading" data-animate="reveal">
+                            <span>01</span>
+
+                            <h2>Crée l'environnement spatial</h2>
+                        </div>
+
+                        <p data-animate="reveal">
+                            Pour représenter le voyage vers la Terre, j'ai conçu un
+                            <strong>décor spatial</strong>
+                            avec une planète, son atmosphère et un ciel étoilé afin de donner une impression
+                            <strong>d'immensité et de profondeur</strong>
+                            .
+                        </p>
+
+                        <p data-animate="reveal">
+                            Dans Blender, j’ai travaillé les
+                            <strong>textures et shaders</strong>
+                            pour reproduire les nuages et l’effet lumineux de la Terre, ainsi que des
+                            <strong>textures Voronoi</strong>
+                            pour générer les étoiles de manière procédurale pour le shader World.
+                        </p>
+                    </div>
+
+                    <div class="project-media project-media--stack">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de l’ambiance du corridor" data-animate="frame">
+                                <img src="assets/images/environnement_spatial.jpg" alt="Environnement spatial" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de l’éclairage du corridor" data-animate="frame">
+                                <img src="assets/images/nuage.png" alt="Nuage" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+     ÉTAPE 02
+     ========================================================================== -->
+
+        <section class="project-section project-section--dark" data-component="ScrollAnimations">
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+            <div class="wrapper">
+                <div class="project-grid project-grid--reverse">
+                    <!-- Deux petites images en haut + grande image en bas -->
+                    <div class="project-media project-media--three project-media--wide-bottom">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la modélisation" data-animate="frame">
+                                <img src="assets/images/grillage.png" alt="grillage" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la construction modulaire" data-animate="frame">
+                                <img src="assets/images/station.jpg" alt="Station" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’animation de l’environnement" data-animate="frame">
+                                <img src="assets/images/station.gif" alt="Animation de la station sptatiale" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-text">
+                        <div class="project-heading" data-animate="reveal">
+                            <span>02</span>
+
+                            <h2>Modéliser et animer la station spatiale</h2>
+                        </div>
+
+                        <p data-animate="reveal">
+                            Pour représenter le point de départ du voyage, j'ai réalisé la
+                            <strong>modélisation 3D d'une station spatiale</strong>
+                            dans Blender, en modélisant et assemblant différentes structures et modules pour donner une apparence crédible à la station.
+                        </p>
+
+                        <p data-animate="reveal">
+                            J'ai utilisé quelque
+                            <strong>modificateurs</strong>
+                            notamment le
+                            <strong>wireframe</strong>
+                            pour créer le grillage que l'on voit sur certaines parties de la station.
+                        </p>
+
+                        <p data-animate="reveal">
+                            J'ai ensuite travaillé les
+                            <strong>matériaux et les textures</strong>
+                            , puis ajouté des
+                            <strong>animations</strong>
+                            pour intégrer la station à la séquence de départ de la capsule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+     ÉTAPE 03
+     ========================================================================== -->
+
+        <section class="project-section" data-component="ScrollAnimations">
+            <div class="background-3d" data-component="Background"></div>
+            <div class="wrapper">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <div class="project-heading" data-animate="reveal">
+                            <span>03</span>
+
+                            <h2>Animation de l'intérieur de la capsule</h2>
+                        </div>
+
+                        <p data-animate="reveal">
+                            J’ai travaillé
+                            <strong>l’éclairage et les animations de la capsule</strong>
+                            dans Blender pour rendre les situations d’urgence perceptibles aux joueurs et crée une tension constante lors de la partie.
+                        </p>
+
+                        <p data-animate="reveal">
+                            J’ai notamment animé des
+                            <strong>alarmes lumineuses rouges</strong>
+                            et des
+                            <strong>secousses de la capsule</strong>
+                            pour signaler les dangers et donner l’impression que le vaisseau subit réellement les événements du voyage.
+                        </p>
+                    </div>
+
+                    <!-- Grande image en haut + deux petites images en bas -->
+                    <div class="project-media project-media--three project-media--wide-top">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                                <img src="assets/images/interieur_capsule.gif" alt="Intérieur de la capsule" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                                <img src="assets/images/alarme.gif" alt="Alarme" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                                <img src="assets/images/montage_interieur.gif" alt="montage intérieur" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+     ÉTAPE 04
+     ========================================================================== -->
+
+        <section class="project-section project-section--dark" data-component="ScrollAnimations">
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+            <div class="wrapper">
+                <div class="project-grid project-grid--reverse">
+                    <div class="project-media project-media--three project-media--wide-top">
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                                <img src="assets/images/Entree_atmosphere.gif" alt="Entree atmosphérique" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                                <img src="assets/images/noeud_flamme.png" alt="Noeud de flamme" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="project-image-container">
+                            <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                                <img src="assets/images/flamme.gif" alt="Flamme" />
+
+                                <svg class="image-corner corner-top icon">
+                                    <use href="#icon-corner-top"></use>
+                                </svg>
+
+                                <svg class="image-corner corner-bottom icon">
+                                    <use href="#icon-corner-bottom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="project-text">
+                        <div class="project-heading" data-animate="reveal">
+                            <span>04</span>
+
+                            <h2>Animation des événements spatiaux</h2>
+                        </div>
+
+                        <p data-animate="reveal">
+                            J'ai animé et mise en scène plusieurs
+                            <strong>événements spatiaux</strong>
+                            , dont le passage de météorites qui détruit la station et frole la capsuple, pour représenter les dangers rencontrés pendant le retour
+                            sur Terre.
+                        </p>
+
+                        <p data-animate="reveal">
+                            Pour la
+                            <strong>rentrée atmosphérique</strong>
+                            , j'ai adapté un
+                            <strong>effet de flammes provenant de BlenderKit</strong>
+                            en modifiant son réseau de nœuds afin qu'il corresponde à l'apparence recherchée et accentue l'intensité de cette séquence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+     ÉTAPE 05
+     ========================================================================== -->
+
+        <section class="project-section" data-component="ScrollAnimations">
+            <div class="background-3d" data-component="Background"></div>
+            <div class="wrapper">
+                <div class="project-grid">
+                    <div class="project-text">
+                        <div class="project-heading" data-animate="reveal">
+                            <span>05</span>
+
+                            <h2>L’ambiance sonore</h2>
+                        </div>
+
+                        <p data-animate="reveal">
+                            J'ai participé au
+                            <strong>montage de l'installation</strong>
+                            pour présenter Retour sur Terre au public lors de l'événement
+                            <strong>Chaos Média</strong>
+                            .
+                        </p>
+
+                        <p data-animate="reveal">
+                            Nous avons installé
+                            <strong>trois toiles de projection</strong>
+                            autour du poste de pilotage, ainsi que les rideaux et le matériel informatique, afin de transformer les animations 3D en un
+                            <strong>environnement visible autour du joueur</strong>
+                            et de recréer l'intérieur d'une capsule spatiale.
+                        </p>
+                    </div>
+
+                    <div class="project-media project-media--stack">
+                        <div class="project-media project-media--three project-media--wide-top">
+                            <div class="project-image-container">
+                                <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
+                                    <img src="assets/images/projection.jpg" alt="Projection" />
+
+                                    <svg class="image-corner corner-top icon">
+                                        <use href="#icon-corner-top"></use>
+                                    </svg>
+
+                                    <svg class="image-corner corner-bottom icon">
+                                        <use href="#icon-corner-bottom"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="project-image-container">
+                                <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
+                                    <img src="assets/images/charles_chaos.jpg" alt="Charles chaos" />
+
+                                    <svg class="image-corner corner-top icon">
+                                        <use href="#icon-corner-top"></use>
+                                    </svg>
+
+                                    <svg class="image-corner corner-bottom icon">
+                                        <use href="#icon-corner-bottom"></use>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="project-image-container">
+                                <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
+                                    <img src="assets/images/image_montage_chaos.png" alt="Montage Chaos" />
+
+                                    <svg class="image-corner corner-top icon">
+                                        <use href="#icon-corner-top"></use>
+                                    </svg>
+
+                                    <svg class="image-corner corner-bottom icon">
+                                        <use href="#icon-corner-bottom"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         RÉSULTAT FINAL
+         ========================================================================== -->
+
+        <section class="project-section project-section--dark project-result" data-component="ScrollAnimations">
+            <div class="background-network" data-component="BackgroundNetwork"></div>
+
+            <div class="wrapper">
+                <h2 data-animate="reveal">Résultat final</h2>
+
+                <div class="video-container" data-component="Youtube" data-video-id="E5aL8FatvEg" data-no-controls="true" data-animate="frame">
+                    <svg class="video-corner corner-top icon">
+                        <use href="#icon-corner-top"></use>
+                    </svg>
+
+                    <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
+                        <img class="video-thumbnail" src="assets/images/retourterre.jpg" alt="Résultat final" />
+
+                        <svg class="play-icon icon" data-animate="scale">
+                            <use href="#icon-play"></use>
+                        </svg>
+                    </button>
+
+                    <div class="video-embed">
+                        <div class="js-video"></div>
+                    </div>
+
+                    <svg class="video-corner corner-bottom icon">
+                        <use href="#icon-corner-bottom"></use>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         MODALE DES IMAGES
+         ========================================================================== -->
+
+        <div class="image-modal" data-state="closed">
+            <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
+
+            <img class="modal-image" src="" alt="" />
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="wrapper">
+
+            <div class="footer-main">
+
+                <div class="footer-contact">
+                    <h2>Discutons d’un projet!</h2>
+
+                    <a class="btn" href="index.html#contact">
+                        Me contacter
+                    </a>
+
+                    <!-- CV desktop -->
+                    <a class="footer-link cv-desktop" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <nav class="footer-nav" aria-label="Navigation du pied de page">
+                    <a class="nav-link" href="index.html#accueil">Accueil</a>
+                    <a class="nav-link" href="index.html#a-propos">À propos</a>
+                    <a class="nav-link" href="index.html#projets">Projets</a>
+                </nav>
+
+                <div class="footer-info">
+
+                    <a href="mailto:charles@bilocreations.com">
+                        charles@bilocreations.com
+                    </a>
+
+                    <a href="tel:+14503414129">
+                        450-341-4129
+                    </a>
+
+                    <div class="socials">
+
+                        <a class="social-link" href="https://github.com/Charles4302" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon--md">
+                                <use href="#icon-github"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="https://www.linkedin.com/in/charles-bilodeau-923943441" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon--md">
+                                <use href="#icon-linkedin"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#">
+                            <svg class="icon icon--md">
+                                <use href="#icon-youtube"></use>
+                            </svg>
+                        </a>
+
+                        <a class="social-link" href="#">
+                            <svg class="icon icon--md">
+                                <use href="#icon-artstation"></use>
+                            </svg>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p class="copyright">
+                    Copyright © 2026 Charles Bilodeau
+                </p>
+
+                <a class="footer-logo logo-link" href="index.html" aria-label="Retour à l'accueil">
                     <span class="logo icon icon--lg">
                         <svg class="icon corner-top">
                             <use href="#icon-corner-top"></use>
@@ -36,769 +707,140 @@
                             <use href="#icon-corner-bottom"></use>
                         </svg>
                     </span>
-
-                    <span class="name">CB</span>
                 </a>
 
-                <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
-                    <span></span>
+                <div class="footer-bottom-links">
+
+                    <!-- CV tablette/mobile -->
+                    <a class="footer-link cv-responsive" href="#" target="_blank">
+                        <span>CV</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                    <a class="footer-link" href="#modal-ia" data-modal-open>
+                        <span>Utilisation IA</span>
+
+                        <svg class="icon">
+                            <use href="#icon-fleche"></use>
+                        </svg>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <div class="custom-cursor" data-component="CustomCursor" aria-hidden="true">
+        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+            <path class="cursor-glow" d="M12 8L88 53L50 65L34 106Z" />
+            <path class="cursor-outline" d="M12 8L88 53L50 65L34 106Z" />
+            <path class="cursor-face-top" d="M12 8L50 65L88 53Z" />
+            <path class="cursor-face-bottom" d="M12 8L34 106L50 65Z" />
+            <path class="cursor-core" d="M31 34L64 54L47 60L40 79Z" />
+            <path class="cursor-highlight" d="M31 34L47 60L40 79Z" />
+        </svg>
+    </div>
+
+    <div class="modal" id="modal-ia" data-component="AiModal">
+        <div class="modal-overlay" data-modal-close></div>
+
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+            <div class="modal-header">
+                <div class="modal-heading">
+                    <span class="modal-line"></span>
+                    <span class="modal-label">Déclaration</span>
+
+                    <h2 id="modal-title">
+                        Utilisation de l'IA
+                    </h2>
+                </div>
+
+                <button class="modal-close" type="button" data-modal-close>
                     <span></span>
                     <span></span>
                 </button>
-
-                <nav class="nav" id="mobile-navigation">
-                    <ul class="nav-list">
-                        <li>
-                            <a class="nav-link" href="index.html#accueil">Accueil</a>
-                        </li>
-
-                        <li>
-                            <a class="nav-link" href="index.html#projets">Projets</a>
-                        </li>
-
-                        <li>
-                            <a class="nav-link" href="index.html#a-propos">À propos</a>
-                        </li>
-
-                        <li>
-                            <a class="nav-link" href="index.html#contact">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
             </div>
-        </header>
 
-        <main class="project-page project-page--corridor" data-component="GrowImage">
-            <!-- ==========================================================================
-         HERO
-         ========================================================================== -->
+            <div class="modal-body">
+                <p>
+                    Dans le cadre de la création de mon portfolio, j'ai utilisé
+                    <strong>ChatGPT</strong> comme outil d'assistance pour la rédaction
+                    de mes contenus et le développement de certaines fonctionnalités Web.
+                </p>
 
-            <section class="project-section project-hero" data-component="ScrollAnimations">
-                <div class="background-3d" data-component="Background"></div>
-                <div class="wrapper">
-                    <div class="project-grid">
-                        <div class="project-text">
-                            <p class="project-label" data-animate="reveal">01 // Projet</p>
+                <section class="modal-section">
+                    <h3>01 - Rédaction des contenus</h3>
 
-                            <h1 data-animate="reveal">Retour sur Terre</h1>
-
-                            <span class="project-line"></span>
-
-                            <p data-animate="reveal">
-                                Retour sur Terre est une
-                                <strong>expérience immersive et coopérative</strong>
-                                où deux joueurs collaborent pour ramener une capsule spatiale sur Terre.
-                            </p>
-
-                            <p data-animate="reveal">
-                                L'un pilote la capsule à l'aide de
-                                <strong>commandes physiques</strong>
-                                , tandis que l'autre le guide depuis un centre de contrôle pour surmonter les urgences.
-                            </p>
-
-                            <p data-animate="reveal">
-                                Présenté à
-                                <strong>Chaos Média</strong>
-                                , ce projet combine
-                                <strong>animations 3D et projections</strong>
-                                pour donner vie à cette mission spatiale.
-                            </p>
-                        </div>
-
-                        <div class="project-media">
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de Retour sur Terre" data-animate="frame">
-                                    <img src="assets/images/retourterre.jpg" alt="Retour sur Terre" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-         INFORMATIONS
-         ========================================================================== -->
-
-            <section class="project-section project-section--dark project-info" data-component="ScrollAnimations">
-                <div class="background-network" data-component="BackgroundNetwork"></div>
-                <div class="wrapper">
-                    <div class="project-info-grid">
-                        <div class="project-info-role" data-animate="reveal">
-                            <h3>Mon rôle</h3>
-
-                            <ul>
-                                <li>Modélisation 3D</li>
-                                <li>Textures et matériaux</li>
-                                <li>Animation 3D</li>
-                                <li>Mise en scène et caméras</li>
-                                <li>Effets visuels</li>
-                                <li>Montage de l'installation</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-info-credits" data-animate="reveal">
-                            <h3>Crédits</h3>
-
-                            <ul>
-                                <li>Amélie Cousineau - Cheffe d’équipe</li>
-                                <li>Alexis Proteau - Programmation, vidéo et communications</li>
-                                <li>Gabriel Landry-Gagnon - Modélisation3D et compositions sonores</li>
-                                <li>Maëna Jenesse - Design interface</li>
-                                <li>Tutoriel Youtube CBaileyFilm</li>
-                                <li>Utitilisation de l'IA pour aide et conseils durant la conception</li>
-                                <li>Blender-kit</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-info-tools" data-animate="reveal">
-                            <h3>Outils</h3>
-
-                            <ul>
-                                <li>Blender</li>
-                                <li>Adobe Media Encoder</li>
-                                <li>Adobe Premiere Pro</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-     ÉTAPE 01
-     ========================================================================== -->
-
-            <section class="project-section" data-component="ScrollAnimations">
-                <div class="background-3d" data-component="Background"></div>
-                <div class="wrapper">
-                    <div class="project-grid">
-                        <div class="project-text">
-                            <div class="project-heading" data-animate="reveal">
-                                <span>01</span>
-
-                                <h2>Crée l'environnement spatial</h2>
-                            </div>
-
-                            <p data-animate="reveal">
-                                Pour représenter le voyage vers la Terre, j'ai conçu un
-                                <strong>décor spatial</strong>
-                                avec une planète, son atmosphère et un ciel étoilé afin de donner une impression
-                                <strong>d'immensité et de profondeur</strong>
-                                .
-                            </p>
-
-                            <p data-animate="reveal">
-                                Dans Blender, j’ai travaillé les
-                                <strong>textures et shaders</strong>
-                                pour reproduire les nuages et l’effet lumineux de la Terre, ainsi que des
-                                <strong>textures Voronoi</strong>
-                                pour générer les étoiles de manière procédurale pour le shader World.
-                            </p>
-                        </div>
-
-                        <div class="project-media project-media--stack">
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de l’ambiance du corridor" data-animate="frame">
-                                    <img src="assets/images/environnement_spatial.jpg" alt="Environnement spatial" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de l’éclairage du corridor" data-animate="frame">
-                                    <img src="assets/images/nuage.png" alt="Nuage" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-     ÉTAPE 02
-     ========================================================================== -->
-
-            <section class="project-section project-section--dark" data-component="ScrollAnimations">
-                <div class="background-network" data-component="BackgroundNetwork"></div>
-                <div class="wrapper">
-                    <div class="project-grid project-grid--reverse">
-                        <!-- Deux petites images en haut + grande image en bas -->
-                        <div class="project-media project-media--three project-media--wide-bottom">
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de la modélisation" data-animate="frame">
-                                    <img src="assets/images/grillage.png" alt="grillage" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de la construction modulaire" data-animate="frame">
-                                    <img src="assets/images/station.jpg" alt="Station" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’animation de l’environnement" data-animate="frame">
-                                    <img src="assets/images/station.gif" alt="Animation de la station sptatiale" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="project-text">
-                            <div class="project-heading" data-animate="reveal">
-                                <span>02</span>
-
-                                <h2>Modéliser et animer la station spatiale</h2>
-                            </div>
-
-                            <p data-animate="reveal">
-                                Pour représenter le point de départ du voyage, j'ai réalisé la
-                                <strong>modélisation 3D d'une station spatiale</strong>
-                                dans Blender, en modélisant et assemblant différentes structures et modules pour donner une apparence crédible à la station.
-                            </p>
-
-                            <p data-animate="reveal">
-                                J'ai utilisé quelque
-                                <strong>modificateurs</strong>
-                                notamment le
-                                <strong>wireframe</strong>
-                                pour créer le grillage que l'on voit sur certaines parties de la station.
-                            </p>
-
-                            <p data-animate="reveal">
-                                J'ai ensuite travaillé les
-                                <strong>matériaux et les textures</strong>
-                                , puis ajouté des
-                                <strong>animations</strong>
-                                pour intégrer la station à la séquence de départ de la capsule.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-     ÉTAPE 03
-     ========================================================================== -->
-
-            <section class="project-section" data-component="ScrollAnimations">
-                <div class="background-3d" data-component="Background"></div>
-                <div class="wrapper">
-                    <div class="project-grid">
-                        <div class="project-text">
-                            <div class="project-heading" data-animate="reveal">
-                                <span>03</span>
-
-                                <h2>Animation de l'intérieur de la capsule</h2>
-                            </div>
-
-                            <p data-animate="reveal">
-                                J’ai travaillé
-                                <strong>l’éclairage et les animations de la capsule</strong>
-                                dans Blender pour rendre les situations d’urgence perceptibles aux joueurs et crée une tension constante lors de la partie.
-                            </p>
-
-                            <p data-animate="reveal">
-                                J’ai notamment animé des
-                                <strong>alarmes lumineuses rouges</strong>
-                                et des
-                                <strong>secousses de la capsule</strong>
-                                pour signaler les dangers et donner l’impression que le vaisseau subit réellement les événements du voyage.
-                            </p>
-                        </div>
-
-                        <!-- Grande image en haut + deux petites images en bas -->
-                        <div class="project-media project-media--three project-media--wide-top">
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
-                                    <img src="assets/images/interieur_capsule.gif" alt="Intérieur de la capsule" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
-                                    <img src="assets/images/alarme.gif" alt="Alarme" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
-                                    <img src="assets/images/montage_interieur.gif" alt="montage intérieur" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-     ÉTAPE 04
-     ========================================================================== -->
-
-            <section class="project-section project-section--dark" data-component="ScrollAnimations">
-                <div class="background-network" data-component="BackgroundNetwork"></div>
-                <div class="wrapper">
-                    <div class="project-grid project-grid--reverse">
-                        <div class="project-media project-media--three project-media--wide-top">
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
-                                    <img src="assets/images/Entree_atmosphere.gif" alt="Entree atmosphérique" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
-                                    <img src="assets/images/noeud_flamme.png" alt="Noeud de flamme" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <div class="project-image-container">
-                                <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
-                                    <img src="assets/images/flamme.gif" alt="Flamme" />
-
-                                    <svg class="image-corner corner-top icon">
-                                        <use href="#icon-corner-top"></use>
-                                    </svg>
-
-                                    <svg class="image-corner corner-bottom icon">
-                                        <use href="#icon-corner-bottom"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="project-text">
-                            <div class="project-heading" data-animate="reveal">
-                                <span>04</span>
-
-                                <h2>Animation des événements spatiaux</h2>
-                            </div>
-
-                            <p data-animate="reveal">
-                                J'ai animé et mise en scène plusieurs
-                                <strong>événements spatiaux</strong>
-                                , dont le passage de météorites qui détruit la station et frole la capsuple, pour représenter les dangers rencontrés pendant le
-                                retour sur Terre.
-                            </p>
-
-                            <p data-animate="reveal">
-                                Pour la
-                                <strong>rentrée atmosphérique</strong>
-                                , j'ai adapté un
-                                <strong>effet de flammes provenant de BlenderKit</strong>
-                                en modifiant son réseau de nœuds afin qu'il corresponde à l'apparence recherchée et accentue l'intensité de cette séquence.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-     ÉTAPE 05
-     ========================================================================== -->
-
-            <section class="project-section" data-component="ScrollAnimations">
-                <div class="background-3d" data-component="Background"></div>
-                <div class="wrapper">
-                    <div class="project-grid">
-                        <div class="project-text">
-                            <div class="project-heading" data-animate="reveal">
-                                <span>05</span>
-
-                                <h2>L’ambiance sonore</h2>
-                            </div>
-
-                            <p data-animate="reveal">
-                                J'ai participé au
-                                <strong>montage de l'installation</strong>
-                                pour présenter Retour sur Terre au public lors de l'événement
-                                <strong>Chaos Média</strong>
-                                .
-                            </p>
-
-                            <p data-animate="reveal">
-                                Nous avons installé
-                                <strong>trois toiles de projection</strong>
-                                autour du poste de pilotage, ainsi que les rideaux et le matériel informatique, afin de transformer les animations 3D en un
-                                <strong>environnement visible autour du joueur</strong>
-                                et de recréer l'intérieur d'une capsule spatiale.
-                            </p>
-                        </div>
-
-                        <div class="project-media project-media--stack">
-                            <div class="project-media project-media--three project-media--wide-top">
-                                <div class="project-image-container">
-                                    <button class="project-image" type="button" aria-label="Agrandir l’image du matériau" data-animate="frame">
-                                        <img src="assets/images/projection.jpg" alt="Projection" />
-
-                                        <svg class="image-corner corner-top icon">
-                                            <use href="#icon-corner-top"></use>
-                                        </svg>
-
-                                        <svg class="image-corner corner-bottom icon">
-                                            <use href="#icon-corner-bottom"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <div class="project-image-container">
-                                    <button class="project-image" type="button" aria-label="Agrandir l’image de la texture" data-animate="frame">
-                                        <img src="assets/images/charles_chaos.jpg" alt="Charles chaos" />
-
-                                        <svg class="image-corner corner-top icon">
-                                            <use href="#icon-corner-top"></use>
-                                        </svg>
-
-                                        <svg class="image-corner corner-bottom icon">
-                                            <use href="#icon-corner-bottom"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <div class="project-image-container">
-                                    <button class="project-image" type="button" aria-label="Agrandir l’image du UV Mapping" data-animate="frame">
-                                        <img src="assets/images/image_montage_chaos.png" alt="Montage Chaos" />
-
-                                        <svg class="image-corner corner-top icon">
-                                            <use href="#icon-corner-top"></use>
-                                        </svg>
-
-                                        <svg class="image-corner corner-bottom icon">
-                                            <use href="#icon-corner-bottom"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-         RÉSULTAT FINAL
-         ========================================================================== -->
-
-            <section class="project-section project-section--dark project-result" data-component="ScrollAnimations">
-                <div class="background-network" data-component="BackgroundNetwork"></div>
-
-                <div class="wrapper">
-                    <h2 data-animate="reveal">Résultat final</h2>
-
-                    <div class="video-container" data-component="Youtube" data-video-id="E5aL8FatvEg" data-no-controls="true" data-animate="frame">
-                        <svg class="video-corner corner-top icon">
-                            <use href="#icon-corner-top"></use>
-                        </svg>
-
-                        <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo">
-                            <img class="video-thumbnail" src="assets/images/retourterre.jpg" alt="Résultat final" />
-
-                            <svg class="play-icon icon" data-animate="scale">
-                                <use href="#icon-play"></use>
-                            </svg>
-                        </button>
-
-                        <div class="video-embed">
-                            <div class="js-video"></div>
-                        </div>
-
-                        <svg class="video-corner corner-bottom icon">
-                            <use href="#icon-corner-bottom"></use>
-                        </svg>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ==========================================================================
-         MODALE DES IMAGES
-         ========================================================================== -->
-
-            <div class="image-modal" data-state="closed">
-                <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
-
-                <img class="modal-image" src="" alt="" />
-            </div>
-        </main>
-
-        <footer class="footer">
-            <div class="wrapper">
-                <div class="footer-main">
-                    <div class="footer-contact">
-                        <h2>Discutons d’un projet!</h2>
-
-                        <a class="btn" href="index.html#contact">Me contacter</a>
-
-                        <!-- CV desktop -->
-                        <a class="footer-link cv-desktop" href="#" target="_blank">
-                            <span>CV</span>
-
-                            <svg class="icon">
-                                <use href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <nav class="footer-nav" aria-label="Navigation du pied de page">
-                        <a class="nav-link" href="index.html#accueil">Accueil</a>
-                        <a class="nav-link" href="index.html#a-propos">À propos</a>
-                        <a class="nav-link" href="index.html#projets">Projets</a>
-                    </nav>
-
-                    <div class="footer-info">
-                        <a href="mailto:charles@bilocreations.com">charles@bilocreations.com</a>
-
-                        <a href="tel:+14503414129">450-341-4129</a>
-
-                        <div class="socials">
-                            <a class="social-link" href="https://github.com/Charles4302" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon icon--md">
-                                    <use href="#icon-github"></use>
-                                </svg>
-                            </a>
-
-                            <a class="social-link" href="https://www.linkedin.com/in/charles-bilodeau-923943441" target="_blank" rel="noopener noreferrer">
-                                <svg class="icon icon--md">
-                                    <use href="#icon-linkedin"></use>
-                                </svg>
-                            </a>
-
-                            <a class="social-link" href="#">
-                                <svg class="icon icon--md">
-                                    <use href="#icon-youtube"></use>
-                                </svg>
-                            </a>
-
-                            <a class="social-link" href="#">
-                                <svg class="icon icon--md">
-                                    <use href="#icon-artstation"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p class="copyright">Copyright © 2026 Charles Bilodeau</p>
-
-                    <a class="footer-logo logo-link" href="index.html" aria-label="Retour à l'accueil">
-                        <span class="logo icon icon--lg">
-                            <svg class="icon corner-top">
-                                <use href="#icon-corner-top"></use>
-                            </svg>
-
-                            <svg class="icon plus">
-                                <use href="#icon-plus"></use>
-                            </svg>
-
-                            <svg class="icon corner-bottom">
-                                <use href="#icon-corner-bottom"></use>
-                            </svg>
-                        </span>
-                    </a>
-
-                    <div class="footer-bottom-links">
-                        <!-- CV tablette/mobile -->
-                        <a class="footer-link cv-responsive" href="#" target="_blank">
-                            <span>CV</span>
-
-                            <svg class="icon">
-                                <use href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-
-                        <a class="footer-link" href="#modal-ia" data-modal-open>
-                            <span>Utilisation IA</span>
-
-                            <svg class="icon">
-                                <use href="#icon-fleche"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <div class="custom-cursor" data-component="CustomCursor" aria-hidden="true">
-            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                <path class="cursor-glow" d="M12 8L88 53L50 65L34 106Z" />
-                <path class="cursor-outline" d="M12 8L88 53L50 65L34 106Z" />
-                <path class="cursor-face-top" d="M12 8L50 65L88 53Z" />
-                <path class="cursor-face-bottom" d="M12 8L34 106L50 65Z" />
-                <path class="cursor-core" d="M31 34L64 54L47 60L40 79Z" />
-                <path class="cursor-highlight" d="M31 34L47 60L40 79Z" />
-            </svg>
-        </div>
-
-        <div class="modal" id="modal-ia" data-component="AiModal">
-            <div class="modal-overlay" data-modal-close></div>
-
-            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-                <div class="modal-header">
-                    <div class="modal-heading">
-                        <span class="modal-line"></span>
-                        <span class="modal-label">Déclaration</span>
-
-                        <h2 id="modal-title">Utilisation de l'IA</h2>
-                    </div>
-
-                    <button class="modal-close" type="button" data-modal-close>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
                     <p>
-                        Dans le cadre de la création de mon portfolio, j'ai utilisé
-                        <strong>ChatGPT</strong>
-                        comme outil d'assistance pour la rédaction de mes contenus et le développement de certaines fonctionnalités Web.
+                        J'ai utilisé l'IA pour <strong>corriger, structurer et reformuler</strong>
+                        certains textes de mon portfolio, notamment les descriptions de mes
+                        projets et mes présentations personnelles.
                     </p>
 
-                    <section class="modal-section">
-                        <h3>01 - Rédaction des contenus</h3>
+                    <p>
+                        Les informations proviennent de mon travail et de mes expériences.
+                        J'ai ensuite sélectionné, vérifié et ajusté les formulations
+                        proposées pour qu'elles correspondent à ce que je souhaitais communiquer.
+                    </p>
+                </section>
 
-                        <p>
-                            J'ai utilisé l'IA pour
-                            <strong>corriger, structurer et reformuler</strong>
-                            certains textes de mon portfolio, notamment les descriptions de mes projets et mes présentations personnelles.
-                        </p>
+                <section class="modal-section">
+                    <h3>02 - Développement Web</h3>
 
-                        <p>
-                            Les informations proviennent de mon travail et de mes expériences. J'ai ensuite sélectionné, vérifié et ajusté les formulations
-                            proposées pour qu'elles correspondent à ce que je souhaitais communiquer.
-                        </p>
-                    </section>
+                    <p>
+                        J'ai réalisé de manière autonome la majeure partie de l'intégration
+                        <strong>HTML et SCSS</strong>, ainsi que plusieurs composantes
+                        <strong>JavaScript</strong>.
+                    </p>
 
-                    <section class="modal-section">
-                        <h3>02 - Développement Web</h3>
+                    <p>
+                        Pour certaines fonctionnalités plus complexes, j'ai eu davantage
+                        recours à l'IA. Le code des
+                        <strong>animations et effets WebGL</strong>, de
+                        l'<strong>importation et des interactions avec les modèles 3D</strong>
+                        ainsi que de la <strong>composante de lecture audio</strong>
+                        a été en grande partie généré avec ChatGPT. J'ai ensuite intégré,
+                        corrigé et adapté ces fonctionnalités aux besoins de mon site.
+                    </p>
 
-                        <p>
-                            J'ai réalisé de manière autonome la majeure partie de l'intégration
-                            <strong>HTML et SCSS</strong>
-                            , ainsi que plusieurs composantes
-                            <strong>JavaScript</strong>
-                            .
-                        </p>
+                    <p>
+                        Pour les animations avec <strong>GSAP</strong> et certains effets
+                        <strong>CSS</strong>, notamment les formes particulières des cadres
+                        d'images et de vidéos, l'IA m'a plutôt servi d'assistance ponctuelle.
+                        Après quelques échanges pour comprendre les techniques nécessaires,
+                        j'ai poursuivi leur développement et leurs ajustements de manière autonome.
+                    </p>
+                </section>
 
-                        <p>
-                            Pour certaines fonctionnalités plus complexes, j'ai eu davantage recours à l'IA. Le code des
-                            <strong>animations et effets WebGL</strong>
-                            , de l'
-                            <strong>importation et des interactions avec les modèles 3D</strong>
-                            ainsi que de la
-                            <strong>composante de lecture audio</strong>
-                            a été en grande partie généré avec ChatGPT. J'ai ensuite intégré, corrigé et adapté ces fonctionnalités aux besoins de mon site.
-                        </p>
+                <section class="modal-section">
+                    <h3>03 - Contribution personnelle</h3>
 
-                        <p>
-                            Pour les animations avec
-                            <strong>GSAP</strong>
-                            et certains effets
-                            <strong>CSS</strong>
-                            , notamment les formes particulières des cadres d'images et de vidéos, l'IA m'a plutôt servi d'assistance ponctuelle. Après quelques
-                            échanges pour comprendre les techniques nécessaires, j'ai poursuivi leur développement et leurs ajustements de manière autonome.
-                        </p>
-                    </section>
+                    <p>
+                        L'IA m'a permis d'explorer des solutions techniques et de surmonter
+                        certaines difficultés durant le développement.
+                    </p>
 
-                    <section class="modal-section">
-                        <h3>03 - Contribution personnelle</h3>
+                    <p>
+                        J'ai conservé la responsabilité des choix de conception, de la
+                        <strong>direction artistique</strong>, de l'intégration des
+                        fonctionnalités et de leur adaptation à l'ensemble du portfolio.
+                    </p>
 
-                        <p>L'IA m'a permis d'explorer des solutions techniques et de surmonter certaines difficultés durant le développement.</p>
-
-                        <p>
-                            J'ai conservé la responsabilité des choix de conception, de la
-                            <strong>direction artistique</strong>
-                            , de l'intégration des fonctionnalités et de leur adaptation à l'ensemble du portfolio.
-                        </p>
-
-                        <p>L'IA a donc été utilisée comme un outil de soutien, avec différents niveaux d'intervention selon les fonctionnalités réalisées.</p>
-                    </section>
-                </div>
+                    <p>
+                        L'IA a donc été utilisée comme un outil de soutien, avec différents
+                        niveaux d'intervention selon les fonctionnalités réalisées.
+                    </p>
+                </section>
             </div>
+
         </div>
-    </body>
+    </div>
+
+</body>
+
 </html>

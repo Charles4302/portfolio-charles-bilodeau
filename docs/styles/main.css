@@ -4372,11 +4372,6 @@ body.modal-open {
 }
 
 .error-page {
-  background-color: var(--color-primary);
-  color: var(--color-neutral);
-}
-
-.error-page .error-page {
   position: relative;
   isolation: isolate;
   display: flex;
@@ -4384,8 +4379,13 @@ body.modal-open {
   min-height: 100vh;
   padding: var(--spacing-xl) 0;
   overflow: hidden;
+  background-color: var(--color-primary);
+  color: var(--color-neutral);
+  /* ==========================================================================
+     ARRIÈRE-PLAN
+     ========================================================================== */
 }
-.error-page .error-page .background-network {
+.error-page .background-network {
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -4393,17 +4393,22 @@ body.modal-open {
   height: 100%;
   pointer-events: none;
 }
-.error-page .error-page .background-network canvas {
+.error-page .background-network canvas {
   display: block;
   width: 100%;
   height: 100%;
 }
-.error-page .error-page .wrapper {
+.error-page {
+  /* ==========================================================================
+     STRUCTURE
+     ========================================================================== */
+}
+.error-page .wrapper {
   position: relative;
   z-index: 1;
   width: 100%;
 }
-.error-page .error-page .error-content {
+.error-page .error-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4413,7 +4418,12 @@ body.modal-open {
   margin: 0 auto;
   text-align: center;
 }
-.error-page .error-page .error-status {
+.error-page {
+  /* ==========================================================================
+     ÉTAT DU SYSTÈME
+     ========================================================================== */
+}
+.error-page .error-status {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -4424,7 +4434,7 @@ body.modal-open {
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
-.error-page .error-page .error-status .status-dot {
+.error-page .error-status .status-dot {
   width: 9px;
   height: 9px;
   flex-shrink: 0;
@@ -4433,11 +4443,16 @@ body.modal-open {
   box-shadow: 0 0 8px var(--color-accent), 0 0 18px var(--color-accent);
   animation: status-pulse 2s ease-in-out infinite;
 }
-.error-page .error-page .error-number {
+.error-page {
+  /* ==========================================================================
+     GRAND CHIFFRE 404
+     ========================================================================== */
+}
+.error-page .error-number {
   position: relative;
   margin: var(--spacing-md) 0;
 }
-.error-page .error-page .error-number .glitch {
+.error-page .error-number .glitch {
   position: relative;
   display: block;
   color: var(--color-neutral);
@@ -4448,29 +4463,34 @@ body.modal-open {
   letter-spacing: -0.08em;
   text-shadow: 0 0 15px rgba(54, 218, 255, 0.2), 0 0 45px rgba(54, 218, 255, 0.1);
 }
-.error-page .error-page .error-number .glitch::before, .error-page .error-page .error-number .glitch::after {
+.error-page .error-number .glitch::before, .error-page .error-number .glitch::after {
   content: attr(data-text);
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
 }
-.error-page .error-page .error-number .glitch::before {
+.error-page .error-number .glitch::before {
   color: var(--color-accent);
   animation: glitch-left 7s infinite;
 }
-.error-page .error-page .error-number .glitch::after {
+.error-page .error-number .glitch::after {
   color: #a96bff;
   animation: glitch-right 7s infinite;
 }
-.error-page .error-page .error-message {
+.error-page {
+  /* ==========================================================================
+     MESSAGE D'ERREUR
+     ========================================================================== */
+}
+.error-page .error-message {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-base);
   max-width: 720px;
 }
-.error-page .error-page .error-message .error-line {
+.error-page .error-message .error-line {
   display: block;
   width: 100px;
   height: 2px;
@@ -4478,36 +4498,46 @@ body.modal-open {
   background-color: var(--color-accent);
   box-shadow: 0 0 8px var(--color-accent), 0 0 18px rgba(54, 218, 255, 0.4);
 }
-.error-page .error-page .error-message h1 {
+.error-page .error-message h1 {
   color: var(--color-neutral);
   font-size: clamp(28px, 4vw, 52px);
   font-weight: 700;
   line-height: 1.2;
   text-transform: uppercase;
 }
-.error-page .error-page .error-message p {
+.error-page .error-message p {
   max-width: 580px;
   color: var(--color-neutral);
   opacity: 0.75;
   font-size: clamp(16px, 1.5vw, 20px);
   line-height: 1.6;
 }
-.error-page .error-page .error-button {
+.error-page {
+  /* ==========================================================================
+     BOUTON DE RETOUR
+     ========================================================================== */
+}
+.error-page .error-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
 }
-.error-page .error-page .error-button .icon {
+.error-page .error-button .icon {
   width: 20px;
   height: 20px;
   transition: transform 0.3s ease;
 }
-.error-page .error-page .error-button:hover .icon {
+.error-page .error-button:hover .icon {
   transform: translate(4px, -4px);
 }
-.error-page .error-page .error-footer {
+.error-page {
+  /* ==========================================================================
+     INFORMATIONS TECHNIQUES
+     ========================================================================== */
+}
+.error-page .error-footer {
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-md);
@@ -4521,38 +4551,48 @@ body.modal-open {
   letter-spacing: 0.1em;
   opacity: 0.6;
 }
+.error-page {
+  /* ==========================================================================
+     TABLETTE
+     ========================================================================== */
+}
 @media screen and (max-width: 1096px) {
-  .error-page .error-page {
+  .error-page {
     min-height: 80vh;
   }
-  .error-page .error-page .error-content {
+  .error-page .error-content {
     max-width: 800px;
   }
-  .error-page .error-page .error-number .glitch {
+  .error-page .error-number .glitch {
     font-size: clamp(120px, 25vw, 240px);
   }
 }
+.error-page {
+  /* ==========================================================================
+     MOBILE
+     ========================================================================== */
+}
 @media screen and (max-width: 768px) {
-  .error-page .error-page {
+  .error-page {
     min-height: 75vh;
     padding: var(--spacing-lg) 0;
   }
-  .error-page .error-page .error-status {
+  .error-page .error-status {
     font-size: 11px;
   }
-  .error-page .error-page .error-number {
+  .error-page .error-number {
     margin: var(--spacing-lg) 0;
   }
-  .error-page .error-page .error-number .glitch {
+  .error-page .error-number .glitch {
     font-size: clamp(100px, 30vw, 170px);
   }
-  .error-page .error-page .error-message h1 {
+  .error-page .error-message h1 {
     font-size: 28px;
   }
-  .error-page .error-page .error-message p {
+  .error-page .error-message p {
     font-size: 16px;
   }
-  .error-page .error-page .error-footer {
+  .error-page .error-footer {
     flex-direction: column;
     align-items: center;
     margin-top: var(--spacing-xl);
@@ -4561,6 +4601,9 @@ body.modal-open {
   }
 }
 
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
 @keyframes status-pulse {
   0%, 100% {
     opacity: 1;
@@ -4617,6 +4660,9 @@ body.modal-open {
     opacity: 0;
   }
 }
+/* ==========================================================================
+   ACCESSIBILITÉ
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .error-page .glitch::before,
   .error-page .glitch::after,
@@ -5033,3 +5079,4 @@ body.modal-open {
     text-align: center;
   }
 }
+/*# sourceMappingURL=main.css.map */
