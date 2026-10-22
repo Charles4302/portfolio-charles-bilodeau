@@ -3896,6 +3896,229 @@ body.modal-open {
   }
 }
 
+.image-compare {
+  --compare-position: 50%;
+  --image-corner-size: 60px;
+  --image-border-size: 2px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  cursor: default;
+  /* ==========================================================================
+     FRAME CYAN
+     ========================================================================== */
+}
+.image-compare::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--color-accent);
+  clip-path: var(--image-clip);
+  pointer-events: none;
+}
+.image-compare {
+  /* ==========================================================================
+     CONTENEUR DES IMAGES
+     ========================================================================== */
+}
+.image-compare .image-compare__images {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.95/1;
+  overflow: hidden;
+  clip-path: polygon(var(--image-border-size) var(--image-border-size), calc(100% - var(--image-corner-size) - var(--image-border-size)) var(--image-border-size), calc(100% - var(--image-border-size)) calc(var(--image-corner-size) + var(--image-border-size)), calc(100% - var(--image-border-size)) calc(100% - var(--image-border-size)), calc(var(--image-corner-size) + var(--image-border-size)) calc(100% - var(--image-border-size)), var(--image-border-size) calc(100% - var(--image-corner-size) - var(--image-border-size)));
+}
+.image-compare {
+  /* ==========================================================================
+     IMAGES AVANT / APRÈS
+     ========================================================================== */
+}
+.image-compare .image-compare__before,
+.image-compare .image-compare__after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border: 0;
+  clip-path: none;
+  pointer-events: none;
+  transition: none;
+}
+.image-compare .image-compare__after {
+  z-index: 1;
+}
+.image-compare .image-compare__before {
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--compare-position)) 0 0);
+}
+.image-compare {
+  /* ==========================================================================
+     LIGNE DE COMPARAISON
+     ========================================================================== */
+}
+.image-compare .image-compare__divider {
+  position: absolute;
+  z-index: 4;
+  top: var(--image-border-size);
+  bottom: var(--image-border-size);
+  left: var(--compare-position);
+  width: 2px;
+  background-color: var(--color-accent);
+  transform: translateX(-50%);
+  pointer-events: none;
+  box-shadow: 0 0 8px var(--color-accent), 0 0 15px var(--color-accent-glow-soft);
+}
+.image-compare {
+  /* ==========================================================================
+     POIGNÉE CENTRALE
+     ========================================================================== */
+}
+.image-compare .image-compare__handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--color-accent-glow-soft), 0 0 15px var(--color-accent-glow-soft);
+}
+.image-compare .image-compare__handle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+  line-height: 1;
+}
+.image-compare {
+  /* ==========================================================================
+     ÉTIQUETTES AVANT / APRÈS
+     ========================================================================== */
+}
+.image-compare .image-compare__label {
+  position: absolute;
+  z-index: 3;
+  padding: 8px 14px;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: var(--color-neutral);
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.image-compare .image-compare__label--before {
+  top: 20px;
+  left: 20px;
+}
+.image-compare .image-compare__label--after {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+}
+.image-compare {
+  /* ==========================================================================
+     SLIDER INTERACTIF
+     ========================================================================== */
+}
+.image-compare .image-compare__slider {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+.image-compare {
+  /* ==========================================================================
+     FOCUS
+     ========================================================================== */
+}
+.image-compare:focus-within {
+  outline: none;
+}
+.image-compare:has(.image-compare__slider:focus-visible) {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+.image-compare {
+  /* ==========================================================================
+     HOVER
+     ========================================================================== */
+}
+.image-compare:hover {
+  filter: drop-shadow(0 0 4px var(--color-accent-glow)) drop-shadow(0 0 8px var(--color-accent-glow-soft));
+}
+.image-compare:hover img {
+  filter: none;
+}
+.image-compare {
+  /* ==========================================================================
+     CORNERS DÉCORATIFS
+     ========================================================================== */
+}
+.image-compare .image-corner {
+  display: none;
+}
+.image-compare {
+  /* ==========================================================================
+     RESPONSIVE
+     ========================================================================== */
+}
+@media screen and (max-width: 768px) {
+  .image-compare {
+    --image-corner-size: 30px;
+  }
+  .image-compare .image-compare__images {
+    aspect-ratio: 1.95/1;
+  }
+  .image-compare .image-compare__handle {
+    width: 36px;
+    height: 36px;
+  }
+  .image-compare .image-compare__handle span {
+    font-size: 20px;
+  }
+  .image-compare .image-compare__label {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .image-compare .image-compare__label--before {
+    top: 10px;
+    left: 10px;
+  }
+  .image-compare .image-compare__label--after {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
 /* ==========================================================================
    ÉTAPES DES FICHES DE PROJET
    ========================================================================== */
