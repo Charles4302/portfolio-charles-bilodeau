@@ -4428,6 +4428,7 @@ body.modal-open {
 .project-result h2 {
   margin-bottom: var(--spacing-lg);
   text-transform: uppercase;
+  text-align: center;
 }
 
 .skill {

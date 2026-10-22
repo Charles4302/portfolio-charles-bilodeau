@@ -83,7 +83,6 @@
 
     <main>
         <section class="hero" id="accueil" data-component="ScrollAnimations">
-            <!-- Grille 3D animée en arrière-plan -->
             <div class="background-3d" data-component="Background"></div>
 
             <div class="wrapper">
@@ -167,7 +166,7 @@
 
                             <div class="projet-details">
                                 <p class="projet-description">Conception d’une expérience numérique interactive.</p>
-                                <p class="projet-meta">Environnement 3D • installation interactive</p>
+                                <p class="projet-meta">Production interactive • Environnement 3D</p>
                             </div>
 
                             <span class="projet-hover-line"></span>
@@ -194,7 +193,7 @@
                         </div>
                     </a>
 
-                    <a class="projet-card" href="#" data-animate="frame">
+                    <a class="projet-card" href="fiche_projet_4.html" data-animate="frame">
                         <img class="projet-image" src="assets/images/typocinetique.png" alt="Projet Typo cinétique" />
 
                         <div class="projet-info">
@@ -207,7 +206,7 @@
 
                             <div class="projet-details">
                                 <p class="projet-description">Animation typographique basée sur le rythme.</p>
-                                <p class="projet-meta">Motion design • After Effects</p>
+                                <p class="projet-meta">Animation 2D • Motion Design</p>
                             </div>
 
                             <span class="projet-hover-line"></span>
@@ -227,7 +226,7 @@
 
                             <div class="projet-details">
                                 <p class="projet-description">Création d’une scène 3D texturée avec du UV mapping.</p>
-                                <p class="projet-meta">Web • Design interactif</p>
+                                <p class="projet-meta">Modélisation 3D • Mapping</p>
                             </div>
 
                             <span class="projet-hover-line"></span>
@@ -237,31 +236,30 @@
             </div>
         </section>
         <section class="apropos" id="a-propos" data-component="GrowImage">
-            <!-- Grille 3D animée en arrière-plan -->
             <div class="background-3d" data-component="Background"></div>
 
             <div class="wrapper" data-component="ScrollAnimations">
                 <div class="apropos-content">
                     <div class="apropos-text">
-                        <h2 class="apropos-title" data-animate="reveal">À propos</h2>
+                        <h2 class="apropos-title" data-animate="reveal">À propos de moi</h2>
 
                         <div class="apropos-description">
                             <p data-animate="reveal">
                                 Je souhaite mettre ma
                                 <strong>polyvalence en création visuelle</strong>
                                 au service de projets en
-                                <strong>3D</strong>
-                                , en
+                                <strong>3D,</strong>
+                                en
                                 <strong>animation</strong>
                                 ou en
-                                <strong>jeu vidéo</strong>
-                                , tout en continuant à développer mes compétences dans un environnement professionnel.
+                                <strong>jeu vidéo,</strong>
+                                tout en continuant à développer mes compétences dans un environnement professionnel.
                             </p>
 
                             <p data-animate="reveal">
                                 Ma
-                                <strong>créativité</strong>
-                                , ma
+                                <strong>créativité,</strong>
+                                ma
                                 <strong>capacité d’adaptation</strong>
                                 et ma connaissance de
                                 <strong>différents outils multimédias</strong>
@@ -309,12 +307,10 @@
         </section>
 
         <section class="competences" id="competences" data-component="ScrollAnimations">
-            <!-- Circuits numériques animés en arrière-plan -->
             <div class="background-network" data-component="BackgroundNetwork"></div>
 
             <div class="wrapper">
                 <div class="competences-content">
-                    <!-- Compétences -->
                     <div class="skills">
                         <h2 data-animate="reveal">Mes compétences</h2>
 
@@ -357,7 +353,6 @@
                         </div>
                     </div>
 
-                    <!-- Logiciels -->
                     <div class="software">
                         <h2 data-animate="reveal">Logiciels</h2>
 
@@ -404,7 +399,6 @@
         </section>
 
         <section class="interets" id="interets" data-component="ScrollAnimations">
-            <!-- Grille 3D animée en arrière-plan -->
             <div class="background-3d" data-component="Background"></div>
 
             <div class="wrapper">
@@ -557,16 +551,19 @@
             <div class="background-3d" data-component="Background"></div>
 
             <div class="wrapper">
-                <h2 data-animate="reveal">Vidéo de présentation</h2>
-
                 <div class="presentation-media">
                     <div class="video-float" data-animate="scroll-3d">
-                        <div class="video-container" data-animate="frame">
+                        <div class="video-container" data-component="Youtube" data-video-id="6v6sqGi6xHM" data-animate="frame">
                             <svg class="video-corner corner-top icon">
                                 <use href="#icon-corner-top"></use>
                             </svg>
 
-                            <button class="video-preview" type="button" aria-label="Lire la vidéo de présentation">
+                            <div class="video-embed">
+                                <div class="js-video"></div>
+                            </div>
+
+                            <button class="video-preview js-poster" type="button" aria-label="Lire la vidéo de présentation">
+                                <img class="video-thumbnail" src="assets/images/presentation.webp" alt="Présentation" />
                                 <svg class="play-icon icon" data-animate="scale">
                                     <use href="#icon-play"></use>
                                 </svg>
