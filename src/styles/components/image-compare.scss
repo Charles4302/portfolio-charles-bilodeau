@@ -1,0 +1,300 @@
+.image-compare {
+    --compare-position: 50%;
+
+    // Dimensions de la frame
+    --image-corner-size: 60px;
+    --image-border-size: 2px;
+
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+
+    overflow: visible;
+    background: transparent;
+    border: 0;
+
+    cursor: default;
+
+    /* ==========================================================================
+       FRAME CYAN
+       ========================================================================== */
+
+    // Réutilise la forme extérieure de .project-image
+    &::before {
+        content: '';
+
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+
+        background-color: var(--color-accent);
+        clip-path: var(--image-clip);
+
+        pointer-events: none;
+    }
+
+    /* ==========================================================================
+       CONTENEUR DES IMAGES
+       ========================================================================== */
+
+    .image-compare__images {
+        position: relative;
+        z-index: 1;
+
+        display: block;
+        width: 100%;
+
+        // Format plus panoramique sur ordinateur
+        aspect-ratio: 2.95 / 1;
+
+        overflow: hidden;
+
+        // Même forme intérieure que les images de projet
+        clip-path: polygon(
+            var(--image-border-size) var(--image-border-size),
+            calc(100% - var(--image-corner-size) - var(--image-border-size))
+                var(--image-border-size),
+            calc(100% - var(--image-border-size))
+                calc(var(--image-corner-size) + var(--image-border-size)),
+            calc(100% - var(--image-border-size))
+                calc(100% - var(--image-border-size)),
+            calc(var(--image-corner-size) + var(--image-border-size))
+                calc(100% - var(--image-border-size)),
+            var(--image-border-size)
+                calc(100% - var(--image-corner-size) - var(--image-border-size))
+        );
+    }
+
+    /* ==========================================================================
+       IMAGES AVANT / APRÈS
+       ========================================================================== */
+
+    .image-compare__before,
+    .image-compare__after {
+        position: absolute;
+        inset: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        border: 0;
+        clip-path: none;
+
+        pointer-events: none;
+        transition: none;
+    }
+
+    // Image finale en arrière-plan
+    .image-compare__after {
+        z-index: 1;
+    }
+
+    // Image avant visible à gauche
+    .image-compare__before {
+        z-index: 2;
+
+        clip-path: inset(0 calc(100% - var(--compare-position)) 0 0);
+    }
+
+    /* ==========================================================================
+       LIGNE DE COMPARAISON
+       ========================================================================== */
+
+    .image-compare__divider {
+        position: absolute;
+        z-index: 4;
+
+        top: var(--image-border-size);
+        bottom: var(--image-border-size);
+        left: var(--compare-position);
+
+        width: 2px;
+
+        background-color: var(--color-accent);
+
+        transform: translateX(-50%);
+        pointer-events: none;
+
+        box-shadow:
+            0 0 8px var(--color-accent),
+            0 0 15px var(--color-accent-glow-soft);
+    }
+
+    /* ==========================================================================
+       POIGNÉE CENTRALE
+       ========================================================================== */
+
+    .image-compare__handle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 46px;
+        height: 46px;
+        padding: 0;
+
+        border: 2px solid var(--color-accent);
+        border-radius: 50%;
+
+        background-color: var(--color-primary);
+        color: var(--color-accent);
+
+        transform: translate(-50%, -50%);
+
+        box-shadow:
+            0 0 8px var(--color-accent-glow-soft),
+            0 0 15px var(--color-accent-glow-soft);
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100%;
+
+            font-size: 24px;
+            line-height: 1;
+        }
+    }
+
+    /* ==========================================================================
+       ÉTIQUETTES AVANT / APRÈS
+       ========================================================================== */
+
+    .image-compare__label {
+        position: absolute;
+        z-index: 3;
+
+        padding: 8px 14px;
+
+        background-color: rgba(0, 0, 0, 0.75);
+        color: var(--color-neutral);
+
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        pointer-events: none;
+    }
+
+    // Avant : en haut à gauche
+    .image-compare__label--before {
+        top: 20px;
+        left: 20px;
+    }
+
+    // Après : en bas à droite
+    .image-compare__label--after {
+        top: auto;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    /* ==========================================================================
+       SLIDER INTERACTIF
+       ========================================================================== */
+
+    .image-compare__slider {
+        position: absolute;
+        z-index: 5;
+        inset: 0;
+
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        padding: 0;
+
+        opacity: 0;
+
+        cursor: ew-resize;
+        touch-action: pan-y;
+    }
+
+    /* ==========================================================================
+       FOCUS
+       ========================================================================== */
+
+    // Retire la bordure rectangulaire au clic
+    &:focus-within {
+        outline: none;
+    }
+
+    // Indicateur visible seulement au clavier
+    &:has(.image-compare__slider:focus-visible) {
+        outline: 2px dashed var(--color-accent);
+        outline-offset: 4px;
+    }
+
+    /* ==========================================================================
+       HOVER
+       ========================================================================== */
+
+    &:hover {
+        filter: drop-shadow(0 0 4px var(--color-accent-glow))
+            drop-shadow(0 0 8px var(--color-accent-glow-soft));
+
+        // Aucun éclaircissement des images
+        img {
+            filter: none;
+        }
+    }
+
+    /* ==========================================================================
+       CORNERS DÉCORATIFS
+       ========================================================================== */
+
+    // Masque les SVG de coins uniquement pour le comparateur
+    .image-corner {
+        display: none;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE
+       ========================================================================== */
+
+    @media screen and (max-width: $breakpoint-sm) {
+        --image-corner-size: 30px;
+
+        .image-compare__images {
+            // Format moins haut sur mobile également
+            aspect-ratio: 1.95 / 1;
+        }
+
+        .image-compare__handle {
+            width: 36px;
+            height: 36px;
+
+            span {
+                font-size: 20px;
+            }
+        }
+
+        .image-compare__label {
+            padding: 6px 10px;
+            font-size: 11px;
+        }
+
+        .image-compare__label--before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .image-compare__label--after {
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+}
