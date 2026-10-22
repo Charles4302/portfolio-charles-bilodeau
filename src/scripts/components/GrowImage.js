@@ -3,7 +3,7 @@ export default class GrowImage {
     this.element = element;
 
     this.imageButtons = this.element.querySelectorAll(
-      '.apropos-image, .project-image',
+      '.apropos-image, .project-image:not(.image-compare)',
     );
 
     this.modal = this.element.querySelector('.image-modal');

@@ -9,6 +9,7 @@ import Background from './components/Background.js';
 import BackgroundNetwork from './components/BackgroundNetwork.js';
 import ModelViewer from './components/ModelViewer.js';
 import AiModal from './components/AiModal.js';
+import ImageCompare from './components/ImageCompare.js';
 
 export default class ComponentFactory {
   constructor() {
@@ -24,6 +25,7 @@ export default class ComponentFactory {
       BackgroundNetwork,
       ModelViewer,
       AiModal,
+      ImageCompare,
     };
 
     this.init();
