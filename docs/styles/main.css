@@ -2516,25 +2516,37 @@ body.modal-open {
     min-height: auto;
   }
   .hero .hero-content {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
     gap: var(--spacing-lg);
   }
   .hero .hero-text {
+    display: contents;
+  }
+  .hero .hero-identity {
     grid-column: 1;
     grid-row: 1;
   }
-  .hero .hero-media {
+  .hero .hero-description {
     grid-column: 1;
     grid-row: 2;
   }
+  .hero .hero-media {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+  }
   .hero .hero-actions {
+    grid-column: 1;
+    grid-row: 4;
     margin-top: var(--spacing-md);
   }
 }
 .hero {
   /* ==========================================================================
-  MOBILE
-  ========================================================================== */
+     MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 768px) {
   .hero {
@@ -3115,7 +3127,7 @@ body.modal-open {
 }
 .apropos {
   /* ==========================================================================
-     IMAGE
+     IMAGE ET CRÉDIT PHOTO
      ========================================================================== */
 }
 .apropos .apropos-media {
@@ -3124,8 +3136,26 @@ body.modal-open {
   align-items: flex-end;
   gap: var(--spacing-xl);
 }
-.apropos .apropos-image {
+.apropos .apropos-portrait {
+  width: 100%;
   max-width: 500px;
+}
+.apropos .apropos-image {
+  display: block;
+  width: 100%;
+}
+.apropos .apropos-credit {
+  margin-top: var(--spacing-sm);
+  color: var(--color-neutral);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+  opacity: 0.65;
+}
+.apropos .apropos-credit span {
+  color: var(--color-accent);
+  font-weight: 500;
 }
 .apropos {
   /* ==========================================================================
@@ -3137,8 +3167,8 @@ body.modal-open {
 }
 .apropos {
   /* ==========================================================================
-  TABLETTE
-  ========================================================================== */
+     TABLETTE
+     ========================================================================== */
 }
 @media screen and (max-width: 1096px) {
   .apropos .apropos-content {
@@ -3151,14 +3181,14 @@ body.modal-open {
   .apropos .apropos-media {
     align-items: center;
   }
-  .apropos .apropos-image {
+  .apropos .apropos-portrait {
     max-width: 600px;
   }
 }
 .apropos {
   /* ==========================================================================
-  MOBILE
-  ========================================================================== */
+     MOBILE
+     ========================================================================== */
 }
 @media screen and (max-width: 768px) {
   .apropos .wrapper {
@@ -3188,6 +3218,10 @@ body.modal-open {
   .apropos .apropos-media > div {
     width: 100%;
     min-width: 0;
+  }
+  .apropos .apropos-portrait {
+    width: 100%;
+    max-width: 100%;
   }
   .apropos .apropos-image {
     display: block;
