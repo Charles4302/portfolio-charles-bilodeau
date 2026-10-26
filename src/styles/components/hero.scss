@@ -200,28 +200,51 @@
         min-height: auto;
 
         .hero-content {
-            grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            align-items: center;
+
             gap: var(--spacing-lg);
         }
 
+        // Permet de réorganiser les éléments de .hero-text
+        // directement dans la grille principale
         .hero-text {
+            display: contents;
+        }
+
+        // 1. Nom et identité
+        .hero-identity {
             grid-column: 1;
             grid-row: 1;
         }
 
-        .hero-media {
+        // 2. Description
+        .hero-description {
             grid-column: 1;
             grid-row: 2;
         }
 
+        // 3. Robot holographique
+        .hero-media {
+            grid-column: 1;
+            grid-row: 3;
+
+            width: 100%;
+        }
+
+        // 4. Boutons
         .hero-actions {
+            grid-column: 1;
+            grid-row: 4;
+
             margin-top: var(--spacing-md);
         }
     }
 
     /* ==========================================================================
-   MOBILE
-   ========================================================================== */
+       MOBILE
+       ========================================================================== */
 
     @media screen and (max-width: $breakpoint-sm) {
         // Espace pour le header fixe
