@@ -147,7 +147,7 @@
     }
 
     /* ==========================================================================
-       IMAGE
+       IMAGE ET CRÉDIT PHOTO
        ========================================================================== */
 
     .apropos-media {
@@ -157,8 +157,33 @@
         gap: var(--spacing-xl);
     }
 
-    .apropos-image {
+    // Contient le portrait et les crédits du photographe
+    .apropos-portrait {
+        width: 100%;
         max-width: 500px;
+    }
+
+    .apropos-image {
+        display: block;
+        width: 100%;
+    }
+
+    // Mention discrète sous le portrait
+    .apropos-credit {
+        margin-top: var(--spacing-sm);
+
+        color: var(--color-neutral);
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: right;
+
+        opacity: 0.65;
+
+        span {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
     }
 
     /* ==========================================================================
@@ -170,8 +195,8 @@
     }
 
     /* ==========================================================================
-   TABLETTE
-   ========================================================================== */
+       TABLETTE
+       ========================================================================== */
 
     @media screen and (max-width: $breakpoint-md) {
         .apropos-content {
@@ -187,14 +212,14 @@
             align-items: center;
         }
 
-        .apropos-image {
+        .apropos-portrait {
             max-width: 600px;
         }
     }
 
     /* ==========================================================================
-   MOBILE
-   ========================================================================== */
+       MOBILE
+       ========================================================================== */
 
     @media screen and (max-width: $breakpoint-sm) {
         .wrapper {
@@ -231,6 +256,11 @@
         .apropos-media > div {
             width: 100%;
             min-width: 0;
+        }
+
+        .apropos-portrait {
+            width: 100%;
+            max-width: 100%;
         }
 
         .apropos-image {
