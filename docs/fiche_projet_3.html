@@ -180,6 +180,10 @@
                             <li>C#</li>
                             <li>VS Code</li>
                         </ul>
+
+                        <div class="project-ai">
+                            <button class="btn btn--outline" type="button" data-modal-open="modal-ia-triage-urbain">Utilisation de l'IA</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -638,6 +642,36 @@
             <button class="modal-close" type="button" aria-label="Fermer l’image">×</button>
 
             <img class="modal-image" src="" alt="" />
+        </div>
+
+        <div class="modal" id="modal-ia-triage-urbain" data-component="AiModal">
+            <div class="modal-overlay" data-modal-close></div>
+
+            <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title-triage-urbain">
+                <div class="modal-header">
+                    <div class="modal-heading">
+                        <span class="modal-line"></span>
+                        <span class="modal-label">Déclaration</span>
+
+                        <h2 id="modal-title-triage-urbain">Utilisation de l'IA</h2>
+                    </div>
+
+                    <button class="modal-close" type="button" data-modal-close aria-label="Fermer la déclaration">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        Pour le projet
+                        <strong>Triage urbain</strong>
+                        , j'ai utilisé
+                        <strong>l'intelligence artificielle générative uniquement pour créer le script C# de déplacement autonome des voitures</strong>
+                        dans Unity. Toutes les autres étapes du projet ont été réalisées sans l'aide de l'IA.
+                    </p>
+                </div>
+            </div>
         </div>
     </main>
 
