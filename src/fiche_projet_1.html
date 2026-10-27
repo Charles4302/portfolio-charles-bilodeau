@@ -99,14 +99,18 @@
                         <li>Reaper</li>
                         <li>Adobe Premiere</li>
                     </ul>
+
+                    <div class="project-ai">
+                        <button class="btn btn--outline" type="button" data-modal-open="modal-ia-corridor">Utilisation de l'IA</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ==========================================================================
-     ÉTAPE 01
-     ========================================================================== -->
+         ÉTAPE 01
+         ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
         <div class="background-3d" data-component="Background"></div>
@@ -166,8 +170,8 @@
     </section>
 
     <!-- ==========================================================================
-     ÉTAPE 02
-     ========================================================================== -->
+         ÉTAPE 02
+         ========================================================================== -->
 
     <section class="project-section project-section--dark" data-component="ScrollAnimations">
         <div class="background-network" data-component="BackgroundNetwork"></div>
@@ -255,8 +259,8 @@
     </section>
 
     <!-- ==========================================================================
-     ÉTAPE 03
-     ========================================================================== -->
+         ÉTAPE 03
+         ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
         <div class="background-3d" data-component="Background"></div>
@@ -339,8 +343,8 @@
     </section>
 
     <!-- ==========================================================================
-     ÉTAPE 04
-     ========================================================================== -->
+         ÉTAPE 04
+         ========================================================================== -->
 
     <section class="project-section project-section--dark" data-component="ScrollAnimations">
         <div class="background-network" data-component="BackgroundNetwork"></div>
@@ -407,8 +411,8 @@
     </section>
 
     <!-- ==========================================================================
-     ÉTAPE 05
-     ========================================================================== -->
+         ÉTAPE 05
+         ========================================================================== -->
 
     <section class="project-section" data-component="ScrollAnimations">
         <div class="background-3d" data-component="Background"></div>
@@ -515,5 +519,40 @@
         <img class="modal-image" src="" alt="" />
     </div>
 </main>
+
+<!-- ==========================================================================
+     MODALE DE DÉCLARATION D'IA - CORRIDOR SPATIAL
+     ========================================================================== -->
+
+<div class="modal" id="modal-ia-corridor" data-component="AiModal">
+    <div class="modal-overlay" data-modal-close></div>
+
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title-corridor">
+        <div class="modal-header">
+            <div class="modal-heading">
+                <span class="modal-line"></span>
+                <span class="modal-label">Déclaration</span>
+
+                <h2 id="modal-title-corridor">Utilisation de l'IA</h2>
+            </div>
+
+            <button class="modal-close" type="button" data-modal-close aria-label="Fermer la déclaration">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <p>
+                Le projet
+                <strong>Corridor spatial</strong>
+                a été réalisé
+                <strong>sans l'aide de l'intelligence artificielle générative</strong>
+                . L'ensemble de la conception et de la production a été effectué de manière autonome, à partir de mes connaissances et des outils à ma
+                disposition.
+            </p>
+        </div>
+    </div>
+</div>
 
 {% include '_partials/_footer.html' %}

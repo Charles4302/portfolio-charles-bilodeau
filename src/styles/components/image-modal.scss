@@ -28,9 +28,13 @@
 
     .modal-image {
         display: block;
+        flex-shrink: 0;
 
-        max-width: 90%;
-        max-height: 90vh;
+        width: auto;
+        height: auto;
+
+        max-width: none;
+        max-height: none;
 
         object-fit: contain;
 
@@ -52,10 +56,12 @@
        ========================================================================== */
 
     .modal-close {
-        position: absolute;
+        position: fixed;
 
         top: var(--spacing-md);
         right: var(--spacing-md);
+
+        z-index: 10;
 
         width: 50px;
         height: 50px;
@@ -96,7 +102,7 @@
     }
 }
 
-/* Empêcher le défilement pendant l'ouverture */
+/* Empêcher le défilement de la page */
 body.modal-open {
     overflow: hidden;
 }
@@ -109,16 +115,6 @@ body.modal-open {
     .image-modal {
         padding: var(--spacing-sm);
 
-        .modal-image {
-            width: auto;
-            height: auto;
-
-            max-width: 100%;
-            max-height: 90dvh;
-
-            object-fit: contain;
-        }
-
         .modal-close {
             top: var(--spacing-sm);
             right: var(--spacing-sm);
@@ -127,6 +123,26 @@ body.modal-open {
             height: 40px;
 
             font-size: var(--font-size-h3);
+        }
+
+        /* ======================================================================
+           IMAGES PANORAMIQUES
+           ====================================================================== */
+
+        &.is-panoramic {
+            // Autorise le déplacement horizontal
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            // L'image commence à gauche
+            justify-content: flex-start;
+
+            // Défilement tactile fluide
+            -webkit-overflow-scrolling: touch;
+
+            .modal-image {
+                flex-shrink: 0;
+            }
         }
     }
 }

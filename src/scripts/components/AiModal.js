@@ -1,6 +1,7 @@
 export default class AiModal {
   constructor(element) {
     this.element = element;
+
     this.openButtons = document.querySelectorAll('[data-modal-open]');
     this.closeButtons = this.element.querySelectorAll('[data-modal-close]');
     this.content = this.element.querySelector('.modal-content');
@@ -11,19 +12,28 @@ export default class AiModal {
   }
 
   init() {
+    if (!this.content) return;
+
+    // Ouverture de la modale correspondante
     this.openButtons.forEach((button) => {
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        this.open();
-      });
+      const target = button.dataset.modalOpen || 'modal-ia';
+
+      if (target === this.element.id) {
+        button.addEventListener('click', (event) => {
+          event.preventDefault();
+          this.open();
+        });
+      }
     });
 
+    // Fermeture avec le bouton ou l'overlay
     this.closeButtons.forEach((button) => {
       button.addEventListener('click', () => {
         this.close();
       });
     });
 
+    // Gestion du clavier
     document.addEventListener('keydown', (event) => {
       if (!this.element.classList.contains('is-open')) {
         return;
@@ -39,6 +49,10 @@ export default class AiModal {
     });
   }
 
+  // ==========================================================================
+  // OUVERTURE
+  // ==========================================================================
+
   open() {
     this.lastFocus = document.activeElement;
 
@@ -49,14 +63,29 @@ export default class AiModal {
     this.content.focus();
   }
 
+  // ==========================================================================
+  // FERMETURE
+  // ==========================================================================
+
   close() {
     this.element.classList.remove('is-open');
-    document.body.classList.remove('modal-open');
 
-    if (this.lastFocus) {
+    // Conserver le blocage si une autre modale est ouverte
+    if (
+      !document.querySelector('.modal.is-open, .image-modal[data-state="open"]')
+    ) {
+      document.body.classList.remove('modal-open');
+    }
+
+    // Redonner le focus au bouton d'ouverture
+    if (this.lastFocus && this.lastFocus.isConnected) {
       this.lastFocus.focus();
     }
   }
+
+  // ==========================================================================
+  // GESTION DU FOCUS
+  // ==========================================================================
 
   trapFocus(event) {
     const elements = [
